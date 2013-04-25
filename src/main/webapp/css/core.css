@@ -458,7 +458,8 @@ ul.error li {
 #openBox {
 	border:1px solid;
 	border-color:#EAEAEA;
-	background: url(../images/grey2.gif) repeat;
+	/*background: url(../images/grey2.gif) repeat;*/
+	background: #ebebeb;
 	margin:0px 10px 0px;
 	padding:0pt;
 	width: 250px; 
