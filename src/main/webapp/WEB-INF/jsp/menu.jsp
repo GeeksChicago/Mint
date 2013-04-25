@@ -13,8 +13,8 @@
 <li><a href="Register_input.action"  id="registermenu">Register</a></li>
 <%}%>
 <% if( user != null ) {  %>
-<li><a href="Home" id="homemenu">Home</a></li>
-<li><a href="Profile"  id="profilemenu">My Profile</a></li>
+<!-- <li><a href="Home" id="homemenu">Home</a></li>
+<li><a href="Profile"  id="profilemenu">My Profile</a></li>-->
 <% if( user.hasRight(User.SUPER_USER)) {  %>
 <li><a href="OutputXSD_input.action"  id="xsdmenu"><span>Output XSD</span></a></li>
 <%} %>
