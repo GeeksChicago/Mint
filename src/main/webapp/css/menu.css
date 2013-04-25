@@ -52,7 +52,7 @@
     padding: 6px 8px 8px;
 }
 #main-menu li a:hover {
-    background: none repeat scroll 0 0 transparent;
+    background: #FFFFFF;
     color: #008CF8;
     text-decoration: none;
 }
