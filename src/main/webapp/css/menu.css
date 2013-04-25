@@ -53,11 +53,11 @@
 }
 #main-menu li a:hover {
     background: none repeat scroll 0 0 transparent;
-    color: #FFA500;
+    color: #008CF8;
     text-decoration: none;
 }
 #main-menu li a.selected, #main-menu li a.selected:hover {
     background-color: #FFFFFF;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
-    color: #111111;
+    color: #008CF8;
