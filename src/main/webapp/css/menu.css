@@ -48,16 +48,21 @@
 
 
 #main-menu li a {
-    font-weight: normal;
+    font-weight: 500;
     padding: 6px 8px 8px;
 }
 #main-menu li a:hover {
     background: #FFFFFF;
+	border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
     color: #008CF8;
     text-decoration: none;
+	font-weight: 500;
 }
 #main-menu li a.selected, #main-menu li a.selected:hover {
     background-color: #FFFFFF;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
     color: #008CF8;
+	font-weight: 500;
+}
