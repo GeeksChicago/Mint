@@ -20,7 +20,7 @@ import org.apache.struts2.interceptor.SessionAware;
 	  @Result(name="input", location="login.jsp"),
 	  @Result(name="error", location="login.jsp"),
 //	  @Result(name="success", location="Home.action", type="redirectAction" )
-	  @Result(name="success", location="OutputXSD_input.action", type="redirectAction" )
+	  @Result(name="success", location="Import_input.action", type="redirectAction" )
 	})
 
 public class Login extends GeneralAction implements SessionAware{
