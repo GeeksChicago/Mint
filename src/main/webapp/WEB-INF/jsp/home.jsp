@@ -8,8 +8,8 @@
 
 
 <script type="text/javascript">
-	sitePath = window.location.host.'/mint-ams/';
-	window.location.href = sitePath.'OutputXSD_input.action';
+	var sitePath = window.location.host+'/mint-ams/';
+	window.location.href = sitePath+'OutputXSD_input.action';
 	$("li a#homemenu").addClass("selected");
 </script>
 
