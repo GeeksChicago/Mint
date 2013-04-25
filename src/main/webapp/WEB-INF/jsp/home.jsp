@@ -15,7 +15,7 @@ $("li a#homemenu").addClass("selected");
 
 <% String sessionId = request.getSession().getId();
 %>
-<script> document.title = "<%= "" + Config.get("mint.title") + " Home" %>"</script>
+<script> document.title = "<%= "AMS " + Config.get("mint.title") + " Home" %>"</script>
 
 
 	
