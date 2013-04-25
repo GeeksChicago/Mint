@@ -1,7 +1,7 @@
 
-a, a:link {color: #70934A;}
+a, a:link {color: #3fa9fa;}
 
-.mainclr{color: #CDE9A7;}
+.mainclr{color: #3c3c3c;}
 
 table#general{background-color: #CDE9A7;color: #455138;} /*bg color on table tops*/
 
@@ -22,7 +22,7 @@ form.athform fieldset li {
     }
      
 h1,h2,h4,h5,h6 {
-		color:  #455138;
+		color:  #3c3c3c;
 		
 	}
 
@@ -48,8 +48,8 @@ h1,h2,h4,h5,h6 {
 		
 		
 #openBox h3 {
-		background-color:#CDE9A7;
-		color:#FFFFFF;
+		background-color: #D1D1D1;
+color: #3c3c3c;
 			}
 
 
@@ -131,7 +131,7 @@ a.button {
     border:solid #CCCCCC;
 }
 
-.plaisio{width:300px;background:#CDE9A7;padding:10px; border-radius:3px; position:relative;}
+.plaisio{width:300px;background:#D1D1D1;padding:10px; border-radius:3px; position:relative;}
 
 .yui-layout .yui-layout-unit div.yui-layout-hd h2 {
    
