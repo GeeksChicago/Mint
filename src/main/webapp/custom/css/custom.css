@@ -15,23 +15,26 @@
     min-width:1000px;
 }
 
-	
+
 
 #header_logo {
 	display: block;
 	position: relative;
 	height: 85px;
 	margin: 0px auto 0 auto;
-    background-image: url(../images/logo.png);
+    background-image: url(../images/custom-logo.png);
     background-repeat: no-repeat;
 	z-index:-1;
 }
 #header_logo_ams {
 	display: block;
-	position: relative;
+	position: absolute;
 	margin: 0px auto 0 auto;
-    background-image: url(../images/cpb_ams.png);
-    background-repeat: no-repeat;
-	z-index:-1;
-	float: right;
+	background-image: url(../images/cpb_ams.png);
+	background-repeat: no-repeat;
+	z-index: -1;
+	left: 19%;
+	top: 25px;
+	width: 130px;
+	height: 45px;
 }
