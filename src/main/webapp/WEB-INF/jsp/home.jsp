@@ -9,12 +9,8 @@
    
     <span class="errorMessage">ACCESS DENIED.</span>
    
-   <%} else{%>
-	<s:if test="hasActionErrors()">
-		<s:iterator value="actionErrors">
-			<span class="errorMessage"><s:property escape="false" /> </span>
-		</s:iterator>
-	</s:if>
+   <%} %>
+	
 <script type="text/javascript" src="js/animatedcollapse.js"></script>
 
 
