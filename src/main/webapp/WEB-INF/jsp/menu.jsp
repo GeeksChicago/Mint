@@ -33,7 +33,7 @@
 <%} else {%>
 <li></li> 
 <%} %>
-<li><a href="Logout.action"><span>Logout</span></a></li>
+<!-- <li><a href="Logout.action"><span>Logout</span></a></li> -->
 <%}%>
 </ul>
 </div>

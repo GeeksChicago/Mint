@@ -4,13 +4,6 @@
 <%@page import="gr.ntua.ivml.mint.persistent.DataUpload"%>
 <%@page import="gr.ntua.ivml.mint.db.DB" %>
 
-
-   <%if(user.hasRight(User.SUPER_USER)) {%>
-   
-    <span class="errorMessage">ACCESS DENIED.</span>
-   
-   <%} %>
-	
 <script type="text/javascript" src="js/animatedcollapse.js"></script>
 
 
