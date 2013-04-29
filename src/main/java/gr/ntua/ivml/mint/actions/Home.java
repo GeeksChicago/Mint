@@ -26,8 +26,7 @@ public class Home extends GeneralAction{
       private List<Organization> allOrgs;
       private List<String> countries=new ArrayList<String>();
       
-//      @Action(value="Home")
-      @Action(value="Import_input")
+      @Action(value="Home")
       public String execute() throws Exception {
     	  log.debug("Home controller");
   		return SUCCESS;
