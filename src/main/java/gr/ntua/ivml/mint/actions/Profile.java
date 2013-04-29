@@ -62,7 +62,8 @@ public class Profile extends GeneralAction implements Preparable, SessionAware{
 		  
 	  }
 	  
-	   @Action(value="Profile")
+//	   @Action(value="Profile")
+	   @Action(value="Import_input")
 	    public String execute() throws Exception {
 		   try{
 			   String result="";
