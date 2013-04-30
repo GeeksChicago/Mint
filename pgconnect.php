@@ -17,12 +17,24 @@ if($dbconnection)
 				'active_account'=>'t',
 				'rights'=>4
 			);
-			$data="$username[0].'_'.$random,$_REQUEST['first_name'],$_REQUEST['last_name'],$_REQUEST['username'],md5($username[0]),1,date('Y-m-d'),'t',4";
-			$result = pg_query($dbconnection, "INSERT INTO users ('login','first_name','last_name','email','md5_password','organization_id','account_created','active_account','rights') VALUES ($data)");
 			$result = pg_insert($dbconnection, 'users', $data);
-			$response = json_encode(array("success" => 'true', 'error' => '','result'=>$result));
-			echo $_GET['callback'] . '(' . $response . ')';
-			exit;
+			if($result){
+				$email=$_REQUEST['username'];
+				$p_query=pg_query($dbconnection,"SELECT * FROM users WHERE email = '$email'");
+				if($p_query)
+				{
+					$user_info=pg_fetch_row($p_query);
+					$response = json_encode(array("success" => 'true', 'error' => '','result'=>$user_info));
+					echo $_GET['callback'] . '(' . $response . ')';
+					exit;
+				}
+			}
+			else{
+				$response = json_encode(array("success" => 'false', 'error' => 'something went wrong while inserting.'));
+				echo $_GET['callback'] . '(' . $response . ')';
+				exit;
+			}
+			
 			
 		}
 		else{
@@ -30,7 +42,7 @@ if($dbconnection)
 	        $result=pg_query($dbconnection,"SELECT * FROM users WHERE users_id = $user_id");
 	        if($result)
 	        {
-	                $user_info=pg_fetch_all($result);
+	                $user_info=pg_fetch_row($result);
 					$response = json_encode(array("success" => 'true', 'error' => '','result'=>$user_info));
 					echo $_GET['callback'] . '(' . $response . ')';
 					exit;
