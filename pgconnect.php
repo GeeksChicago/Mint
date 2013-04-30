@@ -11,7 +11,7 @@ if($dbconnection)
 				'first_name'=>$_REQUEST['first_name'],
 				'last_name'=>$_REQUEST['last_name'],
 				'email'=>$_REQUEST['username'],
-				'md5_password'=>md5($username[0]),
+				'md5_password'=>'bf5d346e66a470642a71002f6860aa88',
 				'organization_id'=>1,
 				'account_created'=>date('Y-m-d'),
 				'active_account'=>'t',
