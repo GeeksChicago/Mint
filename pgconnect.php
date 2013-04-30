@@ -4,12 +4,12 @@ if($dbconnection)
 {
 	if(isset($_REQUEST['mint_id'])){
 		if($_REQUEST['mint_id']==''){
-			$username = explode('@',$_REQUEST['email']);
+			$username = explode('@',$_REQUEST['username']);
 			$data=array(
 				'login'=>$username[0],
 				'first_name'=>$_REQUEST['first_name'],
 				'last_name'=>$_REQUEST['last_name'],
-				'email'=>$_REQUEST['email'],
+				'email'=>$_REQUEST['username'],
 				'md5_password'=>md5($username[0]),
 				'organization_id'=>1,
 				'account_created'=>date('Y-m-d'),
