@@ -5,8 +5,9 @@ if($dbconnection)
 	if(isset($_REQUEST['mint_id'])){
 		if($_REQUEST['mint_id']==''){
 			$username = explode('@',$_REQUEST['username']);
+			$random=rand(1,99);
 			$data=array(
-				'login'=>$username[0],
+				'login'=>$username[0].'_'.$random,
 				'first_name'=>$_REQUEST['first_name'],
 				'last_name'=>$_REQUEST['last_name'],
 				'email'=>$_REQUEST['username'],
@@ -16,6 +17,8 @@ if($dbconnection)
 				'active_account'=>'t',
 				'rights'=>4
 			);
+			$data="$username[0].'_'.$random,$_REQUEST['first_name'],$_REQUEST['last_name'],$_REQUEST['username'],md5($username[0]),1,date('Y-m-d'),'t',4";
+			$result = pg_query($dbconnection, "INSERT INTO users ('login','first_name','last_name','email','md5_password','organization_id','account_created','active_account','rights') VALUES ($data)");
 			$result = pg_insert($dbconnection, 'users', $data);
 			$response = json_encode(array("success" => 'true', 'error' => '','result'=>$result));
 			echo $_GET['callback'] . '(' . $response . ')';
