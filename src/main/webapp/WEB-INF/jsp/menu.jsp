@@ -10,7 +10,7 @@
 <% if( user == null ) {  %>
 
 <li><a href="Login_input.action"  id="loginmenu">Login</a></li>
-<li><a href="Register_input.action"  id="registermenu">Register</a></li>
+<!--<li><a href="Register_input.action"  id="registermenu">Register</a></li>-->
 <%}%>
 <% if( user != null ) {  %>
 <!-- <li><a href="Home" id="homemenu">Home</a></li>
@@ -33,7 +33,10 @@
 <%} else {%>
 <li></li> 
 <%} %>
-<!-- <li><a href="Logout.action"><span>Logout</span></a></li> -->
+<% if( user.hasRight(User.SUPER_USER)) {  %>
+<li><a href="Logout.action"><span>Logout</span></a></li>
+<%}%>
+
 <%}%>
 </ul>
 </div>
