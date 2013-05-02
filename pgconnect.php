@@ -6,12 +6,13 @@ if($dbconnection)
 		if($_REQUEST['mint_id']==''){
 			$username = explode('@',$_REQUEST['username']);
 			$random=rand(1,99);
+			$final_username=$username[0].'_'.$random;
 			$data=array(
-				'login'=>$username[0].'_'.$random,
+				'login'=>$final_username,
 				'first_name'=>$_REQUEST['first_name'],
 				'last_name'=>$_REQUEST['last_name'],
 				'email'=>$_REQUEST['username'],
-				'md5_password'=>'bf5d346e66a470642a71002f6860aa88',
+				'md5_password'=>md5($final_username.'x0h0@123'),
 				'organization_id'=>1,
 				'account_created'=>date('Y-m-d'),
 				'active_account'=>'t',
