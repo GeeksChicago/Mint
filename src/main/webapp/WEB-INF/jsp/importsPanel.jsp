@@ -7,7 +7,7 @@
 
 <style type="text/css">
 form.athform fieldset li {
-	background: url("custom/images/formdiv4.gif") left bottom repeat-x;
+	background: url("custom/images/formdiv3.gif") left bottom repeat-x;
      }
      
      .yui-skin-sam .yui-panel{
