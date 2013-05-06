@@ -6,7 +6,7 @@
 	<groupId>gr.ntua</groupId>
 	<artifactId>mint</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
+	<version>ams</version>
 	<name>mint</name>
 	<url>http://maven.apache.org</url>
 
