@@ -30,7 +30,8 @@ public class XSLTransform implements ItemTransform {
 	public String transform(String xml, String xsl) throws TransformerException {
 		String result = "";
 		System.setProperty("javax.xml.parsers.SAXParserFactory", "org.apache.xerces.jaxp.SAXParserFactoryImpl");
-		System.setProperty("javax.xml.transform.TransformerFactory", "net.sf.saxon.TransformerFactoryImpl");
+//		System.setProperty("javax.xml.transform.TransformerFactory", "net.sf.saxon.TransformerFactoryImpl");
+		System.setProperty("javax.xml.transform.TransformerFactory", "org.apache.xalan.processor.TransformerFactoryImpl");
 	
 	    StringWriter out = new StringWriter();
 
