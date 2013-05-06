@@ -4,7 +4,7 @@
    xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified"
    version="2.0RC1">
    <annotation>
-      <documentation xml:lang="en"> This is a modification of the PBCore version 2.0RC1 XML schema. 
+      <documentation> This is a modification of the PBCore version 2.0RC1 XML schema. 
 		  It has been customized to be consistent with the PBCore implementation of the American Archives Archival Management Sysetm (AMS). 
 		  All element descriptions can be found at http://www.pbcore.org </documentation>
    </annotation>
@@ -33,18 +33,16 @@
                   http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetDate"
-            type="dateStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetDate" type="dateStringType">
             <annotation>
                <documentation> The pbcoreAssetDate could reflect the original date
                   the asset was created or the date of the representation of the work or other types
                   of dates associated with an asset </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreIdentifier"
-            type="requiredSourceVersionStringType">
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreIdentifier" type="requiredSourceVersionStringType">
             <annotation>
-               <documentation xml:lang="en"> The descriptor pbcoreIdentifier is used to
+               <documentation> The descriptor pbcoreIdentifier is used to
                   reference or identify the entire record of metadata descriptions for a media item.
                   The pbcoreIdentifier exists at the top level for a PBCore description and its
                   associated description document (XML). Best practice is to identify the media item
@@ -56,7 +54,7 @@
          </element>
          <element maxOccurs="unbounded" minOccurs="1" name="pbcoreTitle" type="titleStringType">
             <annotation>
-               <documentation xml:lang="en">The pbcoreTitle is a name given to the media item
+               <documentation>The pbcoreTitle is a name given to the media item
                   you are cataloging. It is the unique name everyone should use to refer to or
                   search for a particular media item. There are obviously many types of titles a
                   media item may have, such as a series title, episode title, segment title, or
@@ -64,10 +62,9 @@
                   assigning to the media item. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreSubject"
-            type="subjectStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreSubject" type="subjectStringType">
             <annotation>
-               <documentation xml:lang="en"> The pbcoreSubject is used to assign topical
+               <documentation> The pbcoreSubject is used to assign topical
                   headings or keywords that portray the intellectual content of the media item you
                   are cataloging. Typically, a subject is expressed by a limited number of keywords,
                   key phrases, or even specific classification codes. Controlled vocabularies,
@@ -76,10 +73,9 @@
                   terminology). </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreDescription"
-            type="descriptionStringType">
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreDescription" type="descriptionStringType">
             <annotation>
-               <documentation xml:lang="en"> The pbcoreDescription element uses free-form text
+               <documentation> The pbcoreDescription element uses free-form text
                   or a narrative to report general notes, abstracts, or summaries about the
                   intellectual content of a media item you are cataloging. The information may be in
                   the form of a paragraph giving an individual program description, anecdotal
@@ -88,10 +84,9 @@
                   of content. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre"
-            type="sourceVersionStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre" type="sourceVersionStringType">
             <annotation>
-               <documentation xml:lang="en"> The pbcoreGenre element describes the manner in
+               <documentation> The pbcoreGenre element describes the manner in
                   which the intellectual content of a media item is presented, viewed or heard by a
                   user. It indicates the structure of the presentation, as well as the topical
                   nature of the content in a generalized form. </documentation>
@@ -104,18 +99,16 @@
             </annotation>
             <complexType>
                <sequence>
-                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationType"
-                     type="sourceVersionStringType">
+                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationType" type="sourceVersionStringType">
                      <annotation>
-                        <documentation xml:lang="en"> The descriptor pbcoreRelationType
+                        <documentation> The descriptor pbcoreRelationType
                            identifies the type of intellectual content bond between a media item you
                            are cataloging and some other related media item. </documentation>
                      </annotation>
                   </element>
-                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationIdentifier"
-                     type="string">
+                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationIdentifier" type="string">
                      <annotation>
-                        <documentation xml:lang="en"> Once the type of relationship between two
+                        <documentation> Once the type of relationship between two
                            media items is identified by using the descriptor pbcoreRelationType, the
                            companion descriptor pbcoreRelationIdentifier is used to provide a name,
                            locator, accession number, identification number or ID where the related
@@ -135,10 +128,9 @@
             </annotation>
             <complexType>
                <sequence>
-                  <element maxOccurs="1" minOccurs="1" name="coverage"
-                     type="string">
+                  <element maxOccurs="1" minOccurs="1" name="coverage" type="string">
                      <annotation>
-                        <documentation xml:lang="en"> The descriptor coverage uses keywords to
+                        <documentation> The descriptor coverage uses keywords to
                            identify a span of space or time that is expressed by the intellectual
                            content of a media item. Coverage in intellectual content may be
                            expressed spatially by geographic location. Actual place names may be
@@ -152,7 +144,7 @@
                   </element>
                   <element maxOccurs="1" minOccurs="0" name="coverageType">
                      <annotation>
-                        <documentation xml:lang="en"> The coverageType element is used to
+                        <documentation> The coverageType element is used to
                            identify the actual type of keywords that are being used by its companion
                            metadata element 'coverage.' coverageType provides a picklist of types,
                            namely *spatial* or *temporal*, because coverage in intellectual content
@@ -170,18 +162,16 @@
                </sequence>
             </complexType>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceLevel"
-            type="sourceVersionStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceLevel" type="sourceVersionStringType">
             <annotation>
-               <documentation xml:lang="en"> The descriptor pbcoreAudienceLevel identifies a
+               <documentation> The descriptor pbcoreAudienceLevel identifies a
                   type of audience, viewer, or listener for whom the media item you are cataloging
                   is primarily designed or educationally useful. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceRating"
-            type="sourceVersionStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceRating" type="sourceVersionStringType">
             <annotation>
-               <documentation xml:lang="en"> The descriptor pbcoreAudienceRating designates the
+               <documentation> The descriptor pbcoreAudienceRating designates the
                   type of users for whom a media item is intended or judged appropriate in terms of
                   its intellectual content. Standard ratings have been crafted by the broadcast
                   television and film industries and are used as flags for audience or
@@ -195,19 +185,17 @@
             </annotation>
             <complexType>
                <sequence>
-                  <element maxOccurs="1" minOccurs="1" name="creator"
-                     type="affiliatedStringType">
+                  <element maxOccurs="1" minOccurs="1" name="creator" type="affiliatedStringType">
                      <annotation>
-                        <documentation xml:lang="en"> The descriptor creator identifies a person
+                        <documentation> The descriptor creator identifies a person
                            or organization primarily responsible for creating a media item. The
                            creator may be considered an author and could be one or more people, a
                            business, organization, group, project or service. </documentation>
                      </annotation>
                   </element>
-                  <element maxOccurs="unbounded" minOccurs="0" name="creatorRole"
-                     type="sourceVersionStringType">
+                  <element maxOccurs="unbounded" minOccurs="0" name="creatorRole" type="sourceVersionStringType">
                      <annotation>
-                        <documentation xml:lang="en"> Use the descriptor creatorRole to identify
+                        <documentation> Use the descriptor creatorRole to identify
                            the role played by the person or group identified in the companion
                            descriptor creator. Unlike print resources, there is usually no single
                            role, like an author, who has primary responsibility for the creation of
@@ -228,20 +216,18 @@
             </annotation>
             <complexType>
                <sequence>
-                  <element maxOccurs="1" minOccurs="1" name="contributor"
-                     type="affiliatedStringType">
+                  <element maxOccurs="1" minOccurs="1" name="contributor" type="affiliatedStringType">
                      <annotation>
-                        <documentation xml:lang="en"> The descriptor contributor identifies a
+                        <documentation> The descriptor contributor identifies a
                            person or organization that has made substantial creative contributions
                            to the intellectual content within a media item. This contribution is
                            considered to be secondary to the primary author(s) (person or
                            organization) identified in the descriptor creator. </documentation>
                      </annotation>
                   </element>
-                  <element maxOccurs="unbounded" minOccurs="0" name="contributorRole"
-                     type="contributorStringType">
+                  <element maxOccurs="unbounded" minOccurs="0" name="contributorRole" type="contributorStringType">
                      <annotation>
-                        <documentation xml:lang="en"> Use the descriptor contributorRole to
+                        <documentation> Use the descriptor contributorRole to
                            identify the role played by the person or group identified in the
                            companion descriptor contributor. </documentation>
                      </annotation>
@@ -256,19 +242,17 @@
             </annotation>
             <complexType>
                <sequence>
-                  <element maxOccurs="1" minOccurs="1" name="publisher"
-                     type="affiliatedStringType">
+                  <element maxOccurs="1" minOccurs="1" name="publisher" type="affiliatedStringType">
                      <annotation>
-                        <documentation xml:lang="en"> The descriptor publisher identifies a
+                        <documentation> The descriptor publisher identifies a
                            person or organization primarily responsible for distributing or making a
                            media item available to others. The publisher may be a person, a
                            business, organization, group, project or service. </documentation>
                      </annotation>
                   </element>
-                  <element maxOccurs="unbounded" minOccurs="0" name="publisherRole"
-                     type="sourceVersionStringType">
+                  <element maxOccurs="unbounded" minOccurs="0" name="publisherRole" type="sourceVersionStringType">
                      <annotation>
-                        <documentation xml:lang="en"> Use the descriptor publisherRole to
+                        <documentation> Use the descriptor publisherRole to
                            identify the role played by the specific publisher or publishing entity
                            identified in the companion descriptor publisher. </documentation>
                      </annotation>
@@ -276,26 +260,23 @@
                </sequence>
             </complexType>
          </element>
-         <element name="pbcoreRightsSummary" type="rightsSummaryType" maxOccurs="unbounded"
-            minOccurs="0">
+         <element name="pbcoreRightsSummary" type="rightsSummaryType" maxOccurs="unbounded" minOccurs="0">
             <annotation>
-               <documentation xml:lang="en">  The element pbcoreRightsSummary is a container for
+               <documentation>  The element pbcoreRightsSummary is a container for
                   sub-elements 'rightsSummary', 'rightsLink' and 'rightsEmbedded' used to describe
                   Rights for the asset. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreInstantiation"
-            type="instantiationType">
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreInstantiation" type="instantiationType">
             <annotation>
-               <documentation xml:lang="en"> The element 'pbcoreInstantiation' is a container
+               <documentation> The element 'pbcoreInstantiation' is a container
                   for sub-elements which describe an instance of a media item, i.e., a manifestation
                   of it in the real world. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAnnotation"
-            type="annotationStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAnnotation" type="annotationStringType">
             <annotation>
-               <documentation xml:lang="en"> The descriptor pbcoreAnnotation is an element where
+               <documentation> The descriptor pbcoreAnnotation is an element where
                   you can catalog any supplementary information about the metadata used to describe
                   the PBCore record. pbcoreAnnotation clarifies element values, terms, descriptors,
                   and vocabularies that may not be otherwise sufficiently
@@ -310,10 +291,9 @@
             multiple instantiations within a pbcoreDocumentDescription. </documentation>
       </annotation>
       <sequence>
-         <element maxOccurs="unbounded" minOccurs="1" name="instantiationIdentifier"
-            type="requiredSourceVersionStringType">
+         <element maxOccurs="unbounded" minOccurs="1" name="instantiationIdentifier" type="requiredSourceVersionStringType">
             <annotation>
-               <documentation xml:lang="en"> The instantiationIdentifier employs an unambiguous
+               <documentation> The instantiationIdentifier employs an unambiguous
                   reference or identifier for a particular rendition/instantiation of a media item.
                   Best practice is to identify the media item (whether analog or digital) by means
                   of a string or number corresponding to an established or formal identification
@@ -322,10 +302,9 @@
                   institution. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDate"
-            type="dateStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDate" type="dateStringType">
             <annotation>
-               <documentation xml:lang="en"> Use the descriptor instantiationDate to specify the
+               <documentation> Use the descriptor instantiationDate to specify the
                   creation date for a particular instantiation of a media item across its life
                   cycle. It is the moment in time that the media item was finalized during its
                   production process and is forwarded to other divisions or agencies to make it
@@ -334,35 +313,31 @@
                   Dates </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDimensions"
-            type="technicalStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDimensions" type="technicalStringType">
             <annotation>
                <documentation> The instantiationDimensions element specifies the visual
                   dimensions to expect when rendering a particular instance of
                   media. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationPhysical"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="instantiationPhysical" type="string">
             <annotation>
-               <documentation xml:lang="en"> Use the descriptor instantiationPhysical to
+               <documentation> Use the descriptor instantiationPhysical to
                   identify the format of a particular instantiation of a media item as it exists in
                   an actual physical form that occupies physical space (e.g., a tape on a shelf),
                   rather than as a digital file residing on a server or hard
                   drive. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationDigital"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="instantiationDigital" type="string">
             <annotation>
-               <documentation xml:lang="en"> Use the descriptor instantiationDigital to identify
+               <documentation> Use the descriptor instantiationDigital to identify
                   the format of a particular instantiation of a media item as it exists in its
                   digital form, i.e., as a digital file on a server or hard drive. Digital media
                   formats may be expressed with formal Internet MIME types. </documentation>
             </annotation>
          </element>
-         <element minOccurs="0" name="instantiationStandard"
-            type="string">
+         <element minOccurs="0" name="instantiationStandard" type="string">
             <annotation>
                <documentation> Use the descriptor instantiationStandard to identify the standard
                   of a particular instantiation of a media item as it exists. </documentation>
@@ -370,7 +345,7 @@
          </element>
          <element maxOccurs="1" minOccurs="1" name="instantiationLocation" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationLocation is considered
+               <documentation> The descriptor instantiationLocation is considered
                   to be an "address for a media item." For an organization or producer acting as
                   caretaker of a media resource, instantiationLocation may contain information about
                   a specific shelf location for an asset, including an organization's name,
@@ -379,34 +354,31 @@
                   page. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationMediaType"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="instantiationMediaType" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationMediaType identifies
+               <documentation> The descriptor instantiationMediaType identifies
                   the general, high level nature of the content of a media item. It uses categories
                   that show how content is presented to an observer, e.g., as a sound, text or
                   moving image. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations"
-            type="string">
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationGenerations identifies
+               <documentation> The descriptor instantiationGenerations identifies
                   the particular use or manner in which an instantiation of a media item is used,
                   e.g., Audio/Narration or Moving image/Backup master. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationFileSize"
-            type="technicalStringType">
+         <element maxOccurs="1" minOccurs="0" name="instantiationFileSize" type="technicalStringType">
             <annotation>
-               <documentation xml:lang="en"> Use the descriptor instantiationFileSize to
+               <documentation> Use the descriptor instantiationFileSize to
                   indicate the storage requirements or file size of a digital media item. As a
                   standard, express the file size in bytes. </documentation>
             </annotation>
          </element>
          <element maxOccurs="1" minOccurs="0" name="instantiationTimeStart" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationTimeStart provides a
+               <documentation> The descriptor instantiationTimeStart provides a
                   time stamp for the beginning point of playback for a time-based media item, such
                   as digital video or audio. Use in combination with instantiationDuration to
                   identify a sequence or segment of a media item that has a fixed start time and end
@@ -415,15 +387,14 @@
          </element>
          <element maxOccurs="1" minOccurs="0" name="instantiationDuration" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationDuration provides a
+               <documentation> The descriptor instantiationDuration provides a
                   timestamp for the overall length or duration of a time-based media item. It
                   represents the playback time. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationDataRate"
-            type="technicalStringType">
+         <element maxOccurs="1" minOccurs="0" name="instantiationDataRate" type="technicalStringType">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationDataRate expresses the
+               <documentation> The descriptor instantiationDataRate expresses the
                   amount of data in a digital media file that is encoded, delivered or distributed,
                   for every second of time. Although optimal data rates are often dependent on the
                   codec used to compress and encode a digital file, generally speaking, a larger
@@ -431,10 +402,9 @@
                   kilobits/second is lesser quality than 1 megabit/second). </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationColors"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="instantiationColors" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationColors indicates the
+               <documentation> The descriptor instantiationColors indicates the
                   overall color, grayscale, or black and white nature of a media item, as a single
                   occurrence or combination of occurrences in or throughout the media
                   item. </documentation>
@@ -442,7 +412,7 @@
          </element>
          <element maxOccurs="1" minOccurs="0" name="instantiationTracks" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationTracks is simply
+               <documentation> The descriptor instantiationTracks is simply
                   intended to indicate the number and type of tracks that are found in a media item,
                   whether it is analog or digital. (e.g. 1 video track, 2 audio tracks, 1 text
                   track, 1 sprite track, etc.) Other configuration information specific to these
@@ -450,28 +420,25 @@
                   instantiationChannelConfiguration. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationChannelConfiguration"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="instantiationChannelConfiguration" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationChannelConfiguration is
+               <documentation> The descriptor instantiationChannelConfiguration is
                   designed to indicate the arrangement or configuration of specific channels or
                   layers of information within a media item's tracks. Examples are 2-track mono, 8-
                   track stereo, or video track with alpha channel. </documentation>
             </annotation>
          </element>
-         <element name="instantiationLanguage" type="string" maxOccurs="1"
-            minOccurs="0">
+         <element name="instantiationLanguage" type="string" maxOccurs="1" minOccurs="0">
             <annotation>
-               <documentation xml:lang="en"> The descriptor language identifies the primary
+               <documentation> The descriptor language identifies the primary
                   language of a media item's audio or text. Alternative audio or text tracks and
                   their associated languages should be identified using the descriptor
                   instantiationAlternativeModes. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="instantiationAlternativeModes"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="instantiationAlternativeModes" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor instantiationAlternativeModes is a
+               <documentation> The descriptor instantiationAlternativeModes is a
                   catch-all metadata element that identifies equivalent alternatives to the primary
                   visual, sound or textual information that exists in a media item. These are modes
                   that offer alternative ways to see, hear, and read the content of a media item.
@@ -483,8 +450,7 @@
                   Arabic.' </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="instantiationEssenceTrack"
-            type="essenceTrackType">
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationEssenceTrack" type="essenceTrackType">
             <annotation>
                <documentation> The instantiationEssenceTrack element allows for grouping of the
                   essenceTrack related elements and their repeated use. </documentation>
@@ -498,18 +464,16 @@
             </annotation>
             <complexType>
                <sequence>
-                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationType"
-                     type="sourceVersionStringType">
+                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationType"  type="sourceVersionStringType">
                      <annotation>
-                        <documentation xml:lang="en"> The descriptor relationType identifies the
+                        <documentation> The descriptor relationType identifies the
                            type of intellectual content bond between a media item you are cataloging
                            and some other related media item. </documentation>
                      </annotation>
                   </element>
-                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationIdentifier"
-                     type="string">
+                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationIdentifier" type="string">
                      <annotation>
-                        <documentation xml:lang="en"> Once the type of relationship between two
+                        <documentation> Once the type of relationship between two
                            media items is identified by using the descriptor
                            instantiationRelationType, the companion descriptor
                            instantiationRelationIdentifier is used to provide a name, locator,
@@ -522,10 +486,9 @@
                </sequence>
             </complexType>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation"
-            type="annotationStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation" type="annotationStringType">
             <annotation>
-               <documentation xml:lang="en"> The instantiationAnnotation element is used to
+               <documentation> The instantiationAnnotation element is used to
                   catalog any supplementary information about an instantiation of the media item or
                   the metadata used to describe it. It clarifies element values, terms, descriptors,
                   and vocabularies that may not be otherwise sufficiently
@@ -542,14 +505,13 @@
       <sequence>
          <element maxOccurs="1" minOccurs="0" name="essenceTrackType" type="string">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackType element is used to label the
+               <documentation> The essenceTrackType element is used to label the
                   essence track by its type, e.g. video, audio etc. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackIdentifier"
-            type="sourceVersionStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackIdentifier" type="sourceVersionStringType">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackIdentifier element is used to
+               <documentation> The essenceTrackIdentifier element is used to
                   identify the essence track and differentiate it from other tracks in the
                   instantiation. </documentation>
             </annotation>
@@ -557,16 +519,15 @@
          <element maxOccurs="1" minOccurs="0" name="essenceTrackStandard"
             type="string">
             <annotation>
-               <documentation xml:lang="en"> Use the descriptor essenceTrackStandard to identify
+               <documentation> Use the descriptor essenceTrackStandard to identify
                   a larger technical system/standard or overarching media architecture under which
                   various media formats exist, e.g., NTSC is a system/standard under which many
                   video formats exist. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="essenceTrackEncoding"
-            type="sourceVersionStringType">
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackEncoding"  type="sourceVersionStringType">
             <annotation>
-               <documentation xml:lang="en"> The descriptor essenceTrackEncoding identifies how
+               <documentation> The descriptor essenceTrackEncoding identifies how
                   the actual information in a media item is compressed, interpreted, or formulated
                   using a particular scheme. Identifying the encoding used is beneficial for a
                   number of reasons, including as a way to achieve reversible compression; for the
@@ -575,10 +536,9 @@
                   bandwidths or pipeline capacities. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="essenceTrackDataRate"
-            type="technicalStringType">
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackDataRate" type="technicalStringType">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackDataRate element expresses the
+               <documentation> The essenceTrackDataRate element expresses the
                   amount of data in a digital media file that is encoded, delivered or distributed,
                   for every second of time. Although optimal data rates are often dependent on the
                   codec used to compress and encode a digital file, generally speaking, a larger
@@ -586,10 +546,9 @@
                   kilobits/second vs. 1 megabit/second. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate" type="string">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackFrameRate element indicates the
+               <documentation> The essenceTrackFrameRate element indicates the
                   frames per second found in a video, motion sequence, flash file, or animation's
                   playback or display. </documentation>
             </annotation>
@@ -601,10 +560,9 @@
                   e.g., 15ips (inches per second), 24fps (frames per second) </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate" type="string">
             <annotation>
-               <documentation xml:lang="en"> For a media item (specifically audio), the
+               <documentation> For a media item (specifically audio), the
                   descriptor essenceTrackSamplingRate measures "How Often" data is sampled when
                   information is digitized. For a digital audio signal, the sampling rate is
                   measured in kilohertz and is an indicator of the perceived playback quality of the
@@ -614,7 +572,7 @@
          </element>
          <element maxOccurs="1" minOccurs="0" name="essenceTrackBitDepth" type="string">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackBitDepth element specifies "How
+               <documentation> The essenceTrackBitDepth element specifies "How
                   Much" data is sampled when information is digitized, encoded, or converted for a
                   media item (specifically, audio, video, or image). Bit depth is measured in bits
                   and generally implies an arbitrary perception of quality during playback of a
@@ -622,27 +580,25 @@
                   fidelity). </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize" type="string">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackFrameSize element indicates the
+               <documentation> The essenceTrackFrameSize element indicates the
                   horizontal and vertical resolution of a format type. It may be expressed in
                   pixels, pixels per inch, or in the case of ATSC digital TV, a combination of
                   pixels measured horizontally vs. the number of pixels of image/resolution data
                   stacked vertically (interlaced and progressive scan). </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio" type="string">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackAspectRatio element indicates the
+               <documentation> The essenceTrackAspectRatio element indicates the
                   ratio of horizontal to vertical proportions in the display of a static image or
                   moving image. </documentation>
             </annotation>
          </element>
          <element maxOccurs="1" minOccurs="0" name="essenceTrackTimeStart" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor essenceTrackTimeStart provides a
+               <documentation> The descriptor essenceTrackTimeStart provides a
                   time stamp for the beginning point of playback for a time-based media item, such
                   as digital video or audio. Use in combination with essenceTrackDuration to
                   identify a sequence or segment of a media item that has a fixed start time and end
@@ -651,24 +607,22 @@
          </element>
          <element maxOccurs="1" minOccurs="0" name="essenceTrackDuration" type="string">
             <annotation>
-               <documentation xml:lang="en"> The descriptor essenceTrackDuration provides a
+               <documentation> The descriptor essenceTrackDuration provides a
                   timestamp for the overall length or duration of a track. It represents the track
                   playback time. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage"
-            type="string">
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage" type="string">
             <annotation>
-               <documentation xml:lang="en"> essenceTrackLanguage identifies the primary
+               <documentation> essenceTrackLanguage identifies the primary
                   language of the tracks' audio or text. Alternative audio or text tracks and their
                   associated languages should be identified using the descriptor
                   alternativeModes. </documentation>
             </annotation>
          </element>
-         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackAnnotation"
-            type="annotationStringType">
+         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackAnnotation" type="annotationStringType">
             <annotation>
-               <documentation xml:lang="en"> The essenceTrackAnnotation element can store any
+               <documentation> The essenceTrackAnnotation element can store any
                   supplementary information about a track or the metadata used to describe it. It
                   clarifies element values, terms, descriptors, and vocabularies that may not be
                   otherwise sufficiently understood. </documentation>
@@ -800,10 +754,9 @@
 				XML record. These can also contain time relations </documentation>
 		</annotation>
 		<choice>
-			<element maxOccurs="1" minOccurs="0" name="rightsSummary"
-					 type="sourceVersionStringType">
+			<element maxOccurs="1" minOccurs="0" name="rightsSummary" type="sourceVersionStringType">
 				<annotation>
-					<documentation xml:lang="en"> Use the descriptor rightsSummary as an all-purpose
+					<documentation> Use the descriptor rightsSummary as an all-purpose
 						container field to identify information about copyrights and property rights held
 						in and over a media item, whether they are open access or restricted in some way.
 						If dates, times and availability periods are associated with a right, include
