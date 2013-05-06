@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
    xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified"
    version="2.0RC1">
-   <annotation>
-      <documentation> This is a modification of the PBCore version 2.0RC1 XML schema. 
+	<annotation>
+		<documentation>This is a modification of the PBCore version 2.0RC1 XML schema. 
 		  It has been customized to be consistent with the PBCore implementation of the American Archives Archival Management Sysetm (AMS). 
-		  All element descriptions can be found at http://www.pbcore.org </documentation>
-   </annotation>
+		  All element descriptions can be found at http://www.pbcore.org</documentation>
+	</annotation>
 	<element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
-      <annotation>
-         <documentation> Main entry point for a PBCore record. Single assets start
-            here. </documentation>
-      </annotation>
-   </element>
+		<annotation>
+			<documentation> Main entry point for a PBCore record. Single assets start
+            here.</documentation>
+		</annotation>
+	</element>
 	<complexType name="pbcoreDescriptionDocumentType">
-      <annotation>
-         <documentation> The defining of the DescriptionDocument allows its use as a single
+	<annotation>
+		<documentation> The defining of the DescriptionDocument allows its use as a single
             asset or repeated use in the pbcoreCollection. </documentation>
-      </annotation>
-      <sequence>
+	</annotation>
+	<sequence>
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetType" type="string">
             <annotation>
                <documentation> The descriptor pbcoreAssetType indicates the broad
@@ -806,4 +807,5 @@
 		<attribute name="source" type="string" use="optional"/>
 		<attribute name="ref" type="string"/>
 	</attributeGroup>
+	
 </schema>
