@@ -1,78 +1,67 @@
 <?xml version="1.0" ?>
-<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-   targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
-   xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified"
-   version="2.0RC1">
-   <xs:annotation>
-      <xs:documentation xml:lang="en">"This is a modification of the PBCore version 2.0RC1 XML
-         schema. It has been customized to be consistent with the PBCore implementation of the
-         American Archives' Archival Management Sysetm (AMS). All element descriptions can be found at
-         http://www.pbcore.org"</xs:documentation>
-   </xs:annotation>
-
-   <!-- the pbcoreCollection root element -->
-   <!-- not in use in AMS
-   <xs:element name="pbcoreCollection" type="pbcoreCollectionType">
-      <xs:annotation>
-         <xs:documentation>"This entry point is for a collection of PBCore assets. Assets can be
-            grouped in a number of ways to best serve the archivist."</xs:documentation>
-      </xs:annotation>
-   </xs:element>
-   -->
-   <!-- the pbcoreDescriptionDocument root element -->
-   <xs:element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
-      <xs:annotation>
-         <xs:documentation>"Main entry point for a PBCore record. Single assets start
-            here."</xs:documentation>
-      </xs:annotation>
-   </xs:element>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+		elementFormDefault="qualified"
+		version="2.0RC1">
+	<annotation>
+		<documentation>"This is a modification of the PBCore version 2.0RC1 XML
+			schema. It has been customized to be consistent with the PBCore implementation of the
+			American Archives Archival Management Sysetm (AMS). All element descriptions can be found at
+			http://www.pbcore.org"</documentation>
+	</annotation>
+	<!-- the pbcoreDescriptionDocument root element -->
+	<element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
+		<annotation>
+			<documentation>"Main entry point for a PBCore record. Single assets start here."</documentation>
+		</annotation>
+	</element>
 
    <!-- the pbcoreInstantiationDocument root element -->
    <!-- not in use in AMS 
-   <xs:element name="pbcoreInstantiationDocument" type="instantiationType">
-      <xs:annotation>
-         <xs:documentation>"This is entry point for an instantiation only record. Most likely used
-            when referenced from other schemas."</xs:documentation>
-      </xs:annotation>
-   </xs:element>
+   <element name="pbcoreInstantiationDocument" type="instantiationType">
+      <annotation>
+         <documentation>"This is entry point for an instantiation only record. Most likely used
+            when referenced from other schemas."</documentation>
+      </annotation>
+   </element>
    -->
    <!-- the pbcoreCollectionType -->
    <!-- not in use in AMS 
-   <xs:complexType name="pbcoreCollectionType">
-      <xs:annotation>
-         <xs:documentation>"The pbcoreCollectionType allows the addition of attributes that
+   <complexType name="pbcoreCollectionType">
+      <annotation>
+         <documentation>"The pbcoreCollectionType allows the addition of attributes that
             describe the PBCoreCollection. The attributes define the title, the description, the
-            source, the reference and the date of the collection."</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:element maxOccurs="unbounded" minOccurs="1" ref="pbcoreDescriptionDocument">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The pbcoreDescriptionDocument assembles together
+            source, the reference and the date of the collection."</documentation>
+      </annotation>
+      <sequence>
+         <element maxOccurs="unbounded" minOccurs="1" ref="pbcoreDescriptionDocument">
+            <annotation>
+               <documentation>"The pbcoreDescriptionDocument assembles together
                   all of PBCore knowledge items into a single data record organized in a
                   hierarchical structure. For PBCore these knowledge items are metadata descriptions
                   of media, including all the knowledge items and metadata terms and values
-                  associated with its content and containers."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-      </xs:sequence>
-      <xs:attribute name="collectionTitle" type="xs:string"/>
-      <xs:attribute name="collectionDescription" type="xs:string"/>
-      <xs:attribute name="collectionSource" type="xs:string"/>
-      <xs:attribute name="collectionRef" type="xs:string"/>
-      <xs:attribute name="collectionDate" type="xs:string"/>
-   </xs:complexType>
+                  associated with its content and containers."</documentation>
+            </annotation>
+         </element>
+      </sequence>
+      <attribute name="collectionTitle" type="string"/>
+      <attribute name="collectionDescription" type="string"/>
+      <attribute name="collectionSource" type="string"/>
+      <attribute name="collectionRef" type="string"/>
+      <attribute name="collectionDate" type="string"/>
+   </complexType>
    -->
    <!-- pbcoreDescriptionDocumentType -->
-   <xs:complexType name="pbcoreDescriptionDocumentType">
-      <xs:annotation>
-         <xs:documentation>"The defining of the DescriptionDocument allows its use as a single
-            asset or repeated use in the pbcoreCollection."</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
+   <complexType name="pbcoreDescriptionDocumentType">
+      <annotation>
+         <documentation>"The defining of the DescriptionDocument allows its use as a single
+            asset or repeated use in the pbcoreCollection."</documentation>
+      </annotation>
+      <sequence>
          <!-- the pbcore asset type -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetType" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor pbcoreAssetType indicates the broad
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetType" type="string">
+            <annotation>
+               <documentation>"The descriptor pbcoreAssetType indicates the broad
                   editorial format of the assets contents. AssetType describes the PBCore record as
                   a whole and at its highest level. Though a record may contain many instantiations
                   of different formats and generations, for example, assetType may be used to
@@ -80,132 +69,132 @@
                   assetType would be used to describe an asset at the “work” level. (Whereas
                   “instantiationMediaType” would describe the “item” level.) This element is largely
                   based on the EBUCore element ObjectType:
-                  http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml" </xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml" </documentation>
+            </annotation>
+         </element>
          <!-- the pbcore asset date - this element may occur many times with different date types -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetDate"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetDate"
             type="dateStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The pbcoreAssetDate could reflect the original date
+            <annotation>
+               <documentation>"The pbcoreAssetDate could reflect the original date
                   the asset was created or the date of the representation of the work or other types
-                  of dates associated with an asset" </xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  of dates associated with an asset" </documentation>
+            </annotation>
+         </element>
          <!-- the pbcore identifier - this element may occur as many times as
                       desired, however an indentifier source attribute is required. -->
-         <xs:element maxOccurs="unbounded" minOccurs="1" name="pbcoreIdentifier"
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreIdentifier"
             type="requiredSourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor pbcoreIdentifier is used to
+            <annotation>
+               <documentation>"The descriptor pbcoreIdentifier is used to
                   reference or identify the entire record of metadata descriptions for a media item.
                   The pbcoreIdentifier exists at the top level for a PBCore description and its
                   associated description document (XML). Best practice is to identify the media item
                   (whether analog or digital) by means of an unambiguous string or number
                   corresponding to an established or formal identification system if one exists.
                   Otherwise, use an identification method that is in use within your agency,
-                  station, production company, office, or institution."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  station, production company, office, or institution."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore title - this element may occur as many times as
                       desired, optionally, a titleType attribute may appear -->
-         <xs:element maxOccurs="unbounded" minOccurs="1" name="pbcoreTitle" type="titleStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The pbcoreTitle is a name given to the media item
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreTitle" type="titleStringType">
+            <annotation>
+               <documentation>"The pbcoreTitle is a name given to the media item
                   you are cataloging. It is the unique name everyone should use to refer to or
                   search for a particular media item. There are obviously many types of titles a
                   media item may have, such as a series title, episode title, segment title, or
                   project title. Use the attribute 'titleType' to indicate the type of title you are
-                  assigning to the media item."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  assigning to the media item."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore subject - this element may occur as many times as
                       desired, optional attributes can note subjectType as well as time annotations  -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreSubject"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreSubject"
             type="subjectStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The pbcoreSubject is used to assign topical
+            <annotation>
+               <documentation>"The pbcoreSubject is used to assign topical
                   headings or keywords that portray the intellectual content of the media item you
                   are cataloging. Typically, a subject is expressed by a limited number of keywords,
                   key phrases, or even specific classification codes. Controlled vocabularies,
                   authorities, or formal classification schemes may be employed when assigning
                   descriptive subject terms (rather than using random or ad hoc
-                  terminology)."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  terminology)."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore description - this element may occur as many times
                       as desired, however if it does occur, then a description tag is
                       required.  optionally, the description type may appear - but
                       it has a limited vocabulary -->
-         <xs:element maxOccurs="unbounded" minOccurs="1" name="pbcoreDescription"
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreDescription"
             type="descriptionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The pbcoreDescription element uses free-form text
+            <annotation>
+               <documentation>"The pbcoreDescription element uses free-form text
                   or a narrative to report general notes, abstracts, or summaries about the
                   intellectual content of a media item you are cataloging. The information may be in
                   the form of a paragraph giving an individual program description, anecdotal
                   interpretations, or brief content reviews. The description may also consist of
                   outlines, lists, bullet points, rundowns, edit decision lists, indexes, or tables
-                  of content."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  of content."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore genre - this element may occur as many times as desired. -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre"
             type="sourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The pbcoreGenre element describes the manner in
+            <annotation>
+               <documentation>"The pbcoreGenre element describes the manner in
                   which the intellectual content of a media item is presented, viewed or heard by a
                   user. It indicates the structure of the presentation, as well as the topical
-                  nature of the content in a generalized form."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  nature of the content in a generalized form."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore relation - this element may occur as many times as
             desired.  if it does occur, the pbcoreRelationIdentifier must appear,
             also the pbcoreRelationType must also appear -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreRelation">
-            <xs:annotation>
-               <xs:documentation>"The pbcoreRelation element is a container for subelements
-                  'relationType' and 'relationIdentifier'."</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element maxOccurs="1" minOccurs="1" name="pbcoreRelationType"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreRelation">
+            <annotation>
+               <documentation>"The pbcoreRelation element is a container for subelements
+                  'relationType' and 'relationIdentifier'."</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationType"
                      type="sourceVersionStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"The descriptor pbcoreRelationType
+                     <annotation>
+                        <documentation>"The descriptor pbcoreRelationType
                            identifies the type of intellectual content bond between a media item you
-                           are cataloging and some other related media item."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="1" minOccurs="1" name="pbcoreRelationIdentifier"
-                     type="xs:string">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"Once the type of relationship between two
+                           are cataloging and some other related media item."</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationIdentifier"
+                     type="string">
+                     <annotation>
+                        <documentation>"Once the type of relationship between two
                            media items is identified by using the descriptor pbcoreRelationType, the
                            companion descriptor pbcoreRelationIdentifier is used to provide a name,
                            locator, accession number, identification number or ID where the related
                            item can be obtained or found. The cross reference uses a unique
                            identifier. The relationship could also reflect another relationship
                            type, such as an episode in a series or a program
-                           segment."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
+                           segment."</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore coverage - this element may occur as many times as
                       desired, and within it a Spatial or a Temporal coverageType -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreCoverage">
-            <xs:annotation>
-               <xs:documentation>"The pbcoreCoverage element is a container for subelements
-                  'coverage' and 'coverageType'."</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element maxOccurs="1" minOccurs="1" name="coverage"
-                     type="xs:string">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en"> "The descriptor coverage uses keywords to
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreCoverage">
+            <annotation>
+               <documentation>"The pbcoreCoverage element is a container for subelements
+                  'coverage' and 'coverageType'."</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="coverage"
+                     type="string">
+                     <annotation>
+                        <documentation> "The descriptor coverage uses keywords to
                            identify a span of space or time that is expressed by the intellectual
                            content of a media item. Coverage in intellectual content may be
                            expressed spatially by geographic location. Actual place names may be
@@ -214,74 +203,74 @@
                            expressed temporally by a date, period, era, or time-based event. The
                            PBCore metadata element coverage houses the actual spatial or temporal
                            keywords. The companion descriptor coverageType is used to identify the
-                           type of keywords that are being used."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="1" minOccurs="0" name="coverageType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"The coverageType element is used to
+                           type of keywords that are being used."</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="0" name="coverageType">
+                     <annotation>
+                        <documentation>"The coverageType element is used to
                            identify the actual type of keywords that are being used by its companion
                            metadata element 'coverage.' coverageType provides a picklist of types,
                            namely *spatial* or *temporal*, because coverage in intellectual content
                            may be expressed spatially by geographic location or it may also be
                            expressed temporally by a date, period, era, or time-based event."
-                        </xs:documentation>
-                     </xs:annotation>
-                     <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                           <xs:enumeration value="Spatial"/>
-                           <xs:enumeration value="Temporal"/>
-                        </xs:restriction>
-                     </xs:simpleType>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
+                        </documentation>
+                     </annotation>
+                     <simpleType>
+                        <restriction base="string">
+                           <enumeration value="Spatial"/>
+                           <enumeration value="Temporal"/>
+                        </restriction>
+                     </simpleType>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore audienceLevel - this may occur as many times as desired
                       within the document -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceLevel"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceLevel"
             type="sourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor pbcoreAudienceLevel identifies a
+            <annotation>
+               <documentation>"The descriptor pbcoreAudienceLevel identifies a
                   type of audience, viewer, or listener for whom the media item you are cataloging
-                  is primarily designed or educationally useful."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  is primarily designed or educationally useful."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore audienceRating - this may occur as many times as desired
                       within the document -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceRating"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceRating"
             type="sourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor pbcoreAudienceRating designates the
+            <annotation>
+               <documentation>"The descriptor pbcoreAudienceRating designates the
                   type of users for whom a media item is intended or judged appropriate in terms of
                   its intellectual content. Standard ratings have been crafted by the broadcast
                   television and film industries and are used as flags for audience or
-                  age-appropriate materials."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  age-appropriate materials."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore creator - may appear as many times as
             necessary, but when it does appear, the creator tag is required.  the
             creatorRole tag is optional. -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreCreator">
-            <xs:annotation>
-               <xs:documentation>"The pbcoreCreator element is a container for sub-elements
-                  'creator' and 'creatorRole'."</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element maxOccurs="1" minOccurs="1" name="creator"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreCreator">
+            <annotation>
+               <documentation>"The pbcoreCreator element is a container for sub-elements
+                  'creator' and 'creatorRole'."</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="creator"
                      type="affiliatedStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"The descriptor creator identifies a person
+                     <annotation>
+                        <documentation>"The descriptor creator identifies a person
                            or organization primarily responsible for creating a media item. The
                            creator may be considered an author and could be one or more people, a
-                           business, organization, group, project or service." </xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="unbounded" minOccurs="0" name="creatorRole"
+                           business, organization, group, project or service." </documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="unbounded" minOccurs="0" name="creatorRole"
                      type="sourceVersionStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"Use the descriptor creatorRole to identify
+                     <annotation>
+                        <documentation>"Use the descriptor creatorRole to identify
                            the role played by the person or group identified in the companion
                            descriptor creator. Unlike print resources, there is usually no single
                            role, like an author, who has primary responsibility for the creation of
@@ -289,317 +278,317 @@
                            renditions. For these media, creators identified as the primary creator
                            can fill many different roles, such as the instructor for a video course,
                            the interviewee from a video history program, or the director of a
-                           program or film."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
+                           program or film."</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore contributor - this element may appear as many times
                       as necessary, but when it does appear, the contributor tag must
                       appear inside it.  the contributor role is optional. -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreContributor">
-            <xs:annotation>
-               <xs:documentation>"The pbcoreContributor element is a container for sub-elements
-                  'contributor' and 'contributorRole'."</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element maxOccurs="1" minOccurs="1" name="contributor"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreContributor">
+            <annotation>
+               <documentation>"The pbcoreContributor element is a container for sub-elements
+                  'contributor' and 'contributorRole'."</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="contributor"
                      type="affiliatedStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"The descriptor contributor identifies a
+                     <annotation>
+                        <documentation>"The descriptor contributor identifies a
                            person or organization that has made substantial creative contributions
                            to the intellectual content within a media item. This contribution is
                            considered to be secondary to the primary author(s) (person or
-                           organization) identified in the descriptor creator."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="unbounded" minOccurs="0" name="contributorRole"
+                           organization) identified in the descriptor creator."</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="unbounded" minOccurs="0" name="contributorRole"
                      type="contributorStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"Use the descriptor contributorRole to
+                     <annotation>
+                        <documentation>"Use the descriptor contributorRole to
                            identify the role played by the person or group identified in the
-                           companion descriptor contributor."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
+                           companion descriptor contributor."</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore publisher - this follows the same guidelines as the
                       contributor and the creator.  this may exist as many times as
                       we wish, but inside it there must be a publisher tag.  a
                       publisherRole tag is optional. -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcorePublisher">
-            <xs:annotation>
-               <xs:documentation>"The pbcorePublisher element is a container for sub-elements
-                  'publisher' and 'publisherRole'."</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element maxOccurs="1" minOccurs="1" name="publisher"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcorePublisher">
+            <annotation>
+               <documentation>"The pbcorePublisher element is a container for sub-elements
+                  'publisher' and 'publisherRole'."</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="publisher"
                      type="affiliatedStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"The descriptor publisher identifies a
+                     <annotation>
+                        <documentation>"The descriptor publisher identifies a
                            person or organization primarily responsible for distributing or making a
                            media item available to others. The publisher may be a person, a
-                           business, organization, group, project or service."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="unbounded" minOccurs="0" name="publisherRole"
+                           business, organization, group, project or service."</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="unbounded" minOccurs="0" name="publisherRole"
                      type="sourceVersionStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"Use the descriptor publisherRole to
+                     <annotation>
+                        <documentation>"Use the descriptor publisherRole to
                            identify the role played by the specific publisher or publishing entity
-                           identified in the companion descriptor publisher."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
+                           identified in the companion descriptor publisher."</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore rights - this may appear as many times as needed -->
-         <xs:element name="pbcoreRightsSummary" type="rightsSummaryType" maxOccurs="unbounded"
+         <element name="pbcoreRightsSummary" type="rightsSummaryType" maxOccurs="unbounded"
             minOccurs="0">
-            <xs:annotation>
-               <xs:documentation xml:lang="en"> "The element pbcoreRightsSummary is a container for
+            <annotation>
+               <documentation> "The element pbcoreRightsSummary is a container for
                   sub-elements 'rightsSummary', 'rightsLink' and 'rightsEmbedded' used to describe
-                  Rights for the asset."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  Rights for the asset."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation - this contains all the details on how
                       the asset is actualized -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreInstantiation"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreInstantiation"
             type="instantiationType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The element 'pbcoreInstantiation' is a container
+            <annotation>
+               <documentation>"The element 'pbcoreInstantiation' is a container
                   for sub-elements which describe an instance of a media item, i.e., a manifestation
-                  of it in the real world." </xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  of it in the real world." </documentation>
+            </annotation>
+         </element>
          <!-- PBCore Annotation -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAnnotation"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAnnotation"
             type="annotationStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor pbcoreAnnotation is an element where
+            <annotation>
+               <documentation>"The descriptor pbcoreAnnotation is an element where
                   you can catalog any supplementary information about the metadata used to describe
                   the PBCore record. pbcoreAnnotation clarifies element values, terms, descriptors,
                   and vocabularies that may not be otherwise sufficiently
-                  understood."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  understood."</documentation>
+            </annotation>
+         </element>
          <!-- PBCore Part -->
          <!-- not needed in AMS 
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcorePart" type="pbcorePartType">
-            <xs:annotation>
-               <xs:documentation>"The pbcorePart element is a container for repeating the same set
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcorePart" type="pbcorePartType">
+            <annotation>
+               <documentation>"The pbcorePart element is a container for repeating the same set
                   of sub-elements used by super-element 'pbcoreDescriptionDocument. e.g. this allows
-                  for defining segments, stories or episodes." </xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  for defining segments, stories or episodes." </documentation>
+            </annotation>
+         </element>
          -->
          <!-- PBCore Extension -->
          <!-- not needed in AMS 
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="pbcoreExtension"
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreExtension"
             type="extensionType">
-            <xs:annotation>
-               <xs:documentation>"The pbcoreExtension element is a container to accomodate metadata
+            <annotation>
+               <documentation>"The pbcoreExtension element is a container to accomodate metadata
                   from external systems. Use it to supplement other sub-elements of
-                  'pbcoreDescriptionDocument'."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  'pbcoreDescriptionDocument'."</documentation>
+            </annotation>
+         </element>
          -->
          <!-- For Readability - DescriptionDocument sequence end -->
-      </xs:sequence>
+      </sequence>
       <!-- For Readability - DescriptionDocument complexType end -->
-   </xs:complexType>
+   </complexType>
 
    <!-- the pbcore instantiationType -->
-   <xs:complexType name="instantiationType">
-      <xs:annotation>
-         <xs:documentation>"This uses a common structure to allow for a single instantiation or
-            multiple instantiations within a pbcoreDocumentDescription."</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
+   <complexType name="instantiationType">
+      <annotation>
+         <documentation>"This uses a common structure to allow for a single instantiation or
+            multiple instantiations within a pbcoreDocumentDescription."</documentation>
+      </annotation>
+      <sequence>
          <!-- the pbcore instantiationIdentifier -->
-         <xs:element maxOccurs="unbounded" minOccurs="1" name="instantiationIdentifier"
+         <element maxOccurs="unbounded" minOccurs="1" name="instantiationIdentifier"
             type="requiredSourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The instantiationIdentifier employs an unambiguous
+            <annotation>
+               <documentation>"The instantiationIdentifier employs an unambiguous
                   reference or identifier for a particular rendition/instantiation of a media item.
                   Best practice is to identify the media item (whether analog or digital) by means
                   of a string or number corresponding to an established or formal identification
                   system if one exists. Otherwise, use an identification method that is in use
                   within your agency, station, production company, office, or
-                  institution."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  institution."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationDate -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="instantiationDate"
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDate"
             type="dateStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"Use the descriptor instantiationDate to specify the
+            <annotation>
+               <documentation>"Use the descriptor instantiationDate to specify the
                   creation date for a particular instantiation of a media item across its life
                   cycle. It is the moment in time that the media item was finalized during its
                   production process and is forwarded to other divisions or agencies to make it
                   ready for publication or distribution. A specific time may also be associated with
                   the date. Or the date Issued, Available Start Dates and End
-                  Dates"</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  Dates"</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationDimensions-->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="instantiationDimensions"
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDimensions"
             type="technicalStringType">
-            <xs:annotation>
-               <xs:documentation>"The instantiationDimensions element specifies the visual
+            <annotation>
+               <documentation>"The instantiationDimensions element specifies the visual
                   dimensions to expect when rendering a particular instance of
-                  media."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  media."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationPhysical-->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationPhysical"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"Use the descriptor instantiationPhysical to
+         <element maxOccurs="1" minOccurs="0" name="instantiationPhysical"
+            type="string">
+            <annotation>
+               <documentation>"Use the descriptor instantiationPhysical to
                   identify the format of a particular instantiation of a media item as it exists in
                   an actual physical form that occupies physical space (e.g., a tape on a shelf),
                   rather than as a digital file residing on a server or hard
-                  drive."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  drive."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationDigital-->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationDigital"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"Use the descriptor instantiationDigital to identify
+         <element maxOccurs="1" minOccurs="0" name="instantiationDigital"
+            type="string">
+            <annotation>
+               <documentation>"Use the descriptor instantiationDigital to identify
                   the format of a particular instantiation of a media item as it exists in its
                   digital form, i.e., as a digital file on a server or hard drive. Digital media
-                  formats may be expressed with formal Internet MIME types."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  formats may be expressed with formal Internet MIME types."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationStandard-->
-         <xs:element minOccurs="0" name="instantiationStandard"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation>"Use the descriptor instantiationStandard to identify the standard
-                  of a particular instantiation of a media item as it exists."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+         <element minOccurs="0" name="instantiationStandard"
+            type="string">
+            <annotation>
+               <documentation>"Use the descriptor instantiationStandard to identify the standard
+                  of a particular instantiation of a media item as it exists."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationLocation-->
-         <xs:element maxOccurs="1" minOccurs="1" name="instantiationLocation" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationLocation is considered
+         <element maxOccurs="1" minOccurs="1" name="instantiationLocation" type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationLocation is considered
                   to be an "address for a media item." For an organization or producer acting as
                   caretaker of a media resource, instantiationLocation may contain information about
                   a specific shelf location for an asset, including an organization's name,
                   departmental name, shelf ID and contact information. The instantiationLocation for
                   a data file or web page may include domain, path, filename or html
-                  page."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  page."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationmMediaType -->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationMediaType"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationMediaType identifies
+         <element maxOccurs="1" minOccurs="0" name="instantiationMediaType"
+            type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationMediaType identifies
                   the general, high level nature of the content of a media item. It uses categories
                   that show how content is presented to an observer, e.g., as a sound, text or
-                  moving image."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  moving image."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationGenerations -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationGenerations identifies
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations"
+            type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationGenerations identifies
                   the particular use or manner in which an instantiation of a media item is used,
-                  e.g., Audio/Narration or Moving image/Backup master."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  e.g., Audio/Narration or Moving image/Backup master."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationFileSize -->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationFileSize"
+         <element maxOccurs="1" minOccurs="0" name="instantiationFileSize"
             type="technicalStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"Use the descriptor instantiationFileSize to
+            <annotation>
+               <documentation>"Use the descriptor instantiationFileSize to
                   indicate the storage requirements or file size of a digital media item. As a
-                  standard, express the file size in bytes."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  standard, express the file size in bytes."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationTimeStart-->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationTimeStart" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationTimeStart provides a
+         <element maxOccurs="1" minOccurs="0" name="instantiationTimeStart" type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationTimeStart provides a
                   time stamp for the beginning point of playback for a time-based media item, such
                   as digital video or audio. Use in combination with instantiationDuration to
                   identify a sequence or segment of a media item that has a fixed start time and end
-                  time."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  time."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationDuration-->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationDuration" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationDuration provides a
+         <element maxOccurs="1" minOccurs="0" name="instantiationDuration" type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationDuration provides a
                   timestamp for the overall length or duration of a time-based media item. It
-                  represents the playback time."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  represents the playback time."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationDataRate-->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationDataRate"
+         <element maxOccurs="1" minOccurs="0" name="instantiationDataRate"
             type="technicalStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationDataRate expresses the
+            <annotation>
+               <documentation>"The descriptor instantiationDataRate expresses the
                   amount of data in a digital media file that is encoded, delivered or distributed,
                   for every second of time. Although optimal data rates are often dependent on the
                   codec used to compress and encode a digital file, generally speaking, a larger
                   data rate translates into a better quality playback experience (e.g., 56
-                  kilobits/second is lesser quality than 1 megabit/second)."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  kilobits/second is lesser quality than 1 megabit/second)."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationColors -->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationColors"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationColors indicates the
+         <element maxOccurs="1" minOccurs="0" name="instantiationColors"
+            type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationColors indicates the
                   overall color, grayscale, or black and white nature of a media item, as a single
                   occurrence or combination of occurrences in or throughout the media
-                  item."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  item."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationTracks-->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationTracks" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationTracks is simply
+         <element maxOccurs="1" minOccurs="0" name="instantiationTracks" type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationTracks is simply
                   intended to indicate the number and type of tracks that are found in a media item,
                   whether it is analog or digital. (e.g. 1 video track, 2 audio tracks, 1 text
                   track, 1 sprite track, etc.) Other configuration information specific to these
                   identified tracks should be described using
-                  instantiationChannelConfiguration."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  instantiationChannelConfiguration."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationChannelConfiguration-->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationChannelConfiguration"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationChannelConfiguration is
+         <element maxOccurs="1" minOccurs="0" name="instantiationChannelConfiguration"
+            type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationChannelConfiguration is
                   designed to indicate the arrangement or configuration of specific channels or
                   layers of information within a media item's tracks. Examples are 2-track mono, 8-
-                  track stereo, or video track with alpha channel."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  track stereo, or video track with alpha channel."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationLanguage -->
-         <xs:element name="instantiationLanguage" type="xs:string" maxOccurs="1"
+         <element name="instantiationLanguage" type="string" maxOccurs="1"
             minOccurs="0">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor language identifies the primary
+            <annotation>
+               <documentation>"The descriptor language identifies the primary
                   language of a media item's audio or text. Alternative audio or text tracks and
                   their associated languages should be identified using the descriptor
-                  instantiationAlternativeModes."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  instantiationAlternativeModes."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationAlternativeModes -->
-         <xs:element maxOccurs="1" minOccurs="0" name="instantiationAlternativeModes"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor instantiationAlternativeModes is a
+         <element maxOccurs="1" minOccurs="0" name="instantiationAlternativeModes"
+            type="string">
+            <annotation>
+               <documentation>"The descriptor instantiationAlternativeModes is a
                   catch-all metadata element that identifies equivalent alternatives to the primary
                   visual, sound or textual information that exists in a media item. These are modes
                   that offer alternative ways to see, hear, and read the content of a media item.
@@ -608,694 +597,694 @@
                   For each instance of available alternativeModes, the mode and its associated
                   language should be identified together, if applicable. Examples include 'SAP in
                   English,' 'SAP in Spanish,' 'Subtitle in French,' 'OpenCaption in
-                  Arabic.'"</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  Arabic.'"</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationEssenceTrack -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="instantiationEssenceTrack"
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationEssenceTrack"
             type="essenceTrackType">
-            <xs:annotation>
-               <xs:documentation>"The instantiationEssenceTrack element allows for grouping of the
-                  essenceTrack related elements and their repeated use."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+            <annotation>
+               <documentation>"The instantiationEssenceTrack element allows for grouping of the
+                  essenceTrack related elements and their repeated use."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore InstantiationRelation - this element may occur as many times as
             desired.  if it does occur, the instantiationRelationIdentifier must appear,
             also the relationType must also appear -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="instantiationRelation">
-            <xs:annotation>
-               <xs:documentation>The instantiationRelation element is a container for sub-elements
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationRelation">
+            <annotation>
+               <documentation>The instantiationRelation element is a container for sub-elements
                   'instantiationRelationType' and 'instantiationRelationIdentifier' to describe
-                  inter-relationships to other instantiations."</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element maxOccurs="1" minOccurs="1" name="instantiationRelationType"
+                  inter-relationships to other instantiations."</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationType"
                      type="sourceVersionStringType">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"The descriptor relationType identifies the
+                     <annotation>
+                        <documentation>"The descriptor relationType identifies the
                            type of intellectual content bond between a media item you are cataloging
-                           and some other related media item."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="1" minOccurs="1" name="instantiationRelationIdentifier"
-                     type="xs:string">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"Once the type of relationship between two
+                           and some other related media item."</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationIdentifier"
+                     type="string">
+                     <annotation>
+                        <documentation>"Once the type of relationship between two
                            media items is identified by using the descriptor
                            instantiationRelationType, the companion descriptor
                            instantiationRelationIdentifier is used to provide a name, locator,
                            accession, identification number or ID where the related item can be
                            obtained or found. The cross reference uses a unique identifier. The
                            relationship could also describe a multi-part instantiation, such as a
-                           multi-disk DVD."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
+                           multi-disk DVD."</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore instantiationRights -->
          <!-- not currently used in AMS 
-         <xs:element name="instantiationRights" type="rightsSummaryType" maxOccurs="unbounded"
+         <element name="instantiationRights" type="rightsSummaryType" maxOccurs="unbounded"
             minOccurs="0">
-            <xs:annotation>
-               <xs:documentation xml:lang="en"> "The instantiationRights element is a container for
+            <annotation>
+               <documentation> "The instantiationRights element is a container for
                   sub-elements 'rightsSummary', 'rightsLink' and 'rightsEmbedded' to describe rights
-                  particular to this this particular instantiation." </xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  particular to this this particular instantiation." </documentation>
+            </annotation>
+         </element>
          -->
          <!-- the pbcore instantiationAnnotation -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation"
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation"
             type="annotationStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The instantiationAnnotation element is used to
+            <annotation>
+               <documentation>"The instantiationAnnotation element is used to
                   catalog any supplementary information about an instantiation of the media item or
                   the metadata used to describe it. It clarifies element values, terms, descriptors,
                   and vocabularies that may not be otherwise sufficiently
-                  understood."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  understood."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationPart -->
          <!-- not needed in AMS 
-         <xs:element name="instantiationPart" type="instantiationType" maxOccurs="unbounded"
+         <element name="instantiationPart" type="instantiationType" maxOccurs="unbounded"
             minOccurs="0">
-            <xs:annotation>
-               <xs:documentation>"The instantiationPart element is a container to allow for
-                  multiple instantiation parts, e.g. multi-disk DVD."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+            <annotation>
+               <documentation>"The instantiationPart element is a container to allow for
+                  multiple instantiation parts, e.g. multi-disk DVD."</documentation>
+            </annotation>
+         </element>
          -->
          <!-- the pbcore instantiationExtension -->
          <!-- not needed in AMS 
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="instantiationExtension"
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationExtension"
             type="extensionType">
-            <xs:annotation>
-               <xs:documentation>"The instantiationExtension element is a container to accomodate
+            <annotation>
+               <documentation>"The instantiationExtension element is a container to accomodate
                   instantiation-level metadata from external systems. Use it to supplement other
                   metadata sub-elements of 'instantiationPart' or 'pbcoreInstantiationDocument' in
-                  which it appears."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  which it appears."</documentation>
+            </annotation>
+         </element>
          -->
-      </xs:sequence>
+      </sequence>
       <!-- instantiationStartEndTimeGroup -->
       <!-- not needed in AMS 
-      <xs:attributeGroup ref="startEndTimeGroup">
-         <xs:annotation>
-            <xs:documentation>"The instantiation level startEndTimeGroup may be used when there
-               is a multi-part instantiation and time notation is important. </xs:documentation>
-         </xs:annotation>
-      </xs:attributeGroup>
+      <attributeGroup ref="startEndTimeGroup">
+         <annotation>
+            <documentation>"The instantiation level startEndTimeGroup may be used when there
+               is a multi-part instantiation and time notation is important. </documentation>
+         </annotation>
+      </attributeGroup>
       -->
-   </xs:complexType>
+   </complexType>
 
 
    <!-- the pbcore instantiation essenceTrackType -->
-   <xs:complexType name="essenceTrackType">
-      <xs:annotation>
-         <xs:documentation>"This uses a common structure to allow for grouping of the essence
-            related elements and their repeated use."</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
+   <complexType name="essenceTrackType">
+      <annotation>
+         <documentation>"This uses a common structure to allow for grouping of the essence
+            related elements and their repeated use."</documentation>
+      </annotation>
+      <sequence>
          <!-- the pbcore instantiation essenceTrackType -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackType" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackType element is used to label the
-                  essence track by its type, e.g. video, audio etc."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackType" type="string">
+            <annotation>
+               <documentation>"The essenceTrackType element is used to label the
+                  essence track by its type, e.g. video, audio etc."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackIdentifier -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="essenceTrackIdentifier"
+         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackIdentifier"
             type="sourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackIdentifier element is used to
+            <annotation>
+               <documentation>"The essenceTrackIdentifier element is used to
                   identify the essence track and differentiate it from other tracks in the
-                  instantiation."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  instantiation."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackStandard -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackStandard"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"Use the descriptor essenceTrackStandard to identify
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackStandard"
+            type="string">
+            <annotation>
+               <documentation>"Use the descriptor essenceTrackStandard to identify
                   a larger technical system/standard or overarching media architecture under which
                   various media formats exist, e.g., NTSC is a system/standard under which many
-                  video formats exist."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  video formats exist."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackEncoding -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackEncoding"
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackEncoding"
             type="sourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor essenceTrackEncoding identifies how
+            <annotation>
+               <documentation>"The descriptor essenceTrackEncoding identifies how
                   the actual information in a media item is compressed, interpreted, or formulated
                   using a particular scheme. Identifying the encoding used is beneficial for a
                   number of reasons, including as a way to achieve reversible compression; for the
                   construction of document indices to facilitate searching and access; or for
                   efficient distribution of the information across data networks with differing
-                  bandwidths or pipeline capacities."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  bandwidths or pipeline capacities."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackDataRate-->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackDataRate"
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackDataRate"
             type="technicalStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackDataRate element expresses the
+            <annotation>
+               <documentation>"The essenceTrackDataRate element expresses the
                   amount of data in a digital media file that is encoded, delivered or distributed,
                   for every second of time. Although optimal data rates are often dependent on the
                   codec used to compress and encode a digital file, generally speaking, a larger
                   data rate translates into a better quality playback experience, for example 56
-                  kilobits/second vs. 1 megabit/second."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  kilobits/second vs. 1 megabit/second."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackFrameRate -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackFrameRate element indicates the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate"
+            type="string">
+            <annotation>
+               <documentation>"The essenceTrackFrameRate element indicates the
                   frames per second found in a video, motion sequence, flash file, or animation's
-                  playback or display."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  playback or display."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackPlaybackSpeed-->
-         <xs:element minOccurs="0" name="essenceTrackPlaybackSpeed" type="xs:string">
-            <xs:annotation>
-               <xs:documentation>"The essenceTrackPlaybackSpeed element specifies the rate of units
+         <element minOccurs="0" name="essenceTrackPlaybackSpeed" type="string">
+            <annotation>
+               <documentation>"The essenceTrackPlaybackSpeed element specifies the rate of units
                   against time at which the media track should be rendered for human consumption.
-                  e.g., 15ips (inches per second), 24fps (frames per second)"</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  e.g., 15ips (inches per second), 24fps (frames per second)"</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackSamplingRate -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"For a media item (specifically audio), the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate"
+            type="string">
+            <annotation>
+               <documentation>"For a media item (specifically audio), the
                   descriptor essenceTrackSamplingRate measures "How Often" data is sampled when
                   information is digitized. For a digital audio signal, the sampling rate is
                   measured in kilohertz and is an indicator of the perceived playback quality of the
                   media item (the higher the sampling rate, the greater the
-                  fidelity)."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  fidelity)."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackBitDepth -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackBitDepth" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackBitDepth element specifies "How
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackBitDepth" type="string">
+            <annotation>
+               <documentation>"The essenceTrackBitDepth element specifies "How
                   Much" data is sampled when information is digitized, encoded, or converted for a
                   media item (specifically, audio, video, or image). Bit depth is measured in bits
                   and generally implies an arbitrary perception of quality during playback of a
                   media item (the higher the bit depth, the greater the
-                  fidelity)."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  fidelity)."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackFrameSize -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackFrameSize element indicates the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize"
+            type="string">
+            <annotation>
+               <documentation>"The essenceTrackFrameSize element indicates the
                   horizontal and vertical resolution of a format type. It may be expressed in
                   pixels, pixels per inch, or in the case of ATSC digital TV, a combination of
                   pixels measured horizontally vs. the number of pixels of image/resolution data
-                  stacked vertically (interlaced and progressive scan)."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  stacked vertically (interlaced and progressive scan)."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackAspectRatio -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackAspectRatio element indicates the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio"
+            type="string">
+            <annotation>
+               <documentation>"The essenceTrackAspectRatio element indicates the
                   ratio of horizontal to vertical proportions in the display of a static image or
-                  moving image."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  moving image."</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackTimeStart-->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackTimeStart" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor essenceTrackTimeStart provides a
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackTimeStart" type="string">
+            <annotation>
+               <documentation>"The descriptor essenceTrackTimeStart provides a
                   time stamp for the beginning point of playback for a time-based media item, such
                   as digital video or audio. Use in combination with essenceTrackDuration to
                   identify a sequence or segment of a media item that has a fixed start time and end
-                  time."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  time."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackDuration -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackDuration" type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The descriptor essenceTrackDuration provides a
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackDuration" type="string">
+            <annotation>
+               <documentation>"The descriptor essenceTrackDuration provides a
                   timestamp for the overall length or duration of a track. It represents the track
-                  playback time."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  playback time."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackLanguage -->
-         <xs:element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage"
-            type="xs:string">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"essenceTrackLanguage identifies the primary
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage"
+            type="string">
+            <annotation>
+               <documentation>"essenceTrackLanguage identifies the primary
                   language of the tracks' audio or text. Alternative audio or text tracks and their
                   associated languages should be identified using the descriptor
-                  alternativeModes."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  alternativeModes."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackAnnotation -->
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="essenceTrackAnnotation"
+         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackAnnotation"
             type="annotationStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"The essenceTrackAnnotation element can store any
+            <annotation>
+               <documentation>"The essenceTrackAnnotation element can store any
                   supplementary information about a track or the metadata used to describe it. It
                   clarifies element values, terms, descriptors, and vocabularies that may not be
-                  otherwise sufficiently understood."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  otherwise sufficiently understood."</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceExtension -->
          <!-- not needed in AMS 
-         <xs:element maxOccurs="unbounded" minOccurs="0" name="essenceTrackExtension"
+         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackExtension"
             type="extensionType">
-            <xs:annotation>
-               <xs:documentation>"The essenceTrackExtension element is a container to accomodate
+            <annotation>
+               <documentation>"The essenceTrackExtension element is a container to accomodate
                   track-level metadata from external systems. Use it to supplement other metadata
                   sub-elements of 'instantiationEssenceTrack' in which it
-                  appears."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  appears."</documentation>
+            </annotation>
+         </element>
          -->
-      </xs:sequence>
-   </xs:complexType>
+      </sequence>
+   </complexType>
          
 
    <!-- extensionType -->
    <!-- not needed in AMS 
-   <xs:complexType name="extensionType">
-      <xs:annotation>
-         <xs:documentation>"This uses a common structure to allow for the use of multiple,
+   <complexType name="extensionType">
+      <annotation>
+         <documentation>"This uses a common structure to allow for the use of multiple,
             qualified extensions at the asset, instantiation and essence
-            levels."</xs:documentation>
-      </xs:annotation>
-      <xs:choice>
-         <xs:element maxOccurs="unbounded" minOccurs="1" name="extensionWrap">
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element maxOccurs="1" minOccurs="1" name="extensionElement" type="xs:string">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"The descriptor extensionElement provides
+            levels."</documentation>
+      </annotation>
+      <choice>
+         <element maxOccurs="unbounded" minOccurs="1" name="extensionWrap">
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="extensionElement" type="string">
+                     <annotation>
+                        <documentation>"The descriptor extensionElement provides
                            metadata descriptions crafted into metadata dictionaries and schemas
                            outside of the PBCore Metadata Dictionary Project. These extensions
                            fulfill the metadata requirements for communities identifying and
                            describing their own types of media with specialized, custom
-                           terminologies."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="1" minOccurs="1" name="extensionValue" type="xs:string">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"Use extensionValue to express the actual
+                           terminologies."</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="1" name="extensionValue" type="string">
+                     <annotation>
+                        <documentation>"Use extensionValue to express the actual
                            data value of the label indicated by
-                           extensionElement."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-                  <xs:element maxOccurs="1" minOccurs="1" name="extensionAuthorityUsed"
-                     type="xs:anyURI">
-                     <xs:annotation>
-                        <xs:documentation xml:lang="en">"If metadata extensions to PBCore are
+                           extensionElement."</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="1" name="extensionAuthorityUsed"
+                     type="anyURI">
+                     <annotation>
+                        <documentation>"If metadata extensions to PBCore are
                            assigned to a media item with the descriptor extensionElement, and the
                            terms used are derived from a specific authority or metadata scheme, use
                            extensionAuthorityUsed to identify whose metadata extensions are being
-                           used."</xs:documentation>
-                     </xs:annotation>
-                  </xs:element>
-               </xs:sequence>
-               <xs:attribute name="annotation" type="xs:string"/>
-            </xs:complexType>
-         </xs:element>
-         <xs:element maxOccurs="unbounded" minOccurs="1" name="extensionEmbedded"
-            type="embeddedType"> </xs:element>
-      </xs:choice>
-   </xs:complexType>
+                           used."</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+               <attribute name="annotation" type="string"/>
+            </complexType>
+         </element>
+         <element maxOccurs="unbounded" minOccurs="1" name="extensionEmbedded"
+            type="embeddedType"> </element>
+      </choice>
+   </complexType>
    -->
 
 
    <!-- pbcorePartType -->
    <!-- not needed in AMS 
-   <xs:complexType name="pbcorePartType">
-      <xs:annotation>
-         <xs:documentation>"This uses a common structure to allow for the repeating of descriptive
+   <complexType name="pbcorePartType">
+      <annotation>
+         <documentation>"This uses a common structure to allow for the repeating of descriptive
             sub-documents to define different segments, episodes etc., just as super-element
             'pbcoreDescriptionDocument' can be collected and used to describe higher-level media
-            programs."</xs:documentation>
-      </xs:annotation>
-      <xs:complexContent>
-         <xs:extension base="pbcoreDescriptionDocumentType">
-            <xs:attributeGroup ref="startEndTimeGroup">
-               <xs:annotation>
-                  <xs:documentation>"The group of attributes "startTime', 'endTime' and
+            programs."</documentation>
+      </annotation>
+      <complexContent>
+         <extension base="pbcoreDescriptionDocumentType">
+            <attributeGroup ref="startEndTimeGroup">
+               <annotation>
+                  <documentation>"The group of attributes "startTime', 'endTime' and
                      'timeAnnotation' could be used when a there is a multipart asset and time
-                     notation is important. </xs:documentation>
-               </xs:annotation>
-            </xs:attributeGroup>
-         </xs:extension>
-      </xs:complexContent>
-   </xs:complexType>
+                     notation is important. </documentation>
+               </annotation>
+            </attributeGroup>
+         </extension>
+      </complexContent>
+   </complexType>
    -->
 
    <!-- dateStringType -->
-   <xs:complexType name="dateStringType">
-      <xs:annotation>
-         <xs:documentation>"This dateStringType allows for the addition of the dateType
-            attribute."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="dateType"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+   <complexType name="dateStringType">
+      <annotation>
+         <documentation>"This dateStringType allows for the addition of the dateType
+            attribute."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="dateType"/>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- sourceVersionStringType -->
-   <xs:complexType name="sourceVersionStringType">
-      <xs:annotation>
-         <xs:documentation>"The sourceVersionStringType is used with a number of elements to allow
+   <complexType name="sourceVersionStringType">
+      <annotation>
+         <documentation>"The sourceVersionStringType is used with a number of elements to allow
             the attachment of the attributes: source, ref, version and
-            annotation."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attributeGroup ref="sourceVersionGroup"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+            annotation."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attributeGroup ref="sourceVersionGroup"/>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- requiredSourceVersionStringType -->
-   <xs:complexType name="requiredSourceVersionStringType">
-      <xs:annotation>
-         <xs:documentation>"This type is the sample as sourceVersionStringType with the addition
-            that the source attribute is required instead of optional."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="source" type="xs:string" use="required"/>
-            <xs:attribute name="ref" type="xs:string"/>
+   <complexType name="requiredSourceVersionStringType">
+      <annotation>
+         <documentation>"This type is the sample as sourceVersionStringType with the addition
+            that the source attribute is required instead of optional."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="source" type="string" use="required"/>
+            <attribute name="ref" type="string"/>
             <!-- not needed in AMS 
-            <xs:attribute name="version" type="xs:string"/>
-            <xs:attribute name="annotation" type="xs:string"/>
+            <attribute name="version" type="string"/>
+            <attribute name="annotation" type="string"/>
             -->
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- titleStringType -->
-   <xs:complexType name="titleStringType">
-      <xs:annotation>
-         <xs:documentation>"The titleStringType allows for the addition of a titleType attribute as
-            well as the standard sourceVersionGroup attributes."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="titleType"/>
-            <xs:attributeGroup ref="sourceVersionGroup"/>
+   <complexType name="titleStringType">
+      <annotation>
+         <documentation>"The titleStringType allows for the addition of a titleType attribute as
+            well as the standard sourceVersionGroup attributes."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="titleType"/>
+            <attributeGroup ref="sourceVersionGroup"/>
             <!-- not needed in AMS 
-            <xs:attributeGroup ref="startEndTimeGroup"/>
+            <attributeGroup ref="startEndTimeGroup"/>
             -->
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- subjectStringType -->
-   <xs:complexType name="subjectStringType">
-      <xs:annotation>
-         <xs:documentation>"The subjectStringType allows for the addition of a subjectType
+   <complexType name="subjectStringType">
+      <annotation>
+         <documentation>"The subjectStringType allows for the addition of a subjectType
             attribute as well as the standard sourceVersionGroup attributes and a startEndTimeGroup
-            or attributes."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="subjectType" type="xs:string"/>
-            <xs:attributeGroup ref="sourceVersionGroup"/>
+            or attributes."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="subjectType" type="string"/>
+            <attributeGroup ref="sourceVersionGroup"/>
             <!-- not need in AMS 
-            <xs:attributeGroup ref="startEndTimeGroup"/>
+            <attributeGroup ref="startEndTimeGroup"/>
             -->
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- descriptionStringType -->
-   <xs:complexType name="descriptionStringType">
-      <xs:annotation>
-         <xs:documentation>"The descriptionType is a complex group of attributes that help define
+   <complexType name="descriptionStringType">
+      <annotation>
+         <documentation>The descriptionType is a complex group of attributes that help define
             the description type, as well as allowing for descriptions of segments and relevant
-            times."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attributeGroup ref="descriptionTypeSourceVersionGroup"/>
+            times."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attributeGroup ref="descriptionTypeSourceVersionGroup"/>
             <!-- not needed in AMS
-            <xs:attributeGroup ref="segmentTypeSourceVersionGroup"/>
+            <attributeGroup ref="segmentTypeSourceVersionGroup"/>
             -->
             <!-- not needed in AMS 
-            <xs:attributeGroup ref="startEndTimeGroup"/>
+            <attributeGroup ref="startEndTimeGroup"/>
             
-            <xs:attribute name="annotation" type="xs:string"/>
+            <attribute name="annotation" type="string"/>
             -->
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- sourceVersionStartEndStringType -->
    <!-- not needed in AMS 
-   <xs:complexType name="sourceVersionStartEndStringType">
-      <xs:annotation>
-         <xs:documentation>"The sourceVersionStartEndStringType adds attributes that define the
-            source of the string with the option of time related attributes"</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attributeGroup ref="sourceVersionGroup"/>
-            <xs:attributeGroup ref="startEndTimeGroup"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+   <complexType name="sourceVersionStartEndStringType">
+      <annotation>
+         <documentation>"The sourceVersionStartEndStringType adds attributes that define the
+            source of the string with the option of time related attributes"</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attributeGroup ref="sourceVersionGroup"/>
+            <attributeGroup ref="startEndTimeGroup"/>
+         </extension>
+      </simpleContent>
+   </complexType>
       -->
 
    <!-- affiliatedStringType -->
-   <xs:complexType name="affiliatedStringType">
-      <xs:annotation>
-         <xs:documentation>"The affiliatedStringType adds attributes of affiliation and time
-            relevance."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="affiliation"/>
-            <xs:attribute name="ref"/>
+   <complexType name="affiliatedStringType">
+      <annotation>
+         <documentation>"The affiliatedStringType adds attributes of affiliation and time
+            relevance."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="affiliation"/>
+            <attribute name="ref"/>
             <!-- not needed in AMS 
-            <xs:attribute name="annotation"/>
-            <xs:attributeGroup ref="startEndTimeGroup"/>
+            <attribute name="annotation"/>
+            <attributeGroup ref="startEndTimeGroup"/>
             -->
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- contributorStringType -->
-   <xs:complexType name="contributorStringType">
-      <xs:annotation>
-         <xs:documentation>"the contributorString helps define the portrayal role as well as the
-            general source and version group attributes."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
+   <complexType name="contributorStringType">
+      <annotation>
+         <documentation>"the contributorString helps define the portrayal role as well as the
+            general source and version group attributes.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
             <!-- not needed in AMS 
-               <xs:attribute name="portrayal" type="xs:string"/> -->
-            <xs:attributeGroup ref="sourceVersionGroup"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+               <attribute name="portrayal" type="string"/> -->
+            <attributeGroup ref="sourceVersionGroup"/>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- technicalStringType  -->
-   <xs:complexType name="technicalStringType">
-      <xs:annotation>
-         <xs:documentation>"The technicalStringType add the attribute of
-            unitsOfMeasure."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="unitsOfMeasure"/>
+   <complexType name="technicalStringType">
+      <annotation>
+         <documentation>"The technicalStringType add the attribute of
+            unitsOfMeasure.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="unitsOfMeasure"/>
             <!-- not needed in AMS 
-            <xs:attribute name="annotation"/>
+            <attribute name="annotation"/>
             -->
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- instantiationDigitalStringType -->
    <!-- not needed in AMS 
-   <xs:complexType name="instantiationStandardStringType">
-      <xs:annotation>
-         <xs:documentation>"The instantiationStandardStringType allows for the addition of a
-            profile attribute along with the sourceVersionGroup."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="profile"/>
-            <xs:attributeGroup ref="sourceVersionGroup"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+   <complexType name="instantiationStandardStringType">
+      <annotation>
+         <documentation>"The instantiationStandardStringType allows for the addition of a
+            profile attribute along with the sourceVersionGroup."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="profile"/>
+            <attributeGroup ref="sourceVersionGroup"/>
+         </extension>
+      </simpleContent>
+   </complexType>
    -->
 
    <!-- annotationStringType  -->
-   <xs:complexType name="annotationStringType">
-      <xs:annotation>
-         <xs:documentation>"This stringType added an annotationType attribute and a
-            reference."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:string">
-            <xs:attribute name="annotationType"/>
+   <complexType name="annotationStringType">
+      <annotation>
+         <documentation>"This stringType added an annotationType attribute and a
+            reference."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="annotationType"/>
             <!-- not needed in AMS 
-            <xs:attribute name="ref"/>
+            <attribute name="ref"/>
             -->
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- rightsSummeryType -->
-   <xs:complexType name="rightsSummaryType">
-      <xs:annotation>
-         <xs:documentation>"This same structure allows the use of rights at the asset level and the
+   <complexType name="rightsSummaryType">
+      <annotation>
+         <documentation>This same structure allows the use of rights at the asset level and the
             instantiation level. The rights can be expressed as a summary or a link or an embedded
-            XML record. These can also contain time relations"</xs:documentation>
-      </xs:annotation>
-      <xs:choice>
-         <xs:element maxOccurs="1" minOccurs="0" name="rightsSummary"
+            XML record. These can also contain time relations"</documentation>
+      </annotation>
+      <choice>
+         <element maxOccurs="1" minOccurs="0" name="rightsSummary"
             type="sourceVersionStringType">
-            <xs:annotation>
-               <xs:documentation xml:lang="en">"Use the descriptor rightsSummary as an all-purpose
+            <annotation>
+               <documentation>"Use the descriptor rightsSummary as an all-purpose
                   container field to identify information about copyrights and property rights held
                   in and over a media item, whether they are open access or restricted in some way.
                   If dates, times and availability periods are associated with a right, include
                   them. End user permissions, constraints and obligations may also be identified, as
-                  needed."</xs:documentation>
-            </xs:annotation>
-         </xs:element>
-         <xs:element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
-            <xs:annotation>
-               <xs:documentation>"A URI pointing to a declaration of rights"</xs:documentation>
-            </xs:annotation>
-         </xs:element>
+                  needed."</documentation>
+            </annotation>
+         </element>
+         <element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
+            <annotation>
+               <documentation>A URI pointing to a declaration of rights</documentation>
+            </annotation>
+         </element>
          <!-- not needed in AMS
-         <xs:element name="rightsEmbedded" type="embeddedType" maxOccurs="1" minOccurs="0"/> -->
-      </xs:choice>
+         <element name="rightsEmbedded" type="embeddedType" maxOccurs="1" minOccurs="0"/> -->
+      </choice>
       <!-- not needed in AMS
-      <xs:attributeGroup ref="startEndTimeGroup"/>
+      <attributeGroup ref="startEndTimeGroup"/>
       -->
-   </xs:complexType>
+   </complexType>
 
    <!-- rightsLinkType -->
-   <xs:complexType name="rightsLinkType">
-      <xs:annotation>
-         <xs:documentation>"The rightsLinkType allows for the addition of an annotation attribute
-            to the rightsLink."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="xs:anyURI">
-            <xs:attribute name="annotation" type="xs:string"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+   <complexType name="rightsLinkType">
+      <annotation>
+         <documentation>"The rightsLinkType allows for the addition of an annotation attribute
+            to the rightsLink."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="anyURI">
+            <attribute name="annotation" type="string"/>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- embeddedType -->
    <!-- not needed in AMS 
-   <xs:complexType name="embeddedType">
-      <xs:annotation>
-         <xs:documentation>"The embeddedType allows for the addition of an annotation attribute to
-            the embeddedType."</xs:documentation>
-      </xs:annotation>
-      <xs:sequence>
-         <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-      <xs:attribute name="annotation" type="xs:string"/>
-   </xs:complexType>
+   <complexType name="embeddedType">
+      <annotation>
+         <documentation>"The embeddedType allows for the addition of an annotation attribute to
+            the embeddedType."</documentation>
+      </annotation>
+      <sequence>
+         <any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+      </sequence>
+      <attribute name="annotation" type="string"/>
+   </complexType>
    -->
 
    <!-- threeLetterStringType -->
    <!-- not needed in AMS 
-   <xs:complexType name="threeLetterStringType">
-      <xs:annotation>
-         <xs:documentation>"The threeletterStringType adds the sourceVersionGroup to
-            threelettercode for source references."</xs:documentation>
-      </xs:annotation>
-      <xs:simpleContent>
-         <xs:extension base="threeLetterCode">
-            <xs:attributeGroup ref="sourceVersionGroup"/>
-         </xs:extension>
-      </xs:simpleContent>
-   </xs:complexType>
+   <complexType name="threeLetterStringType">
+      <annotation>
+         <documentation>"The threeletterStringType adds the sourceVersionGroup to
+            threelettercode for source references."</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="threeLetterCode">
+            <attributeGroup ref="sourceVersionGroup"/>
+         </extension>
+      </simpleContent>
+   </complexType>
    -->
 
    <!-- threelettercode Algorithm -->
-   <xs:simpleType name="threeLetterCode">
-      <xs:annotation>
-         <xs:documentation>"This controls the language element to insure the use of three letter
-            codes."</xs:documentation>
-      </xs:annotation>
-      <xs:restriction base="xs:string">
-         <xs:pattern value="([a-z]{3}((;[a-z]{3})?)*)?"/>
+   <simpleType name="threeLetterCode">
+      <annotation>
+         <documentation>"This controls the language element to insure the use of three letter
+            codes."</documentation>
+      </annotation>
+      <restriction base="string">
+         <pattern value="([a-z]{3}((;[a-z]{3})?)*)?"/>
          <!-- allows for null -->
-      </xs:restriction>
-   </xs:simpleType>
+      </restriction>
+   </simpleType>
 
    <!-- descriptionTypeSourceVersionGroup -->
-   <xs:attributeGroup name="descriptionTypeSourceVersionGroup">
-      <xs:annotation>
-         <xs:documentation>"This group is similar to sourceVersionGroup but description specific
-            and with the addition of a descriptionType attribute."</xs:documentation>
-      </xs:annotation>
-      <xs:attribute name="descriptionType" type="xs:string"/>
+   <attributeGroup name="descriptionTypeSourceVersionGroup">
+      <annotation>
+         <documentation>"This group is similar to sourceVersionGroup but description specific
+            and with the addition of a descriptionType attribute."</documentation>
+      </annotation>
+      <attribute name="descriptionType" type="string"/>
       <!-- not needed in AMS 
-      <xs:attribute name="descriptionTypeSource" type="xs:string"/>
-      <xs:attribute name="descriptionTypeRef" type="xs:string"/>
-      <xs:attribute name="descriptionTypeVersion" type="xs:string"/>
-      <xs:attribute name="descriptionTypeAnnotation" type="xs:string"/>
+      <attribute name="descriptionTypeSource" type="string"/>
+      <attribute name="descriptionTypeRef" type="string"/>
+      <attribute name="descriptionTypeVersion" type="string"/>
+      <attribute name="descriptionTypeAnnotation" type="string"/>
       -->
-   </xs:attributeGroup>
+   </attributeGroup>
 
    <!-- sourceVersionGroup -->
-   <xs:attributeGroup name="sourceVersionGroup">
-      <xs:annotation>
-         <xs:documentation>"The grouping of attributes: source, reference, version and
-            annotation."</xs:documentation>
-      </xs:annotation>
-      <xs:attribute name="source" type="xs:string" use="optional"/>
-      <xs:attribute name="ref" type="xs:string"/>
+   <attributeGroup name="sourceVersionGroup">
+      <annotation>
+         <documentation>"The grouping of attributes: source, reference, version and
+            annotation."</documentation>
+      </annotation>
+      <attribute name="source" type="string" use="optional"/>
+      <attribute name="ref" type="string"/>
       <!-- not needed in AMS 
-      <xs:attribute name="version" type="xs:string"/>
-      <xs:attribute name="annotation" type="xs:string"/>
+      <attribute name="version" type="string"/>
+      <attribute name="annotation" type="string"/>
       -->
-   </xs:attributeGroup>
+   </attributeGroup>
 
    <!-- startEndTimeGroup -->
    <!-- not needed in AMS 
-   <xs:attributeGroup name="startEndTimeGroup">
-      <xs:annotation>
-         <xs:documentation>"The grouping of attributes: startTime, endTime and
-            timeAnnotation."</xs:documentation>
-      </xs:annotation>
-      <xs:attribute name="startTime" type="xs:string"/>
-      <xs:attribute name="endTime" type="xs:string"/>
-      <xs:attribute name="timeAnnotation" type="xs:string"/>
-   </xs:attributeGroup>
+   <attributeGroup name="startEndTimeGroup">
+      <annotation>
+         <documentation>"The grouping of attributes: startTime, endTime and
+            timeAnnotation."</documentation>
+      </annotation>
+      <attribute name="startTime" type="string"/>
+      <attribute name="endTime" type="string"/>
+      <attribute name="timeAnnotation" type="string"/>
+   </attributeGroup>
       -->
 
    <!-- segmentTypeSourceVersionGroup -->
    <!-- not need in AMS 
-   <xs:attributeGroup name="segmentTypeSourceVersionGroup">
-      <xs:annotation>
-         <xs:documentation>"This group is similar to sourceVersionGroup but segment specific and
-            with the addition of a segmentType attribute."</xs:documentation>
-      </xs:annotation>
-      <xs:attribute name="segmentType" type="xs:string"/>
-      <xs:attribute name="segmentTypeSource" type="xs:string"/>
-      <xs:attribute name="segmentTypeRef" type="xs:string"/>
-      <xs:attribute name="segmentTypeVersion" type="xs:string"/>
-      <xs:attribute name="segmentTypeAnnotation" type="xs:string"/>
-   </xs:attributeGroup>
+   <attributeGroup name="segmentTypeSourceVersionGroup">
+      <annotation>
+         <documentation>"This group is similar to sourceVersionGroup but segment specific and
+            with the addition of a segmentType attribute."</documentation>
+      </annotation>
+      <attribute name="segmentType" type="string"/>
+      <attribute name="segmentTypeSource" type="string"/>
+      <attribute name="segmentTypeRef" type="string"/>
+      <attribute name="segmentTypeVersion" type="string"/>
+      <attribute name="segmentTypeAnnotation" type="string"/>
+   </attributeGroup>
    -->
 
-</xs:schema>
+</schema>
