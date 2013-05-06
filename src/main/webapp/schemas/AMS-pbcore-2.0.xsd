@@ -3,6 +3,8 @@
 		targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
 		xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified"
 		version="2.0RC1">
+	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+	<import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="simpledc20021212.xsd"/>
 	<annotation>
 		<documentation>This is a modification of the PBCore version 2.0RC1 XML schema.
 			It has been customized to be consistent with the PBCore implementation of the American Archives Archival Management Sysetm (AMS).
