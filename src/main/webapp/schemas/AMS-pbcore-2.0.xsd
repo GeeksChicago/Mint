@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified" version="2.0RC1">
+<schema xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
+	xmlns:pbcore="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified">
 	<annotation>
-		<documentation>This is a modification of the PBCore version 2.0RC1 XML schema.It has been customized to be consistent with the PBCore implementation of the American Archives Archival Management Sysetm (AMS).All element descriptions can be found at http://www.pbcore.org</documentation>
+		<documentation>This is a modification of the PBCore version 2.0RC1 XML schema. 
+		  It has been customized to be consistent with the PBCore implementation of the American Archives Archival Management Sysetm (AMS). 
+		  All element descriptions can be found at http://www.pbcore.org</documentation>
 	</annotation>
 	<element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
 		<annotation>
