@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
    xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified"
@@ -8,81 +8,31 @@
 		  It has been customized to be consistent with the PBCore implementation of the American Archives Archival Management Sysetm (AMS). 
 		  All element descriptions can be found at http://www.pbcore.org </documentation>
    </annotation>
-
-   <!-- the pbcoreCollection root element -->
-   <!-- not in use in AMS
-   <element name="pbcoreCollection" type="pbcoreCollectionType">
-      <annotation>
-         <documentation>"This entry point is for a collection of PBCore assets. Assets can be
-            grouped in a number of ways to best serve the archivist."</documentation>
-      </annotation>
-   </element>
-   -->
-   <!-- the pbcoreDescriptionDocument root element -->
-   <element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
+	<element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
       <annotation>
          <documentation> Main entry point for a PBCore record. Single assets start
             here. </documentation>
       </annotation>
    </element>
-
-   <!-- the pbcoreInstantiationDocument root element -->
-   <!-- not in use in AMS 
-   <element name="pbcoreInstantiationDocument" type="instantiationType">
-      <annotation>
-         <documentation>"This is entry point for an instantiation only record. Most likely used
-            when referenced from other schemas."</documentation>
-      </annotation>
-   </element>
-   -->
-   <!-- the pbcoreCollectionType -->
-   <!-- not in use in AMS 
-   <complexType name="pbcoreCollectionType">
-      <annotation>
-         <documentation>"The pbcoreCollectionType allows the addition of attributes that
-            describe the PBCoreCollection. The attributes define the title, the description, the
-            source, the reference and the date of the collection."</documentation>
-      </annotation>
-      <sequence>
-         <element maxOccurs="unbounded" minOccurs="1" ref="pbcoreDescriptionDocument">
-            <annotation>
-               <documentation xml:lang="en">"The pbcoreDescriptionDocument assembles together
-                  all of PBCore knowledge items into a single data record organized in a
-                  hierarchical structure. For PBCore these knowledge items are metadata descriptions
-                  of media, including all the knowledge items and metadata terms and values
-                  associated with its content and containers."</documentation>
-            </annotation>
-         </element>
-      </sequence>
-      <attribute name="collectionTitle" type="string"/>
-      <attribute name="collectionDescription" type="string"/>
-      <attribute name="collectionSource" type="string"/>
-      <attribute name="collectionRef" type="string"/>
-      <attribute name="collectionDate" type="string"/>
-   </complexType>
-   -->
-   <!-- pbcoreDescriptionDocumentType -->
-   <complexType name="pbcoreDescriptionDocumentType">
+	<complexType name="pbcoreDescriptionDocumentType">
       <annotation>
          <documentation> The defining of the DescriptionDocument allows its use as a single
             asset or repeated use in the pbcoreCollection. </documentation>
       </annotation>
       <sequence>
-         <!-- the pbcore asset type -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetType" type="string">
             <annotation>
                <documentation> The descriptor pbcoreAssetType indicates the broad
                   editorial format of the assets contents. AssetType describes the PBCore record as
                   a whole and at its highest level. Though a record may contain many instantiations
                   of different formats and generations, for example, assetType may be used to
-                  indicate that they all represent a “program” or a “clip.” In FRBR language,
-                  assetType would be used to describe an asset at the “work” level. (Whereas
-                  “instantiationMediaType” would describe the “item” level.) This element is largely
+                  indicate that they all represent a ‚Äúprogram‚Äù or a ‚Äúclip.‚Äù In FRBR language,
+                  assetType would be used to describe an asset at the ‚Äúwork‚Äù level. (Whereas
+                  ‚ÄúinstantiationMediaType‚Äù would describe the ‚Äúitem‚Äù level.) This element is largely
                   based on the EBUCore element ObjectType:
                   http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml </documentation>
             </annotation>
          </element>
-         <!-- the pbcore asset date - this element may occur many times with different date types -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetDate"
             type="dateStringType">
             <annotation>
@@ -91,8 +41,6 @@
                   of dates associated with an asset </documentation>
             </annotation>
          </element>
-         <!-- the pbcore identifier - this element may occur as many times as
-                      desired, however an indentifier source attribute is required. -->
          <element maxOccurs="unbounded" minOccurs="1" name="pbcoreIdentifier"
             type="requiredSourceVersionStringType">
             <annotation>
@@ -106,8 +54,6 @@
                   station, production company, office, or institution. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore title - this element may occur as many times as
-                      desired, optionally, a titleType attribute may appear -->
          <element maxOccurs="unbounded" minOccurs="1" name="pbcoreTitle" type="titleStringType">
             <annotation>
                <documentation xml:lang="en">The pbcoreTitle is a name given to the media item
@@ -118,8 +64,6 @@
                   assigning to the media item. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore subject - this element may occur as many times as
-                      desired, optional attributes can note subjectType as well as time annotations  -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreSubject"
             type="subjectStringType">
             <annotation>
@@ -132,10 +76,6 @@
                   terminology). </documentation>
             </annotation>
          </element>
-         <!-- the pbcore description - this element may occur as many times
-                      as desired, however if it does occur, then a description tag is
-                      required.  optionally, the description type may appear - but
-                      it has a limited vocabulary -->
          <element maxOccurs="unbounded" minOccurs="1" name="pbcoreDescription"
             type="descriptionStringType">
             <annotation>
@@ -148,7 +88,6 @@
                   of content. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore genre - this element may occur as many times as desired. -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre"
             type="sourceVersionStringType">
             <annotation>
@@ -158,9 +97,6 @@
                   nature of the content in a generalized form. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore relation - this element may occur as many times as
-            desired.  if it does occur, the pbcoreRelationIdentifier must appear,
-            also the pbcoreRelationType must also appear -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreRelation">
             <annotation>
                <documentation> The pbcoreRelation element is a container for subelements
@@ -192,8 +128,6 @@
                </sequence>
             </complexType>
          </element>
-         <!-- the pbcore coverage - this element may occur as many times as
-                      desired, and within it a Spatial or a Temporal coverageType -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreCoverage">
             <annotation>
                <documentation> The pbcoreCoverage element is a container for subelements
@@ -236,8 +170,6 @@
                </sequence>
             </complexType>
          </element>
-         <!-- the pbcore audienceLevel - this may occur as many times as desired
-                      within the document -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceLevel"
             type="sourceVersionStringType">
             <annotation>
@@ -246,8 +178,6 @@
                   is primarily designed or educationally useful. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore audienceRating - this may occur as many times as desired
-                      within the document -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceRating"
             type="sourceVersionStringType">
             <annotation>
@@ -258,9 +188,6 @@
                   age-appropriate materials. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore creator - may appear as many times as
-            necessary, but when it does appear, the creator tag is required.  the
-            creatorRole tag is optional. -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreCreator">
             <annotation>
                <documentation> The pbcoreCreator element is a container for sub-elements
@@ -294,9 +221,6 @@
                </sequence>
             </complexType>
          </element>
-         <!-- the pbcore contributor - this element may appear as many times
-                      as necessary, but when it does appear, the contributor tag must
-                      appear inside it.  the contributor role is optional. -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreContributor">
             <annotation>
                <documentation> The pbcoreContributor element is a container for sub-elements
@@ -325,10 +249,6 @@
                </sequence>
             </complexType>
          </element>
-         <!-- the pbcore publisher - this follows the same guidelines as the
-                      contributor and the creator.  this may exist as many times as
-                      we wish, but inside it there must be a publisher tag.  a
-                      publisherRole tag is optional. -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcorePublisher">
             <annotation>
                <documentation> The pbcorePublisher element is a container for sub-elements
@@ -356,7 +276,6 @@
                </sequence>
             </complexType>
          </element>
-         <!-- the pbcore rights - this may appear as many times as needed -->
          <element name="pbcoreRightsSummary" type="rightsSummaryType" maxOccurs="unbounded"
             minOccurs="0">
             <annotation>
@@ -365,8 +284,6 @@
                   Rights for the asset. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation - this contains all the details on how
-                      the asset is actualized -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreInstantiation"
             type="instantiationType">
             <annotation>
@@ -375,7 +292,6 @@
                   of it in the real world. </documentation>
             </annotation>
          </element>
-         <!-- PBCore Annotation -->
          <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAnnotation"
             type="annotationStringType">
             <annotation>
@@ -386,40 +302,14 @@
                   understood. </documentation>
             </annotation>
          </element>
-         <!-- PBCore Part -->
-         <!-- not needed in AMS 
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcorePart" type="pbcorePartType">
-            <annotation>
-               <documentation>"The pbcorePart element is a container for repeating the same set
-                  of sub-elements used by super-element 'pbcoreDescriptionDocument. e.g. this allows
-                  for defining segments, stories or episodes." </documentation>
-            </annotation>
-         </element>
-         -->
-         <!-- PBCore Extension -->
-         <!-- not needed in AMS 
-         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreExtension"
-            type="extensionType">
-            <annotation>
-               <documentation>"The pbcoreExtension element is a container to accomodate metadata
-                  from external systems. Use it to supplement other sub-elements of
-                  'pbcoreDescriptionDocument'."</documentation>
-            </annotation>
-         </element>
-         -->
-         <!-- For Readability - DescriptionDocument sequence end -->
-      </sequence>
-      <!-- For Readability - DescriptionDocument complexType end -->
+	</sequence>
    </complexType>
-
-   <!-- the pbcore instantiationType -->
-   <complexType name="instantiationType">
+	<complexType name="instantiationType">
       <annotation>
          <documentation> This uses a common structure to allow for a single instantiation or
             multiple instantiations within a pbcoreDocumentDescription. </documentation>
       </annotation>
       <sequence>
-         <!-- the pbcore instantiationIdentifier -->
          <element maxOccurs="unbounded" minOccurs="1" name="instantiationIdentifier"
             type="requiredSourceVersionStringType">
             <annotation>
@@ -432,7 +322,6 @@
                   institution. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationDate -->
          <element maxOccurs="unbounded" minOccurs="0" name="instantiationDate"
             type="dateStringType">
             <annotation>
@@ -445,7 +334,6 @@
                   Dates </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationDimensions-->
          <element maxOccurs="unbounded" minOccurs="0" name="instantiationDimensions"
             type="technicalStringType">
             <annotation>
@@ -454,7 +342,6 @@
                   media. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationPhysical-->
          <element maxOccurs="1" minOccurs="0" name="instantiationPhysical"
             type="string">
             <annotation>
@@ -465,7 +352,6 @@
                   drive. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationDigital-->
          <element maxOccurs="1" minOccurs="0" name="instantiationDigital"
             type="string">
             <annotation>
@@ -475,7 +361,6 @@
                   formats may be expressed with formal Internet MIME types. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationStandard-->
          <element minOccurs="0" name="instantiationStandard"
             type="string">
             <annotation>
@@ -483,7 +368,6 @@
                   of a particular instantiation of a media item as it exists. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationLocation-->
          <element maxOccurs="1" minOccurs="1" name="instantiationLocation" type="string">
             <annotation>
                <documentation xml:lang="en"> The descriptor instantiationLocation is considered
@@ -495,7 +379,6 @@
                   page. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationmMediaType -->
          <element maxOccurs="1" minOccurs="0" name="instantiationMediaType"
             type="string">
             <annotation>
@@ -505,7 +388,6 @@
                   moving image. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationGenerations -->
          <element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations"
             type="string">
             <annotation>
@@ -514,7 +396,6 @@
                   e.g., Audio/Narration or Moving image/Backup master. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiationFileSize -->
          <element maxOccurs="1" minOccurs="0" name="instantiationFileSize"
             type="technicalStringType">
             <annotation>
@@ -523,7 +404,6 @@
                   standard, express the file size in bytes. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiationTimeStart-->
          <element maxOccurs="1" minOccurs="0" name="instantiationTimeStart" type="string">
             <annotation>
                <documentation xml:lang="en"> The descriptor instantiationTimeStart provides a
@@ -533,7 +413,6 @@
                   time. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiationDuration-->
          <element maxOccurs="1" minOccurs="0" name="instantiationDuration" type="string">
             <annotation>
                <documentation xml:lang="en"> The descriptor instantiationDuration provides a
@@ -541,7 +420,6 @@
                   represents the playback time. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiationDataRate-->
          <element maxOccurs="1" minOccurs="0" name="instantiationDataRate"
             type="technicalStringType">
             <annotation>
@@ -553,7 +431,6 @@
                   kilobits/second is lesser quality than 1 megabit/second). </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationColors -->
          <element maxOccurs="1" minOccurs="0" name="instantiationColors"
             type="string">
             <annotation>
@@ -563,7 +440,6 @@
                   item. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiationTracks-->
          <element maxOccurs="1" minOccurs="0" name="instantiationTracks" type="string">
             <annotation>
                <documentation xml:lang="en"> The descriptor instantiationTracks is simply
@@ -574,7 +450,6 @@
                   instantiationChannelConfiguration. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiationChannelConfiguration-->
          <element maxOccurs="1" minOccurs="0" name="instantiationChannelConfiguration"
             type="string">
             <annotation>
@@ -584,7 +459,6 @@
                   track stereo, or video track with alpha channel. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationLanguage -->
          <element name="instantiationLanguage" type="string" maxOccurs="1"
             minOccurs="0">
             <annotation>
@@ -594,7 +468,6 @@
                   instantiationAlternativeModes. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationAlternativeModes -->
          <element maxOccurs="1" minOccurs="0" name="instantiationAlternativeModes"
             type="string">
             <annotation>
@@ -610,7 +483,6 @@
                   Arabic.' </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationEssenceTrack -->
          <element maxOccurs="unbounded" minOccurs="0" name="instantiationEssenceTrack"
             type="essenceTrackType">
             <annotation>
@@ -618,9 +490,6 @@
                   essenceTrack related elements and their repeated use. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore InstantiationRelation - this element may occur as many times as
-            desired.  if it does occur, the instantiationRelationIdentifier must appear,
-            also the relationType must also appear -->
          <element maxOccurs="unbounded" minOccurs="0" name="instantiationRelation">
             <annotation>
                <documentation> The instantiationRelation element is a container for sub-elements
@@ -653,18 +522,6 @@
                </sequence>
             </complexType>
          </element>
-         <!-- the pbcore instantiationRights -->
-         <!-- not currently used in AMS 
-         <element name="instantiationRights" type="rightsSummaryType" maxOccurs="unbounded"
-            minOccurs="0">
-            <annotation>
-               <documentation xml:lang="en"> "The instantiationRights element is a container for
-                  sub-elements 'rightsSummary', 'rightsLink' and 'rightsEmbedded' to describe rights
-                  particular to this this particular instantiation." </documentation>
-            </annotation>
-         </element>
-         -->
-         <!-- the pbcore instantiationAnnotation -->
          <element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation"
             type="annotationStringType">
             <annotation>
@@ -675,56 +532,20 @@
                   understood. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiationPart -->
-         <!-- not needed in AMS 
-         <element name="instantiationPart" type="instantiationType" maxOccurs="unbounded"
-            minOccurs="0">
-            <annotation>
-               <documentation>"The instantiationPart element is a container to allow for
-                  multiple instantiation parts, e.g. multi-disk DVD."</documentation>
-            </annotation>
-         </element>
-         -->
-         <!-- the pbcore instantiationExtension -->
-         <!-- not needed in AMS 
-         <element maxOccurs="unbounded" minOccurs="0" name="instantiationExtension"
-            type="extensionType">
-            <annotation>
-               <documentation>"The instantiationExtension element is a container to accomodate
-                  instantiation-level metadata from external systems. Use it to supplement other
-                  metadata sub-elements of 'instantiationPart' or 'pbcoreInstantiationDocument' in
-                  which it appears."</documentation>
-            </annotation>
-         </element>
-         -->
-      </sequence>
-      <!-- instantiationStartEndTimeGroup -->
-      <!-- not needed in AMS 
-      <attributeGroup ref="startEndTimeGroup">
-         <annotation>
-            <documentation>"The instantiation level startEndTimeGroup may be used when there
-               is a multi-part instantiation and time notation is important. </documentation>
-         </annotation>
-      </attributeGroup>
-      -->
-   </complexType>
-
-
-   <!-- the pbcore instantiation essenceTrackType -->
-   <complexType name="essenceTrackType">
+       </sequence>
+     </complexType>
+	<complexType name="essenceTrackType">
       <annotation>
          <documentation> This uses a common structure to allow for grouping of the essence
             related elements and their repeated use. </documentation>
       </annotation>
       <sequence>
-         <!-- the pbcore instantiation essenceTrackType -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackType" type="string">
             <annotation>
                <documentation xml:lang="en"> The essenceTrackType element is used to label the
                   essence track by its type, e.g. video, audio etc. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackIdentifier -->
          <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackIdentifier"
             type="sourceVersionStringType">
             <annotation>
@@ -733,7 +554,6 @@
                   instantiation. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackStandard -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackStandard"
             type="string">
             <annotation>
@@ -743,7 +563,6 @@
                   video formats exist. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiation essenceTrackEncoding -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackEncoding"
             type="sourceVersionStringType">
             <annotation>
@@ -756,7 +575,6 @@
                   bandwidths or pipeline capacities. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiation essenceTrackDataRate-->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackDataRate"
             type="technicalStringType">
             <annotation>
@@ -768,7 +586,6 @@
                   kilobits/second vs. 1 megabit/second. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackFrameRate -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate"
             type="string">
             <annotation>
@@ -777,7 +594,6 @@
                   playback or display. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiation essenceTrackPlaybackSpeed-->
          <element minOccurs="0" name="essenceTrackPlaybackSpeed" type="string">
             <annotation>
                <documentation> The essenceTrackPlaybackSpeed element specifies the rate of units
@@ -785,7 +601,6 @@
                   e.g., 15ips (inches per second), 24fps (frames per second) </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackSamplingRate -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate"
             type="string">
             <annotation>
@@ -797,7 +612,6 @@
                   fidelity). </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackBitDepth -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackBitDepth" type="string">
             <annotation>
                <documentation xml:lang="en"> The essenceTrackBitDepth element specifies "How
@@ -808,7 +622,6 @@
                   fidelity). </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackFrameSize -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize"
             type="string">
             <annotation>
@@ -819,7 +632,6 @@
                   stacked vertically (interlaced and progressive scan). </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackAspectRatio -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio"
             type="string">
             <annotation>
@@ -828,7 +640,6 @@
                   moving image. </documentation>
             </annotation>
          </element>
-         <!--  the pbcore instantiation essenceTrackTimeStart-->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackTimeStart" type="string">
             <annotation>
                <documentation xml:lang="en"> The descriptor essenceTrackTimeStart provides a
@@ -838,7 +649,6 @@
                   time. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackDuration -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackDuration" type="string">
             <annotation>
                <documentation xml:lang="en"> The descriptor essenceTrackDuration provides a
@@ -846,7 +656,6 @@
                   playback time. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackLanguage -->
          <element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage"
             type="string">
             <annotation>
@@ -856,7 +665,6 @@
                   alternativeModes. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceTrackAnnotation -->
          <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackAnnotation"
             type="annotationStringType">
             <annotation>
@@ -866,96 +674,8 @@
                   otherwise sufficiently understood. </documentation>
             </annotation>
          </element>
-         <!-- the pbcore instantiation essenceExtension -->
-         <!-- not needed in AMS 
-         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackExtension"
-            type="extensionType">
-            <annotation>
-               <documentation>"The essenceTrackExtension element is a container to accomodate
-                  track-level metadata from external systems. Use it to supplement other metadata
-                  sub-elements of 'instantiationEssenceTrack' in which it
-                  appears."</documentation>
-            </annotation>
-         </element>
-         -->
-      </sequence>
+       </sequence>
    </complexType>
-         
-
-   <!-- extensionType -->
-   <!-- not needed in AMS 
-   <complexType name="extensionType">
-      <annotation>
-         <documentation>"This uses a common structure to allow for the use of multiple,
-            qualified extensions at the asset, instantiation and essence
-            levels."</documentation>
-      </annotation>
-      <choice>
-         <element maxOccurs="unbounded" minOccurs="1" name="extensionWrap">
-            <complexType>
-               <sequence>
-                  <element maxOccurs="1" minOccurs="1" name="extensionElement" type="string">
-                     <annotation>
-                        <documentation xml:lang="en">"The descriptor extensionElement provides
-                           metadata descriptions crafted into metadata dictionaries and schemas
-                           outside of the PBCore Metadata Dictionary Project. These extensions
-                           fulfill the metadata requirements for communities identifying and
-                           describing their own types of media with specialized, custom
-                           terminologies."</documentation>
-                     </annotation>
-                  </element>
-                  <element maxOccurs="1" minOccurs="1" name="extensionValue" type="string">
-                     <annotation>
-                        <documentation xml:lang="en">"Use extensionValue to express the actual
-                           data value of the label indicated by
-                           extensionElement."</documentation>
-                     </annotation>
-                  </element>
-                  <element maxOccurs="1" minOccurs="1" name="extensionAuthorityUsed"
-                     type="anyURI">
-                     <annotation>
-                        <documentation xml:lang="en">"If metadata extensions to PBCore are
-                           assigned to a media item with the descriptor extensionElement, and the
-                           terms used are derived from a specific authority or metadata scheme, use
-                           extensionAuthorityUsed to identify whose metadata extensions are being
-                           used."</documentation>
-                     </annotation>
-                  </element>
-               </sequence>
-               <attribute name="annotation" type="string"/>
-            </complexType>
-         </element>
-         <element maxOccurs="unbounded" minOccurs="1" name="extensionEmbedded"
-            type="embeddedType"> </element>
-      </choice>
-   </complexType>
-   -->
-
-
-   <!-- pbcorePartType -->
-   <!-- not needed in AMS 
-   <complexType name="pbcorePartType">
-      <annotation>
-         <documentation>"This uses a common structure to allow for the repeating of descriptive
-            sub-documents to define different segments, episodes etc., just as super-element
-            'pbcoreDescriptionDocument' can be collected and used to describe higher-level media
-            programs."</documentation>
-      </annotation>
-      <complexContent>
-         <extension base="pbcoreDescriptionDocumentType">
-            <attributeGroup ref="startEndTimeGroup">
-               <annotation>
-                  <documentation>"The group of attributes "startTime', 'endTime' and
-                     'timeAnnotation' could be used when a there is a multipart asset and time
-                     notation is important. </documentation>
-               </annotation>
-            </attributeGroup>
-         </extension>
-      </complexContent>
-   </complexType>
-   -->
-
-   <!-- dateStringType -->
    <complexType name="dateStringType">
       <annotation>
          <documentation> This dateStringType allows for the addition of the dateType
@@ -967,8 +687,6 @@
          </extension>
       </simpleContent>
    </complexType>
-
-   <!-- sourceVersionStringType -->
    <complexType name="sourceVersionStringType">
       <annotation>
          <documentation> The sourceVersionStringType is used with a number of elements to allow
@@ -981,9 +699,7 @@
          </extension>
       </simpleContent>
    </complexType>
-
-   <!-- requiredSourceVersionStringType -->
-   <complexType name="requiredSourceVersionStringType">
+  <complexType name="requiredSourceVersionStringType">
       <annotation>
          <documentation> This type is the sample as sourceVersionStringType with the addition
             that the source attribute is required instead of optional. </documentation>
@@ -992,16 +708,10 @@
          <extension base="string">
             <attribute name="source" type="string" use="required"/>
             <attribute name="ref" type="string"/>
-            <!-- not needed in AMS 
-            <attribute name="version" type="string"/>
-            <attribute name="annotation" type="string"/>
-            -->
          </extension>
       </simpleContent>
    </complexType>
-
-   <!-- titleStringType -->
-   <complexType name="titleStringType">
+  <complexType name="titleStringType">
       <annotation>
          <documentation> The titleStringType allows for the addition of a titleType attribute as
             well as the standard sourceVersionGroup attributes. </documentation>
@@ -1010,14 +720,9 @@
          <extension base="string">
             <attribute name="titleType"/>
             <attributeGroup ref="sourceVersionGroup"/>
-            <!-- not needed in AMS 
-            <attributeGroup ref="startEndTimeGroup"/>
-            -->
          </extension>
       </simpleContent>
    </complexType>
-
-   <!-- subjectStringType -->
    <complexType name="subjectStringType">
       <annotation>
          <documentation> The subjectStringType allows for the addition of a subjectType
@@ -1028,14 +733,9 @@
          <extension base="string">
             <attribute name="subjectType" type="string"/>
             <attributeGroup ref="sourceVersionGroup"/>
-            <!-- not need in AMS 
-            <attributeGroup ref="startEndTimeGroup"/>
-            -->
-         </extension>
+        </extension>
       </simpleContent>
    </complexType>
-
-   <!-- descriptionStringType -->
    <complexType name="descriptionStringType">
       <annotation>
          <documentation> The descriptionType is a complex group of attributes that help define
@@ -1045,256 +745,112 @@
       <simpleContent>
          <extension base="string">
             <attributeGroup ref="descriptionTypeSourceVersionGroup"/>
-            <!-- not needed in AMS
-            <attributeGroup ref="segmentTypeSourceVersionGroup"/>
-            -->
-            <!-- not needed in AMS 
-            <attributeGroup ref="startEndTimeGroup"/>
-            
-            <attribute name="annotation" type="string"/>
-            -->
-         </extension>
-      </simpleContent>
-   </complexType>
-
-   <!-- sourceVersionStartEndStringType -->
-   <!-- not needed in AMS 
-   <complexType name="sourceVersionStartEndStringType">
-      <annotation>
-         <documentation>"The sourceVersionStartEndStringType adds attributes that define the
-            source of the string with the option of time related attributes"</documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="string">
-            <attributeGroup ref="sourceVersionGroup"/>
-            <attributeGroup ref="startEndTimeGroup"/>
-         </extension>
-      </simpleContent>
-   </complexType>
-      -->
-
-   <!-- affiliatedStringType -->
-   <complexType name="affiliatedStringType">
-      <annotation>
-         <documentation> The affiliatedStringType adds attributes of affiliation and time
-            relevance. </documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="string">
-            <attribute name="affiliation"/>
-            <attribute name="ref"/>
-            <!-- not needed in AMS 
-            <attribute name="annotation"/>
-            <attributeGroup ref="startEndTimeGroup"/>
-            -->
-         </extension>
-      </simpleContent>
-   </complexType>
-
-   <!-- contributorStringType -->
+            </extension>
+		</simpleContent>
+	</complexType>
+    <complexType name="affiliatedStringType">
+		<annotation>
+			<documentation> The affiliatedStringType adds attributes of affiliation and time
+				relevance. </documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="affiliation"/>
+				<attribute name="ref"/>
+			</extension>
+		</simpleContent>
+	</complexType>
    <complexType name="contributorStringType">
-      <annotation>
-         <documentation> the contributorString helps define the portrayal role as well as the
-            general source and version group attributes. </documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="string">
-            <!-- not needed in AMS 
-               <attribute name="portrayal" type="string"/> -->
-            <attributeGroup ref="sourceVersionGroup"/>
-         </extension>
-      </simpleContent>
-   </complexType>
-
-   <!-- technicalStringType  -->
-   <complexType name="technicalStringType">
-      <annotation>
-         <documentation> The technicalStringType add the attribute of
-            unitsOfMeasure. </documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="string">
-            <attribute name="unitsOfMeasure"/>
-            <!-- not needed in AMS 
-            <attribute name="annotation"/>
-            -->
-         </extension>
-      </simpleContent>
-   </complexType>
-
-   <!-- instantiationDigitalStringType -->
-   <!-- not needed in AMS 
-   <complexType name="instantiationStandardStringType">
-      <annotation>
-         <documentation>"The instantiationStandardStringType allows for the addition of a
-            profile attribute along with the sourceVersionGroup."</documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="string">
-            <attribute name="profile"/>
-            <attributeGroup ref="sourceVersionGroup"/>
-         </extension>
-      </simpleContent>
-   </complexType>
-   -->
-
-   <!-- annotationStringType  -->
-   <complexType name="annotationStringType">
-      <annotation>
-         <documentation> This stringType added an annotationType attribute and a
-            reference. </documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="string">
-            <attribute name="annotationType"/>
-            <!-- not needed in AMS 
-            <attribute name="ref"/>
-            -->
-         </extension>
-      </simpleContent>
-   </complexType>
-
-   <!-- rightsSummeryType -->
+		<annotation>
+			<documentation> the contributorString helps define the portrayal role as well as the
+				general source and version group attributes. </documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attributeGroup ref="sourceVersionGroup"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+    <complexType name="technicalStringType">
+		<annotation>
+			<documentation> The technicalStringType add the attribute of
+				unitsOfMeasure. </documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="unitsOfMeasure"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+    <complexType name="annotationStringType">
+		<annotation>
+			<documentation> This stringType added an annotationType attribute and a
+				reference. </documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="annotationType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
    <complexType name="rightsSummaryType">
-      <annotation>
-         <documentation> This same structure allows the use of rights at the asset level and the
-            instantiation level. The rights can be expressed as a summary or a link or an embedded
-            XML record. These can also contain time relations </documentation>
-      </annotation>
-      <choice>
-         <element maxOccurs="1" minOccurs="0" name="rightsSummary"
-            type="sourceVersionStringType">
-            <annotation>
-               <documentation xml:lang="en"> Use the descriptor rightsSummary as an all-purpose
-                  container field to identify information about copyrights and property rights held
-                  in and over a media item, whether they are open access or restricted in some way.
-                  If dates, times and availability periods are associated with a right, include
-                  them. End user permissions, constraints and obligations may also be identified, as
-                  needed. </documentation>
-            </annotation>
-         </element>
-         <element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
-            <annotation>
-               <documentation> A URI pointing to a declaration of rights </documentation>
-            </annotation>
-         </element>
-         <!-- not needed in AMS
-         <element name="rightsEmbedded" type="embeddedType" maxOccurs="1" minOccurs="0"/> -->
-      </choice>
-      <!-- not needed in AMS
-      <attributeGroup ref="startEndTimeGroup"/>
-      -->
-   </complexType>
-
-   <!-- rightsLinkType -->
-   <complexType name="rightsLinkType">
-      <annotation>
-         <documentation> The rightsLinkType allows for the addition of an annotation attribute
-            to the rightsLink. </documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="anyURI">
-            <attribute name="annotation" type="string"/>
-         </extension>
-      </simpleContent>
-   </complexType>
-
-   <!-- embeddedType -->
-   <!-- not needed in AMS 
-   <complexType name="embeddedType">
-      <annotation>
-         <documentation>"The embeddedType allows for the addition of an annotation attribute to
-            the embeddedType."</documentation>
-      </annotation>
-      <sequence>
-         <any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-      </sequence>
-      <attribute name="annotation" type="string"/>
-   </complexType>
-   -->
-
-   <!-- threeLetterStringType -->
-   <!-- not needed in AMS 
-   <complexType name="threeLetterStringType">
-      <annotation>
-         <documentation>"The threeletterStringType adds the sourceVersionGroup to
-            threelettercode for source references."</documentation>
-      </annotation>
-      <simpleContent>
-         <extension base="threeLetterCode">
-            <attributeGroup ref="sourceVersionGroup"/>
-         </extension>
-      </simpleContent>
-   </complexType>
-   -->
-
-   <!-- threelettercode Algorithm -->
-   <simpleType name="threeLetterCode">
-      <annotation>
-         <documentation> This controls the language element to insure the use of three letter
-            codes. </documentation>
-      </annotation>
-      <restriction base="string">
-         <pattern value="([a-z]{3}((;[a-z]{3})?)*)?"/>
-         <!-- allows for null -->
-      </restriction>
-   </simpleType>
-
-   <!-- descriptionTypeSourceVersionGroup -->
-   <attributeGroup name="descriptionTypeSourceVersionGroup">
-      <annotation>
-         <documentation> This group is similar to sourceVersionGroup but description specific
-            and with the addition of a descriptionType attribute. </documentation>
-      </annotation>
-      <attribute name="descriptionType" type="string"/>
-      <!-- not needed in AMS 
-      <attribute name="descriptionTypeSource" type="string"/>
-      <attribute name="descriptionTypeRef" type="string"/>
-      <attribute name="descriptionTypeVersion" type="string"/>
-      <attribute name="descriptionTypeAnnotation" type="string"/>
-      -->
-   </attributeGroup>
-
-   <!-- sourceVersionGroup -->
+		<annotation>
+			<documentation> This same structure allows the use of rights at the asset level and the
+				instantiation level. The rights can be expressed as a summary or a link or an embedded
+				XML record. These can also contain time relations </documentation>
+		</annotation>
+		<choice>
+			<element maxOccurs="1" minOccurs="0" name="rightsSummary"
+					 type="sourceVersionStringType">
+				<annotation>
+					<documentation xml:lang="en"> Use the descriptor rightsSummary as an all-purpose
+						container field to identify information about copyrights and property rights held
+						in and over a media item, whether they are open access or restricted in some way.
+						If dates, times and availability periods are associated with a right, include
+						them. End user permissions, constraints and obligations may also be identified, as
+						needed. </documentation>
+				</annotation>
+			</element>
+			<element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
+				<annotation>
+					<documentation> A URI pointing to a declaration of rights </documentation>
+				</annotation>
+			</element>
+		</choice>
+	</complexType>
+<complexType name="rightsLinkType">
+		<annotation>
+			<documentation> The rightsLinkType allows for the addition of an annotation attribute
+				to the rightsLink. </documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="anyURI">
+				<attribute name="annotation" type="string"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+  <simpleType name="threeLetterCode">
+		<annotation>
+			<documentation> This controls the language element to insure the use of three letter
+				codes. </documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="([a-z]{3}((;[a-z]{3})?)*)?"/>
+		</restriction>
+	</simpleType>
+    <attributeGroup name="descriptionTypeSourceVersionGroup">
+		<annotation>
+			<documentation> This group is similar to sourceVersionGroup but description specific
+				and with the addition of a descriptionType attribute. </documentation>
+		</annotation>
+		<attribute name="descriptionType" type="string"/>
+	</attributeGroup>
    <attributeGroup name="sourceVersionGroup">
-      <annotation>
-         <documentation> The grouping of attributes: source, reference, version and
-            annotation. </documentation>
-      </annotation>
-      <attribute name="source" type="string" use="optional"/>
-      <attribute name="ref" type="string"/>
-      <!-- not needed in AMS 
-      <attribute name="version" type="string"/>
-      <attribute name="annotation" type="string"/>
-      -->
-   </attributeGroup>
-
-   <!-- startEndTimeGroup -->
-   <!-- not needed in AMS 
-   <attributeGroup name="startEndTimeGroup">
-      <annotation>
-         <documentation>"The grouping of attributes: startTime, endTime and
-            timeAnnotation."</documentation>
-      </annotation>
-      <attribute name="startTime" type="string"/>
-      <attribute name="endTime" type="string"/>
-      <attribute name="timeAnnotation" type="string"/>
-   </attributeGroup>
-      -->
-
-   <!-- segmentTypeSourceVersionGroup -->
-   <!-- not need in AMS 
-   <attributeGroup name="segmentTypeSourceVersionGroup">
-      <annotation>
-         <documentation>"This group is similar to sourceVersionGroup but segment specific and
-            with the addition of a segmentType attribute."</documentation>
-      </annotation>
-      <attribute name="segmentType" type="string"/>
-      <attribute name="segmentTypeSource" type="string"/>
-      <attribute name="segmentTypeRef" type="string"/>
-      <attribute name="segmentTypeVersion" type="string"/>
-      <attribute name="segmentTypeAnnotation" type="string"/>
-   </attributeGroup>
-   -->
-
+		<annotation>
+			<documentation> The grouping of attributes: source, reference, version and
+				annotation. </documentation>
+		</annotation>
+		<attribute name="source" type="string" use="optional"/>
+		<attribute name="ref" type="string"/>
+	</attributeGroup>
 </schema>
