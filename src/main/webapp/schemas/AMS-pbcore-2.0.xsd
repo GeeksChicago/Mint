@@ -1,10 +1,10 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"  attributeFormDefault="unqualified" version="2.0RC1" xml:lang="en">
    <xsd:annotation>
-      <xsd:documentation xml:lang="en">"This is a modification of the PBCore version 2.0RC1 XML
+      <xsd:documentation>This is a modification of the PBCore version 2.0RC1 XML
          schema. It has been customized to be consistent with the PBCore implementation of the
-         American Archives' Archival Management Sysetm (AMS). All element descriptions can be found at
-         http://www.pbcore.org"</xsd:documentation>
+         American Archives Archival Management Sysetm (AMS). All element descriptions can be found at
+         http://www.pbcore.org</xsd:documentation>
    </xsd:annotation>
 	<!-- the pbcoreDescriptionDocument root element -->
    <xsd:element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
@@ -27,9 +27,9 @@
                   editorial format of the assets contents. AssetType describes the PBCore record as
                   a whole and at its highest level. Though a record may contain many instantiations
                   of different formats and generations, for example, assetType may be used to
-                  indicate that they all represent a “program” or a “clip.” In FRBR language,
-                  assetType would be used to describe an asset at the “work” level. (Whereas
-                  “instantiationMediaType” would describe the “item” level.) This element is largely
+                  indicate that they all represent a ‚Äúprogram‚Äù or a ‚Äúclip.‚Äù In FRBR language,
+                  assetType would be used to describe an asset at the ‚Äúwork‚Äù level. (Whereas
+                  ‚ÄúinstantiationMediaType‚Äù would describe the ‚Äúitem‚Äù level.) This element is largely
                   based on the EBUCore element ObjectType:
                   http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml</xsd:documentation>
             </xsd:annotation>
