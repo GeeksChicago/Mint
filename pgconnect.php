@@ -2,13 +2,11 @@
 $dbconnection = pg_connect("host=localhost port=5432 dbname=mint_ams user=mint password=mint");
 if($dbconnection)
 {
-	$p_query=pg_query($dbconnection,"SELECT nextval('seq_users_id')");
-	$user_info=pg_fetch_row($p_query);
-	echo '<pre>';
-	print_r($user_info);
-	exit;
+	
 	if(isset($_REQUEST['mint_id'])){
 		if($_REQUEST['mint_id']==''){
+			$p_query=pg_query($dbconnection,"SELECT nextval('seq_users_id')");
+			$user_id=pg_fetch_row($p_query);
 			$username = explode('@',$_REQUEST['username']);
 			$random=rand(1,99);
 			$final_username=$username[0].'_'.$random;
@@ -21,7 +19,8 @@ if($dbconnection)
 				'organization_id'=>1,
 				'account_created'=>date('Y-m-d'),
 				'active_account'=>'t',
-				'rights'=>4
+				'rights'=>4,
+				'users_id'=>$user_id[0]
 			);
 			$result = pg_insert($dbconnection, 'users', $data);
 			if($result){
