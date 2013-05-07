@@ -2,6 +2,11 @@
 $dbconnection = pg_connect("host=localhost port=5432 dbname=mint_ams user=mint password=mint");
 if($dbconnection)
 {
+	$p_query=pg_query($dbconnection,"SELECT nextval('seq_users_id')");
+	$user_info=pg_fetch_row($p_query);
+	echo '<pre>';
+	print_r($user_info);
+	exit;
 	if(isset($_REQUEST['mint_id'])){
 		if($_REQUEST['mint_id']==''){
 			$username = explode('@',$_REQUEST['username']);
