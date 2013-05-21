@@ -1,154 +1,165 @@
-<?xml version="1.0"?>
-<pr0:schema targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns:pr0="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"  attributeFormDefault="unqualified" version="2.0RC1" xml:lang="en">
-   <pr0:annotation>
-      <pr0:documentation>This is a modification of the PBCore version 2.0RC1 XML
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"  attributeFormDefault="unqualified" xml:lang="en" version="2.0RC1">
+   <annotation>
+      <documentation>This is a modification of the PBCore version 2.0RC1 XML
          schema. It has been customized to be consistent with the PBCore implementation of the
-         American Archives Archival Management Sysetm (AMS). All element descriptions can be found at
-         http://www.pbcore.org</pr0:documentation>
-   </pr0:annotation>
-	<!-- the pbcoreDescriptionDocument root element -->
-   <pr0:element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
-      <pr0:annotation>
-         <pr0:documentation>Main entry point for a PBCore record. Single assets start
-            here.</pr0:documentation>
-      </pr0:annotation>
-   </pr0:element>
-	<!-- pbcoreDescriptionDocumentType -->
-   <pr0:complexType name="pbcoreDescriptionDocumentType">
-      <pr0:annotation>
-         <pr0:documentation>The defining of the DescriptionDocument allows its use as a single
-            asset or repeated use in the pbcoreCollection.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:sequence>
+         American Archives' Archival Management Sysetm (AMS). All element descriptions can be found at
+         http://www.pbcore.org</documentation>
+   </annotation>
+
+   <!-- the pbcoreDescriptionDocument root element -->
+   <element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
+      <annotation>
+         <documentation>Main entry point for a PBCore record. Single assets start
+            here.</documentation>
+      </annotation>
+   </element>
+
+   
+   <!-- pbcoreDescriptionDocumentType -->
+   <complexType name="pbcoreDescriptionDocumentType">
+      <annotation>
+         <documentation>The defining of the DescriptionDocument allows its use as a single
+            asset or repeated use in the pbcoreCollection.</documentation>
+      </annotation>
+      <sequence>
          <!-- the pbcore asset type -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetType" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor pbcoreAssetType indicates the broad
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetType" type="string">
+            <annotation>
+               <documentation>The descriptor pbcoreAssetType indicates the broad
                   editorial format of the assets contents. AssetType describes the PBCore record as
                   a whole and at its highest level. Though a record may contain many instantiations
                   of different formats and generations, for example, assetType may be used to
-                  indicate that they all represent a �program� or a �clip.� In FRBR language,
-                  assetType would be used to describe an asset at the �work� level. (Whereas
-                  �instantiationMediaType� would describe the �item� level.) This element is largely
+                  indicate that they all represent a ‚Äúprogram‚Äù or a ‚Äúclip.‚Äù In FRBR language,
+                  assetType would be used to describe an asset at the ‚Äúwork‚Äù level. (Whereas
+                  ‚ÄúinstantiationMediaType‚Äù would describe the ‚Äúitem‚Äù level.) This element is largely
                   based on the EBUCore element ObjectType:
-                  http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml </documentation>
+            </annotation>
+         </element>
          <!-- the pbcore asset date - this element may occur many times with different date types -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetDate" type="dateStringType">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreAssetDate could reflect the original date
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAssetDate"
+            type="dateStringType">
+            <annotation>
+               <documentation>The pbcoreAssetDate could reflect the original date
                   the asset was created or the date of the representation of the work or other types
-                  of dates associated with an asset</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  of dates associated with an asset</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore identifier - this element may occur as many times as
                       desired, however an indentifier source attribute is required. -->
-         <pr0:element maxOccurs="unbounded" minOccurs="1" name="pbcoreIdentifier" type="requiredSourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor pbcoreIdentifier is used to
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreIdentifier"
+            type="requiredSourceVersionStringType">
+            <annotation>
+               <documentation>The descriptor pbcoreIdentifier is used to
                   reference or identify the entire record of metadata descriptions for a media item.
                   The pbcoreIdentifier exists at the top level for a PBCore description and its
                   associated description document (XML). Best practice is to identify the media item
                   (whether analog or digital) by means of an unambiguous string or number
                   corresponding to an established or formal identification system if one exists.
                   Otherwise, use an identification method that is in use within your agency,
-                  station, production company, office, or institution.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  station, production company, office, or institution.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore title - this element may occur as many times as
                       desired, optionally, a titleType attribute may appear -->
-         <pr0:element maxOccurs="unbounded" minOccurs="1" name="pbcoreTitle" type="titleStringType">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreTitle is a name given to the media item
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreTitle" type="titleStringType">
+            <annotation>
+               <documentation>The pbcoreTitle is a name given to the media item
                   you are cataloging. It is the unique name everyone should use to refer to or
                   search for a particular media item. There are obviously many types of titles a
                   media item may have, such as a series title, episode title, segment title, or
                   project title. Use the attribute 'titleType' to indicate the type of title you are
-                  assigning to the media item.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  assigning to the media item.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore subject - this element may occur as many times as
                       desired, optional attributes can note subjectType as well as time annotations  -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreSubject" type="subjectStringType">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreSubject is used to assign topical
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreSubject"
+            type="subjectStringType">
+            <annotation>
+               <documentation>The pbcoreSubject is used to assign topical
                   headings or keywords that portray the intellectual content of the media item you
                   are cataloging. Typically, a subject is expressed by a limited number of keywords,
                   key phrases, or even specific classification codes. Controlled vocabularies,
                   authorities, or formal classification schemes may be employed when assigning
                   descriptive subject terms (rather than using random or ad hoc
-                  terminology).</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  terminology).</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore description - this element may occur as many times
                       as desired, however if it does occur, then a description tag is
                       required.  optionally, the description type may appear - but
                       it has a limited vocabulary -->
-         <pr0:element maxOccurs="unbounded" minOccurs="1" name="pbcoreDescription" type="descriptionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreDescription element uses free-form text
+         <element maxOccurs="unbounded" minOccurs="1" name="pbcoreDescription"
+            type="descriptionStringType">
+            <annotation>
+               <documentation>The pbcoreDescription element uses free-form text
                   or a narrative to report general notes, abstracts, or summaries about the
                   intellectual content of a media item you are cataloging. The information may be in
                   the form of a paragraph giving an individual program description, anecdotal
                   interpretations, or brief content reviews. The description may also consist of
                   outlines, lists, bullet points, rundowns, edit decision lists, indexes, or tables
-                  of content.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  of content.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore genre - this element may occur as many times as desired. -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre" type="sourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreGenre element describes the manner in
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre"
+            type="sourceVersionStringType">
+            <annotation>
+               <documentation>The pbcoreGenre element describes the manner in
                   which the intellectual content of a media item is presented, viewed or heard by a
                   user. It indicates the structure of the presentation, as well as the topical
-                  nature of the content in a generalized form.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  nature of the content in a generalized form.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore relation - this element may occur as many times as
             desired.  if it does occur, the pbcoreRelationIdentifier must appear,
             also the pbcoreRelationType must also appear -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreRelation">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreRelation element is a container for subelements
-                  'relationType' and 'relationIdentifier'.</pr0:documentation>
-            </pr0:annotation>
-            <pr0:complexType>
-               <pr0:sequence>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="pbcoreRelationType" type="sourceVersionStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>The descriptor pbcoreRelationType
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreRelation">
+            <annotation>
+               <documentation>The pbcoreRelation element is a container for subelements
+                  'relationType' and 'relationIdentifier'.</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationType"
+                     type="sourceVersionStringType">
+                     <annotation>
+                        <documentation>The descriptor pbcoreRelationType
                            identifies the type of intellectual content bond between a media item you
-                           are cataloging and some other related media item.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="pbcoreRelationIdentifier" type="pr0:string">
-                     <pr0:annotation>
-                        <pr0:documentation>Once the type of relationship between two
+                           are cataloging and some other related media item.</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="1" name="pbcoreRelationIdentifier"
+                     type="string">
+                     <annotation>
+                        <documentation>Once the type of relationship between two
                            media items is identified by using the descriptor pbcoreRelationType, the
                            companion descriptor pbcoreRelationIdentifier is used to provide a name,
                            locator, accession number, identification number or ID where the related
                            item can be obtained or found. The cross reference uses a unique
                            identifier. The relationship could also reflect another relationship
                            type, such as an episode in a series or a program
-                           segment.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-               </pr0:sequence>
-            </pr0:complexType>
-         </pr0:element>
+                           segment.</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore coverage - this element may occur as many times as
                       desired, and within it a Spatial or a Temporal coverageType -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreCoverage">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreCoverage element is a container for subelements
-                  'coverage' and 'coverageType'.</pr0:documentation>
-            </pr0:annotation>
-            <pr0:complexType>
-               <pr0:sequence>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="coverage" type="pr0:string">
-                     <pr0:annotation>
-                        <pr0:documentation>The descriptor coverage uses keywords to
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreCoverage">
+            <annotation>
+               <documentation>The pbcoreCoverage element is a container for subelements
+                  'coverage' and 'coverageType'.</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="coverage"
+                     type="string">
+                     <annotation>
+                        <documentation> The descriptor coverage uses keywords to
                            identify a span of space or time that is expressed by the intellectual
                            content of a media item. Coverage in intellectual content may be
                            expressed spatially by geographic location. Actual place names may be
@@ -157,69 +168,74 @@
                            expressed temporally by a date, period, era, or time-based event. The
                            PBCore metadata element coverage houses the actual spatial or temporal
                            keywords. The companion descriptor coverageType is used to identify the
-                           type of keywords that are being used.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="1" minOccurs="0" name="coverageType">
-                     <pr0:annotation>
-                        <pr0:documentation>The coverageType element is used to
+                           type of keywords that are being used.</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="0" name="coverageType">
+                     <annotation>
+                        <documentation>The coverageType element is used to
                            identify the actual type of keywords that are being used by its companion
                            metadata element 'coverage.' coverageType provides a picklist of types,
                            namely *spatial* or *temporal*, because coverage in intellectual content
                            may be expressed spatially by geographic location or it may also be
-                           expressed temporally by a date, period, era, or time-based event.</pr0:documentation>
-                     </pr0:annotation>
-                     <pr0:simpleType>
-                        <pr0:restriction base="pr0:string">
-                           <pr0:enumeration value="Spatial"/>
-                           <pr0:enumeration value="Temporal"/>
-                        </pr0:restriction>
-                     </pr0:simpleType>
-                  </pr0:element>
-               </pr0:sequence>
-            </pr0:complexType>
-         </pr0:element>
+                           expressed temporally by a date, period, era, or time-based event.
+                        </documentation>
+                     </annotation>
+                     <simpleType>
+                        <restriction base="string">
+                           <enumeration value="Spatial"/>
+                           <enumeration value="Temporal"/>
+                        </restriction>
+                     </simpleType>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore audienceLevel - this may occur as many times as desired
                       within the document -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceLevel" type="sourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor pbcoreAudienceLevel identifies a
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceLevel"
+            type="sourceVersionStringType">
+            <annotation>
+               <documentation>The descriptor pbcoreAudienceLevel identifies a
                   type of audience, viewer, or listener for whom the media item you are cataloging
-                  is primarily designed or educationally useful.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  is primarily designed or educationally useful.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore audienceRating - this may occur as many times as desired
                       within the document -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceRating" type="sourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor pbcoreAudienceRating designates the
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAudienceRating"
+            type="sourceVersionStringType">
+            <annotation>
+               <documentation>The descriptor pbcoreAudienceRating designates the
                   type of users for whom a media item is intended or judged appropriate in terms of
                   its intellectual content. Standard ratings have been crafted by the broadcast
                   television and film industries and are used as flags for audience or
-                  age-appropriate materials.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  age-appropriate materials.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore creator - may appear as many times as
             necessary, but when it does appear, the creator tag is required.  the
             creatorRole tag is optional. -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreCreator">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreCreator element is a container for sub-elements
-                  'creator' and 'creatorRole'.</pr0:documentation>
-            </pr0:annotation>
-            <pr0:complexType>
-               <pr0:sequence>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="creator" type="affiliatedStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>The descriptor creator identifies a person
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreCreator">
+            <annotation>
+               <documentation>The pbcoreCreator element is a container for sub-elements
+                  'creator' and 'creatorRole'.</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="creator"
+                     type="affiliatedStringType">
+                     <annotation>
+                        <documentation>The descriptor creator identifies a person
                            or organization primarily responsible for creating a media item. The
                            creator may be considered an author and could be one or more people, a
-                           business, organization, group, project or service.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="unbounded" minOccurs="0" name="creatorRole" type="sourceVersionStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>Use the descriptor creatorRole to identify
+                           business, organization, group, project or service. </documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="unbounded" minOccurs="0" name="creatorRole"
+                     type="sourceVersionStringType">
+                     <annotation>
+                        <documentation>Use the descriptor creatorRole to identify
                            the role played by the person or group identified in the companion
                            descriptor creator. Unlike print resources, there is usually no single
                            role, like an author, who has primary responsibility for the creation of
@@ -227,276 +243,297 @@
                            renditions. For these media, creators identified as the primary creator
                            can fill many different roles, such as the instructor for a video course,
                            the interviewee from a video history program, or the director of a
-                           program or film.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-               </pr0:sequence>
-            </pr0:complexType>
-         </pr0:element>
+                           program or film.</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore contributor - this element may appear as many times
                       as necessary, but when it does appear, the contributor tag must
                       appear inside it.  the contributor role is optional. -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreContributor">
-            <pr0:annotation>
-               <pr0:documentation>The pbcoreContributor element is a container for sub-elements
-                  'contributor' and 'contributorRole'.</pr0:documentation>
-            </pr0:annotation>
-            <pr0:complexType>
-               <pr0:sequence>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="contributor" type="affiliatedStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>The descriptor contributor identifies a
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreContributor">
+            <annotation>
+               <documentation>The pbcoreContributor element is a container for sub-elements
+                  'contributor' and 'contributorRole'.</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="contributor"
+                     type="affiliatedStringType">
+                     <annotation>
+                        <documentation>The descriptor contributor identifies a
                            person or organization that has made substantial creative contributions
                            to the intellectual content within a media item. This contribution is
                            considered to be secondary to the primary author(s) (person or
-                           organization) identified in the descriptor creator.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="unbounded" minOccurs="0" name="contributorRole" type="contributorStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>Use the descriptor contributorRole to
+                           organization) identified in the descriptor creator.</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="unbounded" minOccurs="0" name="contributorRole"
+                     type="contributorStringType">
+                     <annotation>
+                        <documentation>Use the descriptor contributorRole to
                            identify the role played by the person or group identified in the
-                           companion descriptor contributor.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-               </pr0:sequence>
-            </pr0:complexType>
-         </pr0:element>
+                           companion descriptor contributor.</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore publisher - this follows the same guidelines as the
                       contributor and the creator.  this may exist as many times as
                       we wish, but inside it there must be a publisher tag.  a
                       publisherRole tag is optional. -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcorePublisher">
-            <pr0:annotation>
-               <pr0:documentation>The pbcorePublisher element is a container for sub-elements
-                  'publisher' and 'publisherRole'.</pr0:documentation>
-            </pr0:annotation>
-            <pr0:complexType>
-               <pr0:sequence>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="publisher" type="affiliatedStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>The descriptor publisher identifies a
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcorePublisher">
+            <annotation>
+               <documentation>The pbcorePublisher element is a container for sub-elements
+                  'publisher' and 'publisherRole'.</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="publisher"
+                     type="affiliatedStringType">
+                     <annotation>
+                        <documentation>The descriptor publisher identifies a
                            person or organization primarily responsible for distributing or making a
                            media item available to others. The publisher may be a person, a
-                           business, organization, group, project or service.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="unbounded" minOccurs="0" name="publisherRole" type="sourceVersionStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>Use the descriptor publisherRole to
+                           business, organization, group, project or service.</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="unbounded" minOccurs="0" name="publisherRole"
+                     type="sourceVersionStringType">
+                     <annotation>
+                        <documentation>"Use the descriptor publisherRole to
                            identify the role played by the specific publisher or publishing entity
-                           identified in the companion descriptor publisher.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-               </pr0:sequence>
-            </pr0:complexType>
-         </pr0:element>
+                           identified in the companion descriptor publisher."</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
          <!-- the pbcore rights - this may appear as many times as needed -->
-         <pr0:element name="pbcoreRightsSummary" type="rightsSummaryType" maxOccurs="unbounded" minOccurs="0">
-            <pr0:annotation>
-               <pr0:documentation> The element pbcoreRightsSummary is a container for
+         <element name="pbcoreRightsSummary" type="rightsSummaryType" maxOccurs="unbounded"
+            minOccurs="0">
+            <annotation>
+               <documentation> The element pbcoreRightsSummary is a container for
                   sub-elements 'rightsSummary', 'rightsLink' and 'rightsEmbedded' used to describe
-                  Rights for the asset.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  Rights for the asset.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation - this contains all the details on how
                       the asset is actualized -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreInstantiation" type="instantiationType">
-            <pr0:annotation>
-               <pr0:documentation>The element 'pbcoreInstantiation' is a container
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreInstantiation"
+            type="instantiationType">
+            <annotation>
+               <documentation>The element 'pbcoreInstantiation' is a container
                   for sub-elements which describe an instance of a media item, i.e., a manifestation
-                  of it in the real world. </pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  of it in the real world. </documentation>
+            </annotation>
+         </element>
          <!-- PBCore Annotation -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="pbcoreAnnotation" type="annotationStringType">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor pbcoreAnnotation is an element where
+         <element maxOccurs="unbounded" minOccurs="0" name="pbcoreAnnotation"
+            type="annotationStringType">
+            <annotation>
+               <documentation>The descriptor pbcoreAnnotation is an element where
                   you can catalog any supplementary information about the metadata used to describe
                   the PBCore record. pbcoreAnnotation clarifies element values, terms, descriptors,
                   and vocabularies that may not be otherwise sufficiently
-                  understood.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-        
+                  understood.</documentation>
+            </annotation>
+         </element>
+         
          <!-- For Readability - DescriptionDocument sequence end -->
-      </pr0:sequence>
+      </sequence>
       <!-- For Readability - DescriptionDocument complexType end -->
-   </pr0:complexType>
+   </complexType>
 
    <!-- the pbcore instantiationType -->
-   <pr0:complexType name="instantiationType">
-      <pr0:annotation>
-         <pr0:documentation>This uses a common structure to allow for a single instantiation or
-            multiple instantiations within a pbcoreDocumentDescription.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:sequence>
+   <complexType name="instantiationType">
+      <annotation>
+         <documentation>This uses a common structure to allow for a single instantiation or
+            multiple instantiations within a pbcoreDocumentDescription.</documentation>
+      </annotation>
+      <sequence>
          <!-- the pbcore instantiationIdentifier -->
-         <pr0:element maxOccurs="unbounded" minOccurs="1" name="instantiationIdentifier" type="requiredSourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The instantiationIdentifier employs an unambiguous
+         <element maxOccurs="unbounded" minOccurs="1" name="instantiationIdentifier"
+            type="requiredSourceVersionStringType">
+            <annotation>
+               <documentation>The instantiationIdentifier employs an unambiguous
                   reference or identifier for a particular rendition/instantiation of a media item.
                   Best practice is to identify the media item (whether analog or digital) by means
                   of a string or number corresponding to an established or formal identification
                   system if one exists. Otherwise, use an identification method that is in use
                   within your agency, station, production company, office, or
-                  institution.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  institution.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationDate -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="instantiationDate" type="dateStringType">
-            <pr0:annotation>
-               <pr0:documentation>Use the descriptor instantiationDate to specify the
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDate"
+            type="dateStringType">
+            <annotation>
+               <documentation>Use the descriptor instantiationDate to specify the
                   creation date for a particular instantiation of a media item across its life
                   cycle. It is the moment in time that the media item was finalized during its
                   production process and is forwarded to other divisions or agencies to make it
                   ready for publication or distribution. A specific time may also be associated with
                   the date. Or the date Issued, Available Start Dates and End
-                  Dates</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  Dates</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationDimensions-->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="instantiationDimensions" type="technicalStringType">
-            <pr0:annotation>
-               <pr0:documentation>The instantiationDimensions element specifies the visual
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationDimensions"
+            type="technicalStringType">
+            <annotation>
+               <documentation>The instantiationDimensions element specifies the visual
                   dimensions to expect when rendering a particular instance of
-                  media.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  media.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationPhysical-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationPhysical" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>Use the descriptor instantiationPhysical to
+         <element maxOccurs="1" minOccurs="0" name="instantiationPhysical"
+            type="string">
+            <annotation>
+               <documentation>Use the descriptor instantiationPhysical to
                   identify the format of a particular instantiation of a media item as it exists in
                   an actual physical form that occupies physical space (e.g., a tape on a shelf),
                   rather than as a digital file residing on a server or hard
-                  drive.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  drive.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationDigital-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationDigital" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>Use the descriptor instantiationDigital to identify
+         <element maxOccurs="1" minOccurs="0" name="instantiationDigital"
+            type="string">
+            <annotation>
+               <documentation>Use the descriptor instantiationDigital to identify
                   the format of a particular instantiation of a media item as it exists in its
                   digital form, i.e., as a digital file on a server or hard drive. Digital media
-                  formats may be expressed with formal Internet MIME types.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  formats may be expressed with formal Internet MIME types.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationStandard-->
-         <pr0:element minOccurs="0" name="instantiationStandard" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>Use the descriptor instantiationStandard to identify the standard
-                  of a particular instantiation of a media item as it exists.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+         <element minOccurs="0" name="instantiationStandard"
+            type="string">
+            <annotation>
+               <documentation>Use the descriptor instantiationStandard to identify the standard
+                  of a particular instantiation of a media item as it exists.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationLocation-->
-         <pr0:element maxOccurs="1" minOccurs="1" name="instantiationLocation" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationLocation is considered
+         <element maxOccurs="1" minOccurs="1" name="instantiationLocation" type="string">
+            <annotation>
+               <documentation>The descriptor instantiationLocation is considered
                   to be an "address for a media item." For an organization or producer acting as
                   caretaker of a media resource, instantiationLocation may contain information about
                   a specific shelf location for an asset, including an organization's name,
                   departmental name, shelf ID and contact information. The instantiationLocation for
                   a data file or web page may include domain, path, filename or html
-                  page.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  page.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationmMediaType -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationMediaType" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationMediaType identifies
+         <element maxOccurs="1" minOccurs="0" name="instantiationMediaType"
+            type="string">
+            <annotation>
+               <documentation>The descriptor instantiationMediaType identifies
                   the general, high level nature of the content of a media item. It uses categories
                   that show how content is presented to an observer, e.g., as a sound, text or
-                  moving image.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  moving image.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationGenerations -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationGenerations identifies
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations"
+            type="string">
+            <annotation>
+               <documentation>The descriptor instantiationGenerations identifies
                   the particular use or manner in which an instantiation of a media item is used,
-                  e.g., Audio/Narration or Moving image/Backup master.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  e.g., Audio/Narration or Moving image/Backup master.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationFileSize -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationFileSize" type="technicalStringType">
-            <pr0:annotation>
-               <pr0:documentation>Use the descriptor instantiationFileSize to
+         <element maxOccurs="1" minOccurs="0" name="instantiationFileSize"
+            type="technicalStringType">
+            <annotation>
+               <documentation>Use the descriptor instantiationFileSize to
                   indicate the storage requirements or file size of a digital media item. As a
-                  standard, express the file size in bytes.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  standard, express the file size in bytes.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationTimeStart-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationTimeStart" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationTimeStart provides a
+         <element maxOccurs="1" minOccurs="0" name="instantiationTimeStart" type="string">
+            <annotation>
+               <documentation>The descriptor instantiationTimeStart provides a
                   time stamp for the beginning point of playback for a time-based media item, such
                   as digital video or audio. Use in combination with instantiationDuration to
                   identify a sequence or segment of a media item that has a fixed start time and end
-                  time.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  time.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationDuration-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationDuration" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationDuration provides a
+         <element maxOccurs="1" minOccurs="0" name="instantiationDuration" type="string">
+            <annotation>
+               <documentation>The descriptor instantiationDuration provides a
                   timestamp for the overall length or duration of a time-based media item. It
-                  represents the playback time.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  represents the playback time.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationDataRate-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationDataRate" type="technicalStringType">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationDataRate expresses the
+         <element maxOccurs="1" minOccurs="0" name="instantiationDataRate"
+            type="technicalStringType">
+            <annotation>
+               <documentation>The descriptor instantiationDataRate expresses the
                   amount of data in a digital media file that is encoded, delivered or distributed,
                   for every second of time. Although optimal data rates are often dependent on the
                   codec used to compress and encode a digital file, generally speaking, a larger
                   data rate translates into a better quality playback experience (e.g., 56
-                  kilobits/second is lesser quality than 1 megabit/second).</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  kilobits/second is lesser quality than 1 megabit/second).</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationColors -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationColors" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationColors indicates the
+         <element maxOccurs="1" minOccurs="0" name="instantiationColors"
+            type="string">
+            <annotation>
+               <documentation>The descriptor instantiationColors indicates the
                   overall color, grayscale, or black and white nature of a media item, as a single
                   occurrence or combination of occurrences in or throughout the media
-                  item.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  item.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationTracks-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationTracks" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationTracks is simply
+         <element maxOccurs="1" minOccurs="0" name="instantiationTracks" type="string">
+            <annotation>
+               <documentation>The descriptor instantiationTracks is simply
                   intended to indicate the number and type of tracks that are found in a media item,
                   whether it is analog or digital. (e.g. 1 video track, 2 audio tracks, 1 text
                   track, 1 sprite track, etc.) Other configuration information specific to these
                   identified tracks should be described using
-                  instantiationChannelConfiguration.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  instantiationChannelConfiguration.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiationChannelConfiguration-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationChannelConfiguration" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationChannelConfiguration is
+         <element maxOccurs="1" minOccurs="0" name="instantiationChannelConfiguration"
+            type="string">
+            <annotation>
+               <documentation>The descriptor instantiationChannelConfiguration is
                   designed to indicate the arrangement or configuration of specific channels or
                   layers of information within a media item's tracks. Examples are 2-track mono, 8-
-                  track stereo, or video track with alpha channel.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  track stereo, or video track with alpha channel.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationLanguage -->
-         <pr0:element name="instantiationLanguage" type="pr0:string" maxOccurs="1" minOccurs="0">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor language identifies the primary
+         <element name="instantiationLanguage" type="string" maxOccurs="1"
+            minOccurs="0">
+            <annotation>
+               <documentation>The descriptor language identifies the primary
                   language of a media item's audio or text. Alternative audio or text tracks and
                   their associated languages should be identified using the descriptor
-                  instantiationAlternativeModes.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  instantiationAlternativeModes.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationAlternativeModes -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="instantiationAlternativeModes" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor instantiationAlternativeModes is a
+         <element maxOccurs="1" minOccurs="0" name="instantiationAlternativeModes"
+            type="string">
+            <annotation>
+               <documentation>The descriptor instantiationAlternativeModes is a
                   catch-all metadata element that identifies equivalent alternatives to the primary
                   visual, sound or textual information that exists in a media item. These are modes
                   that offer alternative ways to see, hear, and read the content of a media item.
@@ -505,679 +542,466 @@
                   For each instance of available alternativeModes, the mode and its associated
                   language should be identified together, if applicable. Examples include 'SAP in
                   English,' 'SAP in Spanish,' 'Subtitle in French,' 'OpenCaption in
-                  Arabic.'</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  Arabic.'</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiationEssenceTrack -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="instantiationEssenceTrack" type="essenceTrackType">
-            <pr0:annotation>
-               <pr0:documentation>The instantiationEssenceTrack element allows for grouping of the
-                  essenceTrack related elements and their repeated use.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationEssenceTrack"
+            type="essenceTrackType">
+            <annotation>
+               <documentation>The instantiationEssenceTrack element allows for grouping of the
+                  essenceTrack related elements and their repeated use.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore InstantiationRelation - this element may occur as many times as
             desired.  if it does occur, the instantiationRelationIdentifier must appear,
             also the relationType must also appear -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="instantiationRelation">
-            <pr0:annotation>
-               <pr0:documentation>The instantiationRelation element is a container for sub-elements
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationRelation">
+            <annotation>
+               <documentation>The instantiationRelation element is a container for sub-elements
                   'instantiationRelationType' and 'instantiationRelationIdentifier' to describe
-                  inter-relationships to other instantiations.</pr0:documentation>
-            </pr0:annotation>
-            <pr0:complexType>
-               <pr0:sequence>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="instantiationRelationType" type="sourceVersionStringType">
-                     <pr0:annotation>
-                        <pr0:documentation>The descriptor relationType identifies the
+                  inter-relationships to other instantiations.</documentation>
+            </annotation>
+            <complexType>
+               <sequence>
+                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationType"
+                     type="sourceVersionStringType">
+                     <annotation>
+                        <documentation>The descriptor relationType identifies the
                            type of intellectual content bond between a media item you are cataloging
-                           and some other related media item.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="instantiationRelationIdentifier" type="pr0:string">
-                     <pr0:annotation>
-                        <pr0:documentation>Once the type of relationship between two
+                           and some other related media item.</documentation>
+                     </annotation>
+                  </element>
+                  <element maxOccurs="1" minOccurs="1" name="instantiationRelationIdentifier"
+                     type="string">
+                     <annotation>
+                        <documentation>Once the type of relationship between two
                            media items is identified by using the descriptor
                            instantiationRelationType, the companion descriptor
                            instantiationRelationIdentifier is used to provide a name, locator,
                            accession, identification number or ID where the related item can be
                            obtained or found. The cross reference uses a unique identifier. The
                            relationship could also describe a multi-part instantiation, such as a
-                           multi-disk DVD.</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-               </pr0:sequence>
-            </pr0:complexType>
-         </pr0:element>
-         <!-- the pbcore instantiationRights -->
-         <!-- not currently used in AMS 
-         <pr0:element name="instantiationRights" type="rightsSummaryType" maxOccurs="unbounded"
-            minOccurs="0">
-            <pr0:annotation>
-               <pr0:documentation> "The instantiationRights element is a container for
-                  sub-elements 'rightsSummary', 'rightsLink' and 'rightsEmbedded' to describe rights
-                  particular to this this particular instantiation." </pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         -->
+                           multi-disk DVD.</documentation>
+                     </annotation>
+                  </element>
+               </sequence>
+            </complexType>
+         </element>
+       
          <!-- the pbcore instantiationAnnotation -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation" type="annotationStringType">
-            <pr0:annotation>
-               <pr0:documentation>The instantiationAnnotation element is used to
+         <element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation"
+            type="annotationStringType">
+            <annotation>
+               <documentation>The instantiationAnnotation element is used to
                   catalog any supplementary information about an instantiation of the media item or
                   the metadata used to describe it. It clarifies element values, terms, descriptors,
                   and vocabularies that may not be otherwise sufficiently
-                  understood.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         <!-- the pbcore instantiationPart -->
-         <!-- not needed in AMS 
-         <pr0:element name="instantiationPart" type="instantiationType" maxOccurs="unbounded"
-            minOccurs="0">
-            <pr0:annotation>
-               <pr0:documentation>"The instantiationPart element is a container to allow for
-                  multiple instantiation parts, e.g. multi-disk DVD."</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         -->
-         <!-- the pbcore instantiationExtension -->
-         <!-- not needed in AMS 
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="instantiationExtension"
-            type="extensionType">
-            <pr0:annotation>
-               <pr0:documentation>"The instantiationExtension element is a container to accomodate
-                  instantiation-level metadata from external systems. Use it to supplement other
-                  metadata sub-elements of 'instantiationPart' or 'pbcoreInstantiationDocument' in
-                  which it appears."</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         -->
-      </pr0:sequence>
-      <!-- instantiationStartEndTimeGroup -->
-      <!-- not needed in AMS 
-      <pr0:attributeGroup ref="startEndTimeGroup">
-         <pr0:annotation>
-            <pr0:documentation>"The instantiation level startEndTimeGroup may be used when there
-               is a multi-part instantiation and time notation is important. </pr0:documentation>
-         </pr0:annotation>
-      </pr0:attributeGroup>
-      -->
-   </pr0:complexType>
+                  understood.</documentation>
+            </annotation>
+         </element>
+        
+      </sequence>
+      
+   </complexType>
 
 
    <!-- the pbcore instantiation essenceTrackType -->
-   <pr0:complexType name="essenceTrackType">
-      <pr0:annotation>
-         <pr0:documentation>This uses a common structure to allow for grouping of the essence
-            related elements and their repeated use.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:sequence>
+   <complexType name="essenceTrackType">
+      <annotation>
+         <documentation>This uses a common structure to allow for grouping of the essence
+            related elements and their repeated use.</documentation>
+      </annotation>
+      <sequence>
          <!-- the pbcore instantiation essenceTrackType -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackType" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackType element is used to label the
-                  essence track by its type, e.g. video, audio etc.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackType" type="string">
+            <annotation>
+               <documentation>The essenceTrackType element is used to label the
+                  essence track by its type, e.g. video, audio etc.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackIdentifier -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="essenceTrackIdentifier" type="sourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackIdentifier element is used to
+         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackIdentifier"
+            type="sourceVersionStringType">
+            <annotation>
+               <documentation>The essenceTrackIdentifier element is used to
                   identify the essence track and differentiate it from other tracks in the
-                  instantiation.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  instantiation.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackStandard -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackStandard" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>Use the descriptor essenceTrackStandard to identify
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackStandard"
+            type="string">
+            <annotation>
+               <documentation>Use the descriptor essenceTrackStandard to identify
                   a larger technical system/standard or overarching media architecture under which
                   various media formats exist, e.g., NTSC is a system/standard under which many
-                  video formats exist.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  video formats exist.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackEncoding -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackEncoding" type="sourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor essenceTrackEncoding identifies how
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackEncoding"
+            type="sourceVersionStringType">
+            <annotation>
+               <documentation>The descriptor essenceTrackEncoding identifies how
                   the actual information in a media item is compressed, interpreted, or formulated
                   using a particular scheme. Identifying the encoding used is beneficial for a
                   number of reasons, including as a way to achieve reversible compression; for the
                   construction of document indices to facilitate searching and access; or for
                   efficient distribution of the information across data networks with differing
-                  bandwidths or pipeline capacities.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  bandwidths or pipeline capacities.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackDataRate-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackDataRate" type="technicalStringType">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackDataRate element expresses the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackDataRate"
+            type="technicalStringType">
+            <annotation>
+               <documentation>The essenceTrackDataRate element expresses the
                   amount of data in a digital media file that is encoded, delivered or distributed,
                   for every second of time. Although optimal data rates are often dependent on the
                   codec used to compress and encode a digital file, generally speaking, a larger
                   data rate translates into a better quality playback experience, for example 56
-                  kilobits/second vs. 1 megabit/second.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  kilobits/second vs. 1 megabit/second.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackFrameRate -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackFrameRate element indicates the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate"
+            type="string">
+            <annotation>
+               <documentation>The essenceTrackFrameRate element indicates the
                   frames per second found in a video, motion sequence, flash file, or animation's
-                  playback or display.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  playback or display.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackPlaybackSpeed-->
-         <pr0:element minOccurs="0" name="essenceTrackPlaybackSpeed" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackPlaybackSpeed element specifies the rate of units
+         <element minOccurs="0" name="essenceTrackPlaybackSpeed" type="string">
+            <annotation>
+               <documentation>The essenceTrackPlaybackSpeed element specifies the rate of units
                   against time at which the media track should be rendered for human consumption.
-                  e.g., 15ips (inches per second), 24fps (frames per second)</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  e.g., 15ips (inches per second), 24fps (frames per second)</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackSamplingRate -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>For a media item (specifically audio), the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate"
+            type="string">
+            <annotation>
+               <documentation>For a media item (specifically audio), the
                   descriptor essenceTrackSamplingRate measures "How Often" data is sampled when
                   information is digitized. For a digital audio signal, the sampling rate is
                   measured in kilohertz and is an indicator of the perceived playback quality of the
                   media item (the higher the sampling rate, the greater the
-                  fidelity).</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  fidelity).</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackBitDepth -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackBitDepth" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackBitDepth element specifies "How
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackBitDepth" type="string">
+            <annotation>
+               <documentation>The essenceTrackBitDepth element specifies "How
                   Much" data is sampled when information is digitized, encoded, or converted for a
                   media item (specifically, audio, video, or image). Bit depth is measured in bits
                   and generally implies an arbitrary perception of quality during playback of a
                   media item (the higher the bit depth, the greater the
-                  fidelity).</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  fidelity).</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackFrameSize -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackFrameSize element indicates the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize"
+            type="string">
+            <annotation>
+               <documentation>The essenceTrackFrameSize element indicates the
                   horizontal and vertical resolution of a format type. It may be expressed in
                   pixels, pixels per inch, or in the case of ATSC digital TV, a combination of
                   pixels measured horizontally vs. the number of pixels of image/resolution data
-                  stacked vertically (interlaced and progressive scan).</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  stacked vertically (interlaced and progressive scan).</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackAspectRatio -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackAspectRatio element indicates the
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio"
+            type="string">
+            <annotation>
+               <documentation>The essenceTrackAspectRatio element indicates the
                   ratio of horizontal to vertical proportions in the display of a static image or
-                  moving image.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  moving image.</documentation>
+            </annotation>
+         </element>
          <!--  the pbcore instantiation essenceTrackTimeStart-->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackTimeStart" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor essenceTrackTimeStart provides a
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackTimeStart" type="string">
+            <annotation>
+               <documentation>The descriptor essenceTrackTimeStart provides a
                   time stamp for the beginning point of playback for a time-based media item, such
                   as digital video or audio. Use in combination with essenceTrackDuration to
                   identify a sequence or segment of a media item that has a fixed start time and end
-                  time.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  time.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackDuration -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackDuration" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>The descriptor essenceTrackDuration provides a
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackDuration" type="string">
+            <annotation>
+               <documentation>The descriptor essenceTrackDuration provides a
                   timestamp for the overall length or duration of a track. It represents the track
-                  playback time.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  playback time.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackLanguage -->
-         <pr0:element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage" type="pr0:string">
-            <pr0:annotation>
-               <pr0:documentation>essenceTrackLanguage identifies the primary
+         <element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage"
+            type="string">
+            <annotation>
+               <documentation>essenceTrackLanguage identifies the primary
                   language of the tracks' audio or text. Alternative audio or text tracks and their
                   associated languages should be identified using the descriptor
-                  alternativeModes.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
+                  alternativeModes.</documentation>
+            </annotation>
+         </element>
          <!-- the pbcore instantiation essenceTrackAnnotation -->
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="essenceTrackAnnotation" type="annotationStringType">
-            <pr0:annotation>
-               <pr0:documentation>The essenceTrackAnnotation element can store any
+         <element maxOccurs="unbounded" minOccurs="0" name="essenceTrackAnnotation"
+            type="annotationStringType">
+            <annotation>
+               <documentation>The essenceTrackAnnotation element can store any
                   supplementary information about a track or the metadata used to describe it. It
                   clarifies element values, terms, descriptors, and vocabularies that may not be
-                  otherwise sufficiently understood</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         <!-- the pbcore instantiation essenceExtension -->
-         <!-- not needed in AMS 
-         <pr0:element maxOccurs="unbounded" minOccurs="0" name="essenceTrackExtension"
-            type="extensionType">
-            <pr0:annotation>
-               <pr0:documentation>"The essenceTrackExtension element is a container to accomodate
-                  track-level metadata from external systems. Use it to supplement other metadata
-                  sub-elements of 'instantiationEssenceTrack' in which it
-                  appears."</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         -->
-      </pr0:sequence>
-   </pr0:complexType>
+                  otherwise sufficiently understood.</documentation>
+            </annotation>
+         </element>
+         
+      </sequence>
+   </complexType>
          
 
-   <!-- extensionType -->
-   <!-- not needed in AMS 
-   <pr0:complexType name="extensionType">
-      <pr0:annotation>
-         <pr0:documentation>"This uses a common structure to allow for the use of multiple,
-            qualified extensions at the asset, instantiation and essence
-            levels."</pr0:documentation>
-      </pr0:annotation>
-      <pr0:choice>
-         <pr0:element maxOccurs="unbounded" minOccurs="1" name="extensionWrap">
-            <pr0:complexType>
-               <pr0:sequence>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="extensionElement" type="pr0:string">
-                     <pr0:annotation>
-                        <pr0:documentation>"The descriptor extensionElement provides
-                           metadata descriptions crafted into metadata dictionaries and schemas
-                           outside of the PBCore Metadata Dictionary Project. These extensions
-                           fulfill the metadata requirements for communities identifying and
-                           describing their own types of media with specialized, custom
-                           terminologies."</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="extensionValue" type="pr0:string">
-                     <pr0:annotation>
-                        <pr0:documentation>"Use extensionValue to express the actual
-                           data value of the label indicated by
-                           extensionElement."</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-                  <pr0:element maxOccurs="1" minOccurs="1" name="extensionAuthorityUsed"
-                     type="pr0:anyURI">
-                     <pr0:annotation>
-                        <pr0:documentation>"If metadata extensions to PBCore are
-                           assigned to a media item with the descriptor extensionElement, and the
-                           terms used are derived from a specific authority or metadata scheme, use
-                           extensionAuthorityUsed to identify whose metadata extensions are being
-                           used."</pr0:documentation>
-                     </pr0:annotation>
-                  </pr0:element>
-               </pr0:sequence>
-               <pr0:attribute name="annotation" type="pr0:string"/>
-            </pr0:complexType>
-         </pr0:element>
-         <pr0:element maxOccurs="unbounded" minOccurs="1" name="extensionEmbedded"
-            type="embeddedType"> </pr0:element>
-      </pr0:choice>
-   </pr0:complexType>
-   -->
-
-
-   <!-- pbcorePartType -->
-   <!-- not needed in AMS 
-   <pr0:complexType name="pbcorePartType">
-      <pr0:annotation>
-         <pr0:documentation>"This uses a common structure to allow for the repeating of descriptive
-            sub-documents to define different segments, episodes etc., just as super-element
-            'pbcoreDescriptionDocument' can be collected and used to describe higher-level media
-            programs."</pr0:documentation>
-      </pr0:annotation>
-      <pr0:complexContent>
-         <pr0:extension base="pbcoreDescriptionDocumentType">
-            <pr0:attributeGroup ref="startEndTimeGroup">
-               <pr0:annotation>
-                  <pr0:documentation>"The group of attributes "startTime', 'endTime' and
-                     'timeAnnotation' could be used when a there is a multipart asset and time
-                     notation is important. </pr0:documentation>
-               </pr0:annotation>
-            </pr0:attributeGroup>
-         </pr0:extension>
-      </pr0:complexContent>
-   </pr0:complexType>
-   -->
+   
 
    <!-- dateStringType -->
-   <pr0:complexType name="dateStringType">
-      <pr0:annotation>
-         <pr0:documentation>This dateStringType allows for the addition of the dateType
-            attribute.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="dateType"/>
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+   <complexType name="dateStringType">
+      <annotation>
+         <documentation>This dateStringType allows for the addition of the dateType
+            attribute.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="dateType"/>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- sourceVersionStringType -->
-   <pr0:complexType name="sourceVersionStringType">
-      <pr0:annotation>
-         <pr0:documentation>The sourceVersionStringType is used with a number of elements to allow
+   <complexType name="sourceVersionStringType">
+      <annotation>
+         <documentation>The sourceVersionStringType is used with a number of elements to allow
             the attachment of the attributes: source, ref, version and
-            annotation.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attributeGroup ref="sourceVersionGroup"/>
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+            annotation.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attributeGroup ref="sourceVersionGroup"/>
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- requiredSourceVersionStringType -->
-   <pr0:complexType name="requiredSourceVersionStringType">
-      <pr0:annotation>
-         <pr0:documentation>This type is the sample as sourceVersionStringType with the addition
-            that the source attribute is required instead of optional.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="source" type="pr0:string" use="required"/>
-            <pr0:attribute name="ref" type="pr0:string"/>
-            <!-- not needed in AMS 
-            <pr0:attribute name="version" type="pr0:string"/>
-            <pr0:attribute name="annotation" type="pr0:string"/>
-            -->
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+   <complexType name="requiredSourceVersionStringType">
+      <annotation>
+         <documentation>This type is the sample as sourceVersionStringType with the addition
+            that the source attribute is required instead of optional.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="source" type="string" use="required"/>
+            <attribute name="ref" type="string"/>
+            
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- titleStringType -->
-   <pr0:complexType name="titleStringType">
-      <pr0:annotation>
-         <pr0:documentation>The titleStringType allows for the addition of a titleType attribute as
-            well as the standard sourceVersionGroup attributes.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="titleType"/>
-            <pr0:attributeGroup ref="sourceVersionGroup"/>
-            <!-- not needed in AMS 
-            <pr0:attributeGroup ref="startEndTimeGroup"/>
-            -->
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+   <complexType name="titleStringType">
+      <annotation>
+         <documentation>The titleStringType allows for the addition of a titleType attribute as
+            well as the standard sourceVersionGroup attributes.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="titleType"/>
+            <attributeGroup ref="sourceVersionGroup"/>
+            
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- subjectStringType -->
-   <pr0:complexType name="subjectStringType">
-      <pr0:annotation>
-         <pr0:documentation>The subjectStringType allows for the addition of a subjectType
+   <complexType name="subjectStringType">
+      <annotation>
+         <documentation>The subjectStringType allows for the addition of a subjectType
             attribute as well as the standard sourceVersionGroup attributes and a startEndTimeGroup
-            or attributes.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="subjectType" type="pr0:string"/>
-            <pr0:attributeGroup ref="sourceVersionGroup"/>
-            <!-- not need in AMS 
-            <pr0:attributeGroup ref="startEndTimeGroup"/>
-            -->
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+            or attributes.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attribute name="subjectType" type="string"/>
+            <attributeGroup ref="sourceVersionGroup"/>
+            
+         </extension>
+      </simpleContent>
+   </complexType>
 
    <!-- descriptionStringType -->
-   <pr0:complexType name="descriptionStringType">
-      <pr0:annotation>
-         <pr0:documentation>The descriptionType is a complex group of attributes that help define
+   <complexType name="descriptionStringType">
+      <annotation>
+         <documentation>The descriptionType is a complex group of attributes that help define
             the description type, as well as allowing for descriptions of segments and relevant
-            times.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attributeGroup ref="descriptionTypeSourceVersionGroup"/>
-            <!-- not needed in AMS
-            <pr0:attributeGroup ref="segmentTypeSourceVersionGroup"/>
-            -->
-            <!-- not needed in AMS 
-            <pr0:attributeGroup ref="startEndTimeGroup"/>
+            times.</documentation>
+      </annotation>
+      <simpleContent>
+         <extension base="string">
+            <attributeGroup ref="descriptionTypeSourceVersionGroup"/>
             
-            <pr0:attribute name="annotation" type="pr0:string"/>
-            -->
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+			</extension>
+		</simpleContent>
+	</complexType>
 
-   <!-- sourceVersionStartEndStringType -->
-   <!-- not needed in AMS 
-   <pr0:complexType name="sourceVersionStartEndStringType">
-      <pr0:annotation>
-         <pr0:documentation>"The sourceVersionStartEndStringType adds attributes that define the
-            source of the string with the option of time related attributes"</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attributeGroup ref="sourceVersionGroup"/>
-            <pr0:attributeGroup ref="startEndTimeGroup"/>
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
-      -->
+	
 
-   <!-- affiliatedStringType -->
-   <pr0:complexType name="affiliatedStringType">
-      <pr0:annotation>
-         <pr0:documentation>The affiliatedStringType adds attributes of affiliation and time
-            relevance.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="affiliation"/>
-            <pr0:attribute name="ref"/>
-            <!-- not needed in AMS 
-            <pr0:attribute name="annotation"/>
-            <pr0:attributeGroup ref="startEndTimeGroup"/>
-            -->
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+	<!-- affiliatedStringType -->
+	<complexType name="affiliatedStringType">
+		<annotation>
+			<documentation>The affiliatedStringType adds attributes of affiliation and time
+				relevance.</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="affiliation"/>
+				<attribute name="ref"/>
+				<!-- not needed in AMS 
+				<attribute name="annotation"/>
+				<attributeGroup ref="startEndTimeGroup"/>
+				-->
+			</extension>
+		</simpleContent>
+	</complexType>
 
-   <!-- contributorStringType -->
-   <pr0:complexType name="contributorStringType">
-      <pr0:annotation>
-         <pr0:documentation>the contributorString helps define the portrayal role as well as the
-            general source and version group attributes.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <!-- not needed in AMS 
-               <pr0:attribute name="portrayal" type="pr0:string"/> -->
-            <pr0:attributeGroup ref="sourceVersionGroup"/>
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+	<!-- contributorStringType -->
+	<complexType name="contributorStringType">
+		<annotation>
+			<documentation>the contributorString helps define the portrayal role as well as the
+				general source and version group attributes.</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<!-- not needed in AMS 
+				<attribute name="portrayal" type="string"/> -->
+				<attributeGroup ref="sourceVersionGroup"/>
+			</extension>
+		</simpleContent>
+	</complexType>
 
-   <!-- technicalStringType  -->
-   <pr0:complexType name="technicalStringType">
-      <pr0:annotation>
-         <pr0:documentation>The technicalStringType add the attribute of
-            unitsOfMeasure.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="unitsOfMeasure"/>
-            <!-- not needed in AMS 
-            <pr0:attribute name="annotation"/>
-            -->
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+	<!-- technicalStringType  -->
+	<complexType name="technicalStringType">
+		<annotation>
+			<documentation>The technicalStringType add the attribute of
+				unitsOfMeasure.</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="unitsOfMeasure"/>
+				<!-- not needed in AMS 
+				<attribute name="annotation"/>
+				-->
+			</extension>
+		</simpleContent>
+	</complexType>
 
-   <!-- instantiationDigitalStringType -->
-   <!-- not needed in AMS 
-   <pr0:complexType name="instantiationStandardStringType">
-      <pr0:annotation>
-         <pr0:documentation>"The instantiationStandardStringType allows for the addition of a
-            profile attribute along with the sourceVersionGroup."</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="profile"/>
-            <pr0:attributeGroup ref="sourceVersionGroup"/>
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
-   -->
+	
+	<!-- annotationStringType  -->
+	<complexType name="annotationStringType">
+		<annotation>
+			<documentation>This stringType added an annotationType attribute and a
+				reference.</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="annotationType"/>
+				<!-- not needed in AMS 
+				<attribute name="ref"/>
+				-->
+			</extension>
+		</simpleContent>
+	</complexType>
 
-   <!-- annotationStringType  -->
-   <pr0:complexType name="annotationStringType">
-      <pr0:annotation>
-         <pr0:documentation>This stringType added an annotationType attribute and a
-            reference.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:string">
-            <pr0:attribute name="annotationType"/>
-            <!-- not needed in AMS 
-            <pr0:attribute name="ref"/>
-            -->
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+	<!-- rightsSummeryType -->
+	<complexType name="rightsSummaryType">
+		<annotation>
+			<documentation>This same structure allows the use of rights at the asset level and the
+				instantiation level. The rights can be expressed as a summary or a link or an embedded
+				XML record. These can also contain time relations</documentation>
+		</annotation>
+		<choice>
+			<element maxOccurs="1" minOccurs="0" name="rightsSummary"
+					  type="sourceVersionStringType">
+				<annotation>
+					<documentation>Use the descriptor rightsSummary as an all-purpose
+						container field to identify information about copyrights and property rights held
+						in and over a media item, whether they are open access or restricted in some way.
+						If dates, times and availability periods are associated with a right, include
+						them. End user permissions, constraints and obligations may also be identified, as
+						needed.</documentation>
+				</annotation>
+			</element>
+			<element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
+				<annotation>
+					<documentation>A URI pointing to a declaration of rights</documentation>
+				</annotation>
+			</element>
+			
+		</choice>
+		
+	</complexType>
 
-   <!-- rightsSummeryType -->
-   <pr0:complexType name="rightsSummaryType">
-      <pr0:annotation>
-         <pr0:documentation>This same structure allows the use of rights at the asset level and the
-            instantiation level. The rights can be expressed as a summary or a link or an embedded
-            XML record. These can also contain time relations</pr0:documentation>
-      </pr0:annotation>
-      <pr0:choice>
-         <pr0:element maxOccurs="1" minOccurs="0" name="rightsSummary" type="sourceVersionStringType">
-            <pr0:annotation>
-               <pr0:documentation>Use the descriptor rightsSummary as an all-purpose
-                  container field to identify information about copyrights and property rights held
-                  in and over a media item, whether they are open access or restricted in some way.
-                  If dates, times and availability periods are associated with a right, include
-                  them. End user permissions, constraints and obligations may also be identified, as
-                  needed.</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         <pr0:element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
-            <pr0:annotation>
-               <pr0:documentation>A URI pointing to a declaration of rights</pr0:documentation>
-            </pr0:annotation>
-         </pr0:element>
-         <!-- not needed in AMS
-         <pr0:element name="rightsEmbedded" type="embeddedType" maxOccurs="1" minOccurs="0"/> -->
-      </pr0:choice>
-      <!-- not needed in AMS
-      <pr0:attributeGroup ref="startEndTimeGroup"/>
-      -->
-   </pr0:complexType>
+	<!-- rightsLinkType -->
+	<complexType name="rightsLinkType">
+		<annotation>
+			<documentation>The rightsLinkType allows for the addition of an annotation attribute
+				to the rightsLink.</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="anyURI">
+				<attribute name="annotation" type="string"/>
+			</extension>
+		</simpleContent>
+	</complexType>
 
-   <!-- rightsLinkType -->
-   <pr0:complexType name="rightsLinkType">
-      <pr0:annotation>
-         <pr0:documentation>The rightsLinkType allows for the addition of an annotation attribute
-            to the rightsLink.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="pr0:anyURI">
-            <pr0:attribute name="annotation" type="pr0:string"/>
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
+	
 
-   <!-- embeddedType -->
-   <!-- not needed in AMS 
-   <pr0:complexType name="embeddedType">
-      <pr0:annotation>
-         <pr0:documentation>"The embeddedType allows for the addition of an annotation attribute to
-            the embeddedType."</pr0:documentation>
-      </pr0:annotation>
-      <pr0:sequence>
-         <pr0:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-      </pr0:sequence>
-      <pr0:attribute name="annotation" type="pr0:string"/>
-   </pr0:complexType>
-   -->
+	<!-- threelettercode Algorithm -->
+	<simpleType name="threeLetterCode">
+		<annotation>
+			<documentation>This controls the language element to insure the use of three letter
+				codes.</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="([a-z]{3}((;[a-z]{3})?)*)?"/>
+			<!-- allows for null -->
+		</restriction>
+	</simpleType>
 
-   <!-- threeLetterStringType -->
-   <!-- not needed in AMS 
-   <pr0:complexType name="threeLetterStringType">
-      <pr0:annotation>
-         <pr0:documentation>"The threeletterStringType adds the sourceVersionGroup to
-            threelettercode for source references."</pr0:documentation>
-      </pr0:annotation>
-      <pr0:simpleContent>
-         <pr0:extension base="threeLetterCode">
-            <pr0:attributeGroup ref="sourceVersionGroup"/>
-         </pr0:extension>
-      </pr0:simpleContent>
-   </pr0:complexType>
-   -->
+	<!-- descriptionTypeSourceVersionGroup -->
+	<attributeGroup name="descriptionTypeSourceVersionGroup">
+		<annotation>
+			<documentation>This group is similar to sourceVersionGroup but description specific
+				and with the addition of a descriptionType attribute.</documentation>
+		</annotation>
+		<attribute name="descriptionType" type="string"/>
+		
+	</attributeGroup>
 
-   <!-- threelettercode Algorithm -->
-   <pr0:simpleType name="threeLetterCode">
-      <pr0:annotation>
-         <pr0:documentation>This controls the language element to insure the use of three letter
-            codes.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:restriction base="pr0:string">
-         <pr0:pattern value="([a-z]{3}((;[a-z]{3})?)*)?"/>
-         <!-- allows for null -->
-      </pr0:restriction>
-   </pr0:simpleType>
+	<!-- sourceVersionGroup -->
+	<attributeGroup name="sourceVersionGroup">
+		<annotation>
+			<documentation>The grouping of attributes: source, reference, version and
+				annotation.</documentation>
+		</annotation>
+		<attribute name="source" type="string" use="optional"/>
+		<attribute name="ref" type="string"/>
+		
+	</attributeGroup>
 
-   <!-- descriptionTypeSourceVersionGroup -->
-   <pr0:attributeGroup name="descriptionTypeSourceVersionGroup">
-      <pr0:annotation>
-         <pr0:documentation>This group is similar to sourceVersionGroup but description specific
-            and with the addition of a descriptionType attribute.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:attribute name="descriptionType" type="pr0:string"/>
-      <!-- not needed in AMS 
-      <pr0:attribute name="descriptionTypeSource" type="pr0:string"/>
-      <pr0:attribute name="descriptionTypeRef" type="pr0:string"/>
-      <pr0:attribute name="descriptionTypeVersion" type="pr0:string"/>
-      <pr0:attribute name="descriptionTypeAnnotation" type="pr0:string"/>
-      -->
-   </pr0:attributeGroup>
+	
 
-   <!-- sourceVersionGroup -->
-   <pr0:attributeGroup name="sourceVersionGroup">
-      <pr0:annotation>
-         <pr0:documentation>The grouping of attributes: source, reference, version and
-            annotation.</pr0:documentation>
-      </pr0:annotation>
-      <pr0:attribute name="source" type="pr0:string" use="optional"/>
-      <pr0:attribute name="ref" type="pr0:string"/>
-      <!-- not needed in AMS 
-      <pr0:attribute name="version" type="pr0:string"/>
-      <pr0:attribute name="annotation" type="pr0:string"/>
-      -->
-   </pr0:attributeGroup>
-
-   <!-- startEndTimeGroup -->
-   <!-- not needed in AMS 
-   <pr0:attributeGroup name="startEndTimeGroup">
-      <pr0:annotation>
-         <pr0:documentation>"The grouping of attributes: startTime, endTime and
-            timeAnnotation."</pr0:documentation>
-      </pr0:annotation>
-      <pr0:attribute name="startTime" type="pr0:string"/>
-      <pr0:attribute name="endTime" type="pr0:string"/>
-      <pr0:attribute name="timeAnnotation" type="pr0:string"/>
-   </pr0:attributeGroup>
-      -->
-
-   <!-- segmentTypeSourceVersionGroup -->
-   <!-- not need in AMS 
-   <pr0:attributeGroup name="segmentTypeSourceVersionGroup">
-      <pr0:annotation>
-         <pr0:documentation>"This group is similar to sourceVersionGroup but segment specific and
-            with the addition of a segmentType attribute."</pr0:documentation>
-      </pr0:annotation>
-      <pr0:attribute name="segmentType" type="pr0:string"/>
-      <pr0:attribute name="segmentTypeSource" type="pr0:string"/>
-      <pr0:attribute name="segmentTypeRef" type="pr0:string"/>
-      <pr0:attribute name="segmentTypeVersion" type="pr0:string"/>
-      <pr0:attribute name="segmentTypeAnnotation" type="pr0:string"/>
-   </pr0:attributeGroup>
-   -->
-
-</pr0:schema>
+</schema>
