@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 			targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
-			xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="unqualified"
+			xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="unqualified" attributeFormDefault="unqualified"
 			version="2.0RC1" xml:lang="en">
 	<xsd:annotation>
 		<xsd:documentation>"This is a modification of the PBCore version 2.0RC1 XML
