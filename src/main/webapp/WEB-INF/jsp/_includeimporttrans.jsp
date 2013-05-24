@@ -129,11 +129,12 @@
 				  <s:if test="trans.status=='OK' && (user.getMintRole().equalsIgnoreCase('ADMIN') || user.getMintRole().equalsIgnoreCase('SUPERUSER')  || uploader==user.dbID)">
 						     <a href="javascript:ajaxDeleteTransform(<s:property value="trans.dbID"/>);"><img src="custom/images/trash_can.png" width="20" style="padding-left: 0px; margin-top: -2px;" title="Delete tranformation"></a>
 					</s:if>
-				  <s:if test="trans.status=='OK' && (user.getMintRole().equalsIgnoreCase('ADMIN') || user.getMintRole().equalsIgnoreCase('SUPERUSER')  || uploader==user.dbID)">
+				  
+				    </div>
+					 <s:if test="trans.status=='OK' && (user.getMintRole().equalsIgnoreCase('ADMIN') || user.getMintRole().equalsIgnoreCase('SUPERUSER')  || uploader==user.dbID)">
 						 <div>Approve</div>
 						<div>Reject</div>
 					   </s:if>
-				    </div>
 				 
 	</div>
 	</td></tr>
