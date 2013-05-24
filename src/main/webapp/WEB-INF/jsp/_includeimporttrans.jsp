@@ -133,7 +133,7 @@
 				    </div>
 					 <s:if test="trans.status=='OK' && (user.getMintRole().equalsIgnoreCase('ADMIN') || user.getMintRole().equalsIgnoreCase('SUPERUSER')  || uploader==user.dbID)">
 						 <div style="padding-top: 25px;"><a href="http://amsqa.avpreserve.com/1/<s:property value="trans.dbID"/>">Approve</a></div>
-						<div><a href="http://amsqa.avpreserve.com/1/<s:property value="trans.dbID"/>">Reject</a></div>
+						<div><a href="http://amsqa.avpreserve.com/0/<s:property value="trans.dbID"/>">Reject</a></div>
 					   </s:if>
 				 
 	</div>

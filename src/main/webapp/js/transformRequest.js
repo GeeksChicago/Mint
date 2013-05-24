@@ -75,6 +75,7 @@ function ajaxBeginTransform(selMapping,ignoreInvalid) {
     YAHOO.util.Connect.asyncRequest('POST', 'Transform.action',
         { 
             success: function(o) {
+				console.log(o);
     	        if(o.responseText.indexOf('errorMessage')>-1 || o.responseText.indexOf('errortransform')>-1){
     	        	
     			     transformPanel.setBody(o.responseText);
