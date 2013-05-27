@@ -211,7 +211,8 @@ public class XSDParser {
 					|| namespace.equals("http://www.w3.org/XML/1998/namespace")) {
 				prefix = "xml";
 			} else {
-				prefix = "pr" + this.namespaces.keySet().size();
+//				prefix = "pr" + this.namespaces.keySet().size();
+				prefix = "";
 			}
 
 			this.namespaces.put(namespace, prefix);
