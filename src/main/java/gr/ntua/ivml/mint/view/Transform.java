@@ -14,6 +14,7 @@ public class Transform {
 	private long importId;
     private String statusIcon="";
     private String status="NOT DONE";
+    private int approved=0;
     private String annostatus="NOT DONE";
     private int annocode=-1;
     private boolean isStale=false;
@@ -35,6 +36,7 @@ public class Transform {
 			this.setStatus();
 			this.setMessage();
 			this.setStatusIcon();
+			this.setApproved();
 			this.isStale=tr.isStale();
 		}
 		else{}
@@ -109,6 +111,15 @@ public class Transform {
 	public String getStatus(){
 		
 		return this.status;
+	}
+	public void setApproved(){
+		if(tr!=null){
+			approved=tr.getIsApproved();
+		}
+	}
+	public int getApproved(){
+		
+		return this.approved;
 	}
 	
 	public void setMessage(){

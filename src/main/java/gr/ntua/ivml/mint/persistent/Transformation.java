@@ -34,6 +34,7 @@ public class Transformation implements Lockable {
 	Mapping mapping;
 	BlobWrap zippedOutput;
 	int statusCode;
+	int isApproved;
 	String statusMessage;
 	XmlObject parsedOutput;
 	String jsonMapping;
@@ -153,6 +154,12 @@ public class Transformation implements Lockable {
 	}
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
+	}
+	public int getIsApproved() {
+		return isApproved;
+	}
+	public void setIsApproved(int isApproved) {
+		this.isApproved = isApproved;
 	}
 	public String getStatusMessage() {
 		return statusMessage;

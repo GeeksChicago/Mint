@@ -3,7 +3,7 @@
    targetNamespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html"
    xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html" elementFormDefault="qualified"
    version="2.0RC1">
-  <!-- the pbcoreDescriptionDocument root element -->
+   <!-- the pbcoreDescriptionDocument root element -->
    <xsd:element name="pbcoreDescriptionDocument" type="pbcoreDescriptionDocumentType">
       <xsd:annotation>
          <xsd:documentation>"Main entry point for a PBCore record. Single assets start
@@ -19,9 +19,10 @@
       </xsd:annotation>
    </xsd:element>
 
-  
+   
+
    <!-- pbcoreDescriptionDocumentType -->
-   <xsd:complexType name="pbcoreDescriptionDocumentType">
+  <xsd:complexType name="pbcoreDescriptionDocumentType">
       <xsd:annotation>
          <xsd:documentation>"The defining of the DescriptionDocument allows its use as a single asset
             or repeated use in the pbcoreCollection."</xsd:documentation>
@@ -35,9 +36,9 @@
                   editorial format of the assets contents. AssetType describes the PBCore record as
                   a whole and at its highest level. Though a record may contain many instantiations
                   of different formats and generations, for example, assetType may be used to
-                  indicate that they all represent a ÒprogramÓ or a Òclip.Ó In FRBR language,
-                  assetType would be used to describe an asset at the ÒworkÓ level. (Whereas
-                  ÒinstantiationMediaTypeÓ would describe the ÒitemÓ level.) This element is largely
+                  indicate that they all represent a ï¿½programï¿½ or a ï¿½clip.ï¿½ In FRBR language,
+                  assetType would be used to describe an asset at the ï¿½workï¿½ level. (Whereas
+                  ï¿½instantiationMediaTypeï¿½ would describe the ï¿½itemï¿½ level.) This element is largely
                   based on the EBUCore element ObjectType:
                   http://www.ebu.ch/metadata/cs/ebu_ObjectTypeCodeCS.xml" </xsd:documentation>
             </xsd:annotation>
@@ -110,7 +111,7 @@
          </xsd:element>
          <!-- the pbcore genre - this element may occur as many times as desired. -->
          <xsd:element maxOccurs="unbounded" minOccurs="0" name="pbcoreGenre"
-            type="sourceVersionStartEndStringType">
+            type="sourceVersionStringType">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The pbcoreGenre element describes the manner in
                   which the intellectual content of a media item is presented, viewed or heard by a
@@ -137,7 +138,7 @@
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element maxOccurs="1" minOccurs="1" name="pbcoreRelationIdentifier"
-                     type="sourceVersionStringType">
+                     type="xsd:string">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">"Once the type of relationship between two
                            media items is identified by using the descriptor pbcoreRelationType, the
@@ -161,8 +162,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element maxOccurs="1" minOccurs="1" name="coverage"
-                     type="sourceVersionStartEndStringType">
+                  <xsd:element maxOccurs="1" minOccurs="1" name="coverage" type="xsd:string">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en"> "The descriptor coverage uses keywords to
                            identify a span of space or time that is expressed by the intellectual
@@ -346,14 +346,7 @@
                   understood."</xsd:documentation>
             </xsd:annotation>
          </xsd:element>
-         <!-- PBCore Part -->
-         <xsd:element maxOccurs="unbounded" minOccurs="0" name="pbcorePart" type="pbcorePartType">
-            <xsd:annotation>
-               <xsd:documentation>"The pbcorePart element is a container for repeating the same set
-                  of sub-elements used by super-element 'pbcoreDescriptionDocument. e.g. this allows
-                  for defining segments, stories or episodes." </xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
+         
          <!-- PBCore Extension -->
          <xsd:element maxOccurs="unbounded" minOccurs="0" name="pbcoreExtension"
             type="extensionType">
@@ -411,8 +404,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiationPhysical-->
-         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationPhysical"
-            type="sourceVersionStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationPhysical" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"Use the descriptor instantiationPhysical to
                   identify the format of a particular instantiation of a media item as it exists in
@@ -422,8 +414,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiationDigital-->
-         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationDigital"
-            type="sourceVersionStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationDigital" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"Use the descriptor instantiationDigital to identify
                   the format of a particular instantiation of a media item as it exists in its
@@ -432,8 +423,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiationStandard-->
-         <xsd:element minOccurs="0" name="instantiationStandard"
-            type="instantiationStandardStringType">
+         <xsd:element minOccurs="0" name="instantiationStandard" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation>"Use the descriptor instantiationStandard to identify the standard
                   of a particular instantiation of a media item as it exists."</xsd:documentation>
@@ -452,8 +442,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiationmMediaType -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationMediaType"
-            type="sourceVersionStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationMediaType" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The descriptor instantiationMediaType identifies
                   the general, high level nature of the content of a media item. It uses categories
@@ -463,7 +452,7 @@
          </xsd:element>
          <!-- the pbcore instantiationGenerations -->
          <xsd:element maxOccurs="unbounded" minOccurs="0" name="instantiationGenerations"
-            type="sourceVersionStringType">
+            type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The descriptor instantiationGenerations identifies
                   the particular use or manner in which an instantiation of a media item is used,
@@ -510,8 +499,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiationColors -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationColors"
-            type="sourceVersionStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="instantiationColors" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The descriptor instantiationColors indicates the
                   overall color, grayscale, or black and white nature of a media item, as a single
@@ -541,8 +529,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiationLanguage -->
-         <xsd:element name="instantiationLanguage" type="threeLetterStringType" maxOccurs="1"
-            minOccurs="0">
+         <xsd:element name="instantiationLanguage" type="xsd:string" maxOccurs="1" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The descriptor language identifies the primary
                   language of a media item's audio or text. Alternative audio or text tracks and
@@ -609,15 +596,6 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <!-- the pbcore instantiationRights -->
-         <xsd:element name="instantiationRights" type="rightsSummaryType" maxOccurs="unbounded"
-            minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation xml:lang="en"> "The instantiationRights element is a container for
-                  sub-elements 'rightsSummary', 'rightsLink' and 'rightsEmbedded' to describe rights
-                  particular to this this particular instantiation." </xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
          <!-- the pbcore instantiationAnnotation -->
          <xsd:element maxOccurs="unbounded" minOccurs="0" name="instantiationAnnotation"
             type="annotationStringType">
@@ -629,33 +607,8 @@
                   understood."</xsd:documentation>
             </xsd:annotation>
          </xsd:element>
-         <!-- the pbcore instantiationPart -->
-         <xsd:element name="instantiationPart" type="instantiationType" maxOccurs="unbounded"
-            minOccurs="0">
-            <xsd:annotation>
-               <xsd:documentation>"The instantiationPart element is a container to allow for
-                  multiple instantiation parts, e.g. multi-disk DVD."</xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
-         <!-- the pbcore instantiationExtension -->
-         <xsd:element maxOccurs="unbounded" minOccurs="0" name="instantiationExtension"
-            type="extensionType">
-            <xsd:annotation>
-               <xsd:documentation>"The instantiationExtension element is a container to accomodate
-                  instantiation-level metadata from external systems. Use it to supplement other
-                  metadata sub-elements of 'instantiationPart' or 'pbcoreInstantiationDocument' in
-                  which it appears."</xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
-      </xsd:sequence>
-      <!-- instantiationStartEndTimeGroup -->
-      <xsd:attributeGroup ref="startEndTimeGroup">
-         <xsd:annotation>
-            <xsd:documentation>"The instantiation level startEndTimeGroup may be used when there
-               is a multi-part instantiation and time notation is important. </xsd:documentation>
-         </xsd:annotation>
-      </xsd:attributeGroup>
-   </xsd:complexType>
+         </xsd:sequence>
+     </xsd:complexType>
 
    <!-- the pbcore instantiation essenceTrackType -->
    <xsd:complexType name="essenceTrackType">
@@ -681,8 +634,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiation essenceTrackStandard -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackStandard"
-            type="sourceVersionStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackStandard" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"Use the descriptor essenceTrackStandard to identify
                   a larger technical system/standard or overarching media architecture under which
@@ -716,8 +668,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiation essenceTrackFrameRate -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate"
-            type="technicalStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameRate" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The essenceTrackFrameRate element indicates the
                   frames per second found in a video, motion sequence, flash file, or animation's
@@ -733,8 +684,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiation essenceTrackSamplingRate -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate"
-            type="technicalStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackSamplingRate" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"For a media item (specifically audio), the
                   descriptor essenceTrackSamplingRate measures "How Often" data is sampled when
@@ -756,8 +706,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiation essenceTrackFrameSize -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize"
-            type="sourceVersionStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackFrameSize" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The essenceTrackFrameSize element indicates the
                   horizontal and vertical resolution of a format type. It may be expressed in
@@ -767,8 +716,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiation essenceTrackAspectRatio -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio"
-            type="sourceVersionStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackAspectRatio" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"The essenceTrackAspectRatio element indicates the
                   ratio of horizontal to vertical proportions in the display of a static image or
@@ -794,8 +742,7 @@
             </xsd:annotation>
          </xsd:element>
          <!-- the pbcore instantiation essenceTrackLanguage -->
-         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage"
-            type="threeLetterStringType">
+         <xsd:element maxOccurs="1" minOccurs="0" name="essenceTrackLanguage" type="xsd:string">
             <xsd:annotation>
                <xsd:documentation xml:lang="en">"essenceTrackLanguage identifies the primary
                   language of the tracks' audio or text. Alternative audio or text tracks and their
@@ -813,17 +760,7 @@
                   otherwise sufficiently understood."</xsd:documentation>
             </xsd:annotation>
          </xsd:element>
-         <!-- the pbcore instantiation essenceExtension -->
-         <xsd:element maxOccurs="unbounded" minOccurs="0" name="essenceTrackExtension"
-            type="extensionType">
-            <xsd:annotation>
-               <xsd:documentation>"The essenceTrackExtension element is a container to accomodate
-                  track-level metadata from external systems. Use it to supplement other
-                  metadata sub-elements of 'instantiationEssenceTrack' in which it
-                  appears."</xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
-      </xsd:sequence>
+         </xsd:sequence>
    </xsd:complexType>
 
    <!-- extensionType -->
@@ -868,32 +805,9 @@
                <xsd:attribute name="annotation" type="xsd:string"/>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element maxOccurs="unbounded" minOccurs="1" name="extensionEmbedded"
-            type="embeddedType"> </xsd:element>
       </xsd:choice>
    </xsd:complexType>
 
-
-   <!-- pbcorePartType -->
-   <xsd:complexType name="pbcorePartType">
-      <xsd:annotation>
-         <xsd:documentation>"This uses a common structure to allow for the repeating of descriptive
-            sub-documents to define different segments, episodes etc., just as super-element
-            'pbcoreDescriptionDocument' can be collected and used to describe higher-level media
-            programs."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:complexContent>
-         <xsd:extension base="pbcoreDescriptionDocumentType">
-            <xsd:attributeGroup ref="startEndTimeGroup">
-               <xsd:annotation>
-                  <xsd:documentation>"The group of attributes "startTime', 'endTime' and
-                     'timeAnnotation' could be used when a there is a multipart asset and time
-                     notation is important. </xsd:documentation>
-               </xsd:annotation>
-            </xsd:attributeGroup>
-         </xsd:extension>
-      </xsd:complexContent>
-   </xsd:complexType>
 
    <!-- dateStringType -->
    <xsd:complexType name="dateStringType">
@@ -931,8 +845,6 @@
          <xsd:extension base="xsd:string">
             <xsd:attribute name="source" type="xsd:string" use="required"/>
             <xsd:attribute name="ref" type="xsd:string"/>
-            <xsd:attribute name="version" type="xsd:string"/>
-            <xsd:attribute name="annotation" type="xsd:string"/>
          </xsd:extension>
       </xsd:simpleContent>
    </xsd:complexType>
@@ -948,7 +860,6 @@
          <xsd:extension base="xsd:string">
             <xsd:attribute name="titleType"/>
             <xsd:attributeGroup ref="sourceVersionGroup"/>
-            <xsd:attributeGroup ref="startEndTimeGroup"/>
          </xsd:extension>
       </xsd:simpleContent>
    </xsd:complexType>
@@ -964,7 +875,6 @@
          <xsd:extension base="xsd:string">
             <xsd:attribute name="subjectType" type="xsd:string"/>
             <xsd:attributeGroup ref="sourceVersionGroup"/>
-            <xsd:attributeGroup ref="startEndTimeGroup"/>
          </xsd:extension>
       </xsd:simpleContent>
    </xsd:complexType>
@@ -979,225 +889,118 @@
       <xsd:simpleContent>
          <xsd:extension base="xsd:string">
             <xsd:attributeGroup ref="descriptionTypeSourceVersionGroup"/>
-            <xsd:attributeGroup ref="segmentTypeSourceVersionGroup"/>
-            <xsd:attributeGroup ref="startEndTimeGroup"/>
-            <xsd:attribute name="annotation" type="xsd:string"/>
          </xsd:extension>
       </xsd:simpleContent>
    </xsd:complexType>
 
-   <!-- sourceVersionStartEndStringType -->
-   <xsd:complexType name="sourceVersionStartEndStringType">
-      <xsd:annotation>
-         <xsd:documentation>"The sourceVersionStartEndStringType adds attributes that define the
-            source of the string with the option of time related attributes"</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="xsd:string">
-            <xsd:attributeGroup ref="sourceVersionGroup"/>
-            <xsd:attributeGroup ref="startEndTimeGroup"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
+	<!-- affiliatedStringType -->
+	<xsd:complexType name="affiliatedStringType">
+		<xsd:annotation>
+			<xsd:documentation>"The affiliatedStringType adds attributes of affiliation and time
+				relevance."</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="affiliation"/>
+				<xsd:attribute name="ref"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 
-   <!-- affiliatedStringType -->
-   <xsd:complexType name="affiliatedStringType">
-      <xsd:annotation>
-         <xsd:documentation>"The affiliatedStringType adds attributes of affiliation and time
-            relevance."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="xsd:string">
-            <xsd:attribute name="affiliation"/>
-            <xsd:attribute name="ref"/>
-            <xsd:attribute name="annotation"/>
-            <xsd:attributeGroup ref="startEndTimeGroup"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
+	<!-- contributorStringType -->
+	<xsd:complexType name="contributorStringType">
+		<xsd:annotation>
+			<xsd:documentation>"the contributorString helps define the portrayal role as well as the
+				general source and version group attributes.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attributeGroup ref="sourceVersionGroup"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 
-   <!-- contributorStringType -->
-   <xsd:complexType name="contributorStringType">
-      <xsd:annotation>
-         <xsd:documentation>"the contributorString helps define the portrayal role as well as the
-            general source and version group attributes.</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="xsd:string">
-            <xsd:attribute name="portrayal" type="xsd:string"/>
-            <xsd:attributeGroup ref="sourceVersionGroup"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
+	<!-- technicalStringType  -->
+	<xsd:complexType name="technicalStringType">
+		<xsd:annotation>
+			<xsd:documentation>"The technicalStringType add the attributes of unitsOfMeasure and
+				annotation.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="unitsOfMeasure"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 
-   <!-- technicalStringType  -->
-   <xsd:complexType name="technicalStringType">
-      <xsd:annotation>
-         <xsd:documentation>"The technicalStringType add the attributes of unitsOfMeasure and
-            annotation.</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="xsd:string">
-            <xsd:attribute name="unitsOfMeasure"/>
-            <xsd:attribute name="annotation"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
+	<!-- annotationStringType  -->
+	<xsd:complexType name="annotationStringType">
+		<xsd:annotation>
+			<xsd:documentation>"This stringType added an annotationType attribute and a
+				reference."</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="annotationType"/>
+	</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 
-   <!-- instantiationDigitalStringType -->
-   <xsd:complexType name="instantiationStandardStringType">
-      <xsd:annotation>
-         <xsd:documentation>"The instantiationStandardStringType allows for the addition of a profile
-            attribute along with the sourceVersionGroup."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="xsd:string">
-            <xsd:attribute name="profile"/>
-            <xsd:attributeGroup ref="sourceVersionGroup"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
+	<!-- rightsSummeryType -->
+	<xsd:complexType name="rightsSummaryType">
+		<xsd:annotation>
+			<xsd:documentation>This same structure allows the use of rights at the asset level and the
+				instantiation level. The rights can be expressed as a summary or a link or an embedded
+				XML record. These can also contain time relations"</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice>
+			<xsd:element maxOccurs="1" minOccurs="0" name="rightsSummary" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation xml:lang="en">"Use the descriptor rightsSummary as an all-purpose
+						container field to identify information about copyrights and property rights held
+						in and over a media item, whether they are open access or restricted in some way.
+						If dates, times and availability periods are associated with a right, include
+						them. End user permissions, constraints and obligations may also be identified, as
+						needed."</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
+				<xsd:annotation>
+					<xsd:documentation>A URI pointing to a declaration of rights</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
 
-   <!-- annotationStringType  -->
-   <xsd:complexType name="annotationStringType">
-      <xsd:annotation>
-         <xsd:documentation>"This stringType added an annotationType attribute and a
-            reference."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="xsd:string">
-            <xsd:attribute name="annotationType"/>
-            <xsd:attribute name="ref"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
+	<!-- rightsLinkType -->
+	<xsd:complexType name="rightsLinkType">
+		<xsd:annotation>
+			<xsd:documentation>"The rightsLinkType allows for the addition of an annotation attribute
+				to the rightsLink."</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:anyURI">
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 
-   <!-- rightsSummeryType -->
-   <xsd:complexType name="rightsSummaryType">
-      <xsd:annotation>
-         <xsd:documentation>This same structure allows the use of rights at the asset level and the
-            instantiation level. The rights can be expressed as a summary or a link or an embedded
-            XML record. These can also contain time relations"</xsd:documentation>
-      </xsd:annotation>
-      <xsd:choice>
-         <xsd:element maxOccurs="1" minOccurs="0" name="rightsSummary"
-            type="sourceVersionStringType">
-            <xsd:annotation>
-               <xsd:documentation xml:lang="en">"Use the descriptor rightsSummary as an all-purpose
-                  container field to identify information about copyrights and property rights held
-                  in and over a media item, whether they are open access or restricted in some way.
-                  If dates, times and availability periods are associated with a right, include
-                  them. End user permissions, constraints and obligations may also be identified, as
-                  needed."</xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
-         <xsd:element maxOccurs="1" minOccurs="0" name="rightsLink" type="rightsLinkType">
-            <xsd:annotation>
-               <xsd:documentation>A URI pointing to a declaration of rights</xsd:documentation>
-            </xsd:annotation>
-         </xsd:element>
-         <xsd:element name="rightsEmbedded" type="embeddedType" maxOccurs="1" minOccurs="0"/>
-      </xsd:choice>
-      <xsd:attributeGroup ref="startEndTimeGroup"/>
-   </xsd:complexType>
+	<!-- descriptionTypeSourceVersionGroup -->
+	<xsd:attributeGroup name="descriptionTypeSourceVersionGroup">
+		<xsd:annotation>
+			<xsd:documentation>"This group is similar to sourceVersionGroup but description specific
+				and with the addition of a descriptionType attribute."</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="descriptionType" type="xsd:string"/>
+	</xsd:attributeGroup>
 
-   <!-- rightsLinkType -->
-   <xsd:complexType name="rightsLinkType">
-      <xsd:annotation>
-         <xsd:documentation>"The rightsLinkType allows for the addition of an annotation attribute
-            to the rightsLink."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="xsd:anyURI">
-            <xsd:attribute name="annotation" type="xsd:string"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
-
-   <!-- embeddedType -->
-   <xsd:complexType name="embeddedType">
-      <xsd:annotation>
-         <xsd:documentation>"The embeddedType allows for the addition of an annotation attribute to
-            the embeddedType."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:sequence>
-         <xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-      </xsd:sequence>
-      <xsd:attribute name="annotation" type="xsd:string"/>
-   </xsd:complexType>
-
-   <!-- threeLetterStringType -->
-   <xsd:complexType name="threeLetterStringType">
-      <xsd:annotation>
-         <xsd:documentation>"The threeletterStringType adds the sourceVersionGroup to
-            threelettercode for source references."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleContent>
-         <xsd:extension base="threeLetterCode">
-            <xsd:attributeGroup ref="sourceVersionGroup"/>
-         </xsd:extension>
-      </xsd:simpleContent>
-   </xsd:complexType>
-
-   <!-- threelettercode Algorithm -->
-   <xsd:simpleType name="threeLetterCode">
-      <xsd:annotation>
-         <xsd:documentation>"This controls the language element to insure the use of three letter
-            codes."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:string">
-         <xsd:pattern value="([a-z]{3}((;[a-z]{3})?)*)?"/>
-         <!-- allows for null -->
-      </xsd:restriction>
-   </xsd:simpleType>
-
-   <!-- descriptionTypeSourceVersionGroup -->
-   <xsd:attributeGroup name="descriptionTypeSourceVersionGroup">
-      <xsd:annotation>
-         <xsd:documentation>"This group is similar to sourceVersionGroup but description specific
-            and with the addition of a descriptionType attribute."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:attribute name="descriptionType" type="xsd:string"/>
-      <xsd:attribute name="descriptionTypeSource" type="xsd:string"/>
-      <xsd:attribute name="descriptionTypeRef" type="xsd:string"/>
-      <xsd:attribute name="descriptionTypeVersion" type="xsd:string"/>
-      <xsd:attribute name="descriptionTypeAnnotation" type="xsd:string"/>
-   </xsd:attributeGroup>
-
-   <!-- sourceVersionGroup -->
-   <xsd:attributeGroup name="sourceVersionGroup">
-      <xsd:annotation>
-         <xsd:documentation>"The grouping of attributes: source, reference, version and
-            annotation."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:attribute name="source" type="xsd:string" use="optional"/>
-      <xsd:attribute name="ref" type="xsd:string"/>
-      <xsd:attribute name="version" type="xsd:string"/>
-      <xsd:attribute name="annotation" type="xsd:string"/>
-   </xsd:attributeGroup>
-
-   <!-- startEndTimeGroup -->
-   <xsd:attributeGroup name="startEndTimeGroup">
-      <xsd:annotation>
-         <xsd:documentation>"The grouping of attributes: startTime, endTime and
-            timeAnnotation."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:attribute name="startTime" type="xsd:string"/>
-      <xsd:attribute name="endTime" type="xsd:string"/>
-      <xsd:attribute name="timeAnnotation" type="xsd:string"/>
-   </xsd:attributeGroup>
-
-   <!-- segmentTypeSourceVersionGroup -->
-   <xsd:attributeGroup name="segmentTypeSourceVersionGroup">
-      <xsd:annotation>
-         <xsd:documentation>"This group is similar to sourceVersionGroup but segment specific and
-            with the addition of a segmentType attribute."</xsd:documentation>
-      </xsd:annotation>
-      <xsd:attribute name="segmentType" type="xsd:string"/>
-      <xsd:attribute name="segmentTypeSource" type="xsd:string"/>
-      <xsd:attribute name="segmentTypeRef" type="xsd:string"/>
-      <xsd:attribute name="segmentTypeVersion" type="xsd:string"/>
-      <xsd:attribute name="segmentTypeAnnotation" type="xsd:string"/>
-   </xsd:attributeGroup>
+	<!-- sourceVersionGroup -->
+	<xsd:attributeGroup name="sourceVersionGroup">
+		<xsd:annotation>
+			<xsd:documentation>"The grouping of attributes: source, reference, version and
+				annotation."</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="source" type="xsd:string" use="optional"/>
+		<xsd:attribute name="ref" type="xsd:string"/>
+	</xsd:attributeGroup>
 
 </xsd:schema>

@@ -1,0 +1,1 @@
+ALTER TABLE transformation ADD COLUMN is_approved int NOT NULL default 0;

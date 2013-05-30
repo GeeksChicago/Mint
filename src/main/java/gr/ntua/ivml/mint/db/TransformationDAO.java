@@ -48,5 +48,10 @@ public class TransformationDAO extends DAO<Transformation, Long> {
 		.setEntity("xo", xo)
 		.uniqueResult();
 	}
+	public Transformation findOneByUpload(DataUpload du) {
+		return (Transformation) getSession().createQuery( "from Transformation where dataUpload = :du ")
+		.setEntity("du", du)
+		.uniqueResult();
+	}
 	
 }

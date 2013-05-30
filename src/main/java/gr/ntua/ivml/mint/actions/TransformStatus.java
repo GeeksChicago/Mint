@@ -66,7 +66,9 @@ public class TransformStatus extends GeneralAction{
 		return this.trans.getStatus();
 		
 	}
-	
+	public int getApproved(){
+		return this.trans.getApproved();
+	}
 	
 	public boolean isLocked() {
 		

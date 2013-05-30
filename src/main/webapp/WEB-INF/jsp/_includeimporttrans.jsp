@@ -131,10 +131,24 @@
 					</s:if>
 				  
 				    </div>
-					 <s:if test="trans.status=='OK' && (user.getMintRole().equalsIgnoreCase('ADMIN') || user.getMintRole().equalsIgnoreCase('SUPERUSER')  || uploader==user.dbID)">
-						 <div style="padding-top: 25px;"><a href="http://amsqa.avpreserve.com/1/<s:property value="trans.dbID"/>">Approve</a></div>
-						<div><a href="http://amsqa.avpreserve.com/0/<s:property value="trans.dbID"/>">Reject</a></div>
-					   </s:if>
+					 <s:if test="trans.status=='OK' && trans.approved==0">
+						 <s:if test="user.getMintRole().equalsIgnoreCase('ADMIN') || user.getMintRole().equalsIgnoreCase('SUPERUSER')">
+							 <div id="approvalStatus" style="padding-top: 25px;">
+								 <div><a href="javascript:ajaxApprovalRequest(2,<s:property value="trans.dbID"/>)">Approve</a></div>
+								 <div><a href="javascript:ajaxApprovalRequest(1,<s:property value="trans.dbID"/>)">Reject</a></div>
+						</div>
+						 </s:if>
+						 <s:elseif test="uploader==user.dbID">
+						 <div style="padding-top: 25px;color: #c09853">Waiting for Approval</div>
+					 </s:elseif>
+					 </s:if>
+					 <s:elseif test="trans.status=='OK' && trans.approved==1">
+						 <div style="padding-top: 30px;color:#b94a48;">Rejected</div>
+					 </s:elseif>
+					 <s:elseif test="trans.status=='OK' && trans.approved==2">
+						 <div style="padding-top: 30px;color: #468847;">Approved</div>
+					 </s:elseif>
+					 
 				 
 	</div>
 	</td></tr>

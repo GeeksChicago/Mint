@@ -38,10 +38,15 @@ public class LoggedInInterceptor extends AbstractInterceptor {
 		if( u == null ){
 			 if( Config.get( "autoAdminLogin") != null ) {
 				 u = DB.getUserDAO().findById(1000l, false);
-			 } else {
+			 } 
+			 else if(invocation.getInvocationContext().getName().equals("download")){
+				u = DB.getUserDAO().findById(1000l, false);
+			}
+			 else {
 				 return "logon";				 
 			 }
-		} else {
+		} 
+		else {
 		
 			// not good enough, not deep: DB.getSession().update(u);
 			u = DB.getUserDAO().findById(u.getDbID(), false);

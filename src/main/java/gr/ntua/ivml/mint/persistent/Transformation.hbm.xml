@@ -16,6 +16,7 @@
 		<property name="report" />
 		<property name="statusMessage" column="status_message" />
 		<property name="jsonMapping" column="json_mapping"/>
+		<property name="isApproved" column="is_approved" />
 	    <many-to-one name="user" 
         column="users_id"
         not-null="false"/>

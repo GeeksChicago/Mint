@@ -19,7 +19,9 @@ import gr.ntua.ivml.mint.xml.transform.XMLFormatter;
 import gr.ntua.ivml.mint.xml.transform.XSLTGenerator;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.BufferedReader;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.PrintWriter;
@@ -42,6 +44,10 @@ import org.xml.sax.XMLReader;
 
 import de.schlichtherle.util.zip.ZipEntry;
 
+import java.io.DataOutputStream;
+import java.net.URL;
+import java.net.HttpURLConnection;
+import javax.swing.JOptionPane;
 public class XSLTransform implements Runnable, NodeStoreI, EntryProcessor, ReportI {
 	public final Logger log = Logger.getLogger(XSLTransform.class );
 	private static int sessionCounter = 0;
@@ -90,6 +96,7 @@ public class XSLTransform implements Runnable, NodeStoreI, EntryProcessor, Repor
 		s.beginTransaction();
 		try {
 			tr = DB.getTransformationDAO().getById(tr.getDbID(), false);
+			
 			// new version of the transformation for this session
 			if( tr == null ) {
 				log.error( "Total desaster, Transformation unavailable, no reporting to UI!!!");
@@ -108,7 +115,36 @@ public class XSLTransform implements Runnable, NodeStoreI, EntryProcessor, Repor
 			transform();
 			readNodes();
 			AsyncNodeStore.index(tr.getParsedOutput(), this, DB.getStatelessSession().connection());
+			String uID= tr.getUser().getDbID().toString();
+			String tID= tr.getDataUpload().getDbID().toString();
+			log.debug( "UserID " + uID);
+			log.debug( "TranformedID " + tID);
+			tr.setIsApproved(0);
 			tr.setStatusCode(Transformation.OK);
+			String urlParameters = uID+"/"+tID;
+			String request = "http://amsqa.avpreserve.com/mintimport/save_transformed_info/"+urlParameters;
+			URL url = new URL(request); 
+			HttpURLConnection connection = (HttpURLConnection) url.openConnection();           
+			connection.setDoOutput(true);
+			connection.setReadTimeout(10000);
+			connection.setRequestMethod("GET"); 
+			connection.setRequestProperty("charset", "utf-8");
+			connection.setUseCaches (false);
+			connection.connect();
+			
+			BufferedReader rd  = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			StringBuilder sb = new StringBuilder();
+        
+			String line = "";
+          while ((line = rd.readLine()) != null)
+          {
+              sb.append(line + '\n');
+          }
+        
+          System.out.println(sb.toString());
+
+			
+			connection.disconnect();
 		} catch( Exception e ) {
 			// already handled, but needed to skip readNodes or index if transform or readNodes fails
 		} catch( Throwable t ) {
@@ -125,6 +161,7 @@ public class XSLTransform implements Runnable, NodeStoreI, EntryProcessor, Repor
 				DB.commit();
 				DB.closeSession();
 				DB.closeStatelessSession();
+//				JOptionPane.showMessageDialog(null, "Transformation will be ingest when Admin approve mapping.");
 			} catch( Exception e2 ) {
 				log.error( "Problem in releasing locks and closing sessions!!", e2 );
 			}
