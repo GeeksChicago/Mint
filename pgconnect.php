@@ -31,7 +31,7 @@ if ($dbconnection)
 				if ($p_query)
 				{
 					$user_info = pg_fetch_row($p_query);
-					$response = json_encode(array("success" => 'true', 'error' => '', 'result' => $user_info));
+					$response = json_encode(array("success" => 'true', 'error' => '', 'result' => $user_info,'user_id'=>$_REQUEST['user_id']));
 					echo $_GET['callback'] . '(' . $response . ')';
 					exit;
 				}
@@ -50,7 +50,7 @@ if ($dbconnection)
 			if ($result)
 			{
 				$user_info = pg_fetch_row($result);
-				$response = json_encode(array("success" => 'true', 'error' => '', 'result' => $user_info));
+				$response = json_encode(array("success" => 'true', 'error' => '', 'result' => $user_info,'user_id'=>$_REQUEST['user_id']));
 				echo $_GET['callback'] . '(' . $response . ')';
 				exit;
 			}

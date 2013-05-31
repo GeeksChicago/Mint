@@ -1,1 +1,7 @@
 ALTER TABLE transformation ADD COLUMN is_approved int NOT NULL default 0;
+
+
+Kill all session
+SELECT pg_terminate_backend(pg_stat_activity.procpid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = 'TARGET_DB';
