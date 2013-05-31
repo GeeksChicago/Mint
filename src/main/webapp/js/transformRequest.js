@@ -135,7 +135,7 @@ function ajaxDeleteTransform(uploadId) {
 
 }
 function ajaxApprovalRequest(approveValue, id) {
-	
+
 	if (approveValue == 1)
 		text = "Reject";
 	else
@@ -143,13 +143,15 @@ function ajaxApprovalRequest(approveValue, id) {
 	var r = confirm(text + " this transformation.");
 	if (r == true)
 	{
-		YAHOO.util.Connect.asyncRequest('POST', 'AjaxApproval',
+		YAHOO.util.Connect.asyncRequest('POST', 'AjaxApproval.action',
 		{
 			success: function(o) {
-				if (approveValue == 1)
-					$('#approvalStatus').html('<div style="color:#b94a48;padding-top: 5px;">Rejected</div>');
-				else
-					$('#approvalStatus').html('<div style="color:#468847;padding-top: 5px;">Approved</div>');
+				if (o.status == 200) {
+					if (approveValue == 1)
+						$('#approvalStatus').html('<div style="color:#b94a48;padding-top: 5px;">Rejected</div>');
+					else
+						$('#approvalStatus').html('<div style="color:#468847;padding-top: 5px;">Approved</div>');
+				}
 
 			},
 			failure: function(o) {

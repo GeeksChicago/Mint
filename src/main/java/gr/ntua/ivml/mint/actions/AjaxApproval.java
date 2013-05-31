@@ -110,7 +110,7 @@ public class AjaxApproval extends GeneralAction implements ServletRequestAware,S
 
         writer.flush();
         writer.close();
-        return SUCCESS;
+        return "success";
     }
 
 

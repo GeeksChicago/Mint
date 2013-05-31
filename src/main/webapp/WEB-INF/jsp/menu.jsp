@@ -18,7 +18,7 @@
 <% if( user.hasRight(User.SUPER_USER)) {  %>
 <li><a href="OutputXSD_input.action"  id="xsdmenu"><span>Output XSD</span></a></li>
 <%} %>
-<% if( user.hasRight(User.ADMIN)) {  %>
+<% if( user.hasRight(User.SUPER_USER)) {  %>
 <li><a href="Management_input.action"  id="managementmenu"><span>Administration</span></a></li>
 <%} %>
 <% if( user.hasRight(User.ADMIN) || user.hasRight(User.MODIFY_DATA) || user.hasRight(User.PUBLISH) ) {  %>
