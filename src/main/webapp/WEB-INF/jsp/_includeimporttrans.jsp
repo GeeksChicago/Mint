@@ -83,7 +83,7 @@
 					   </div>
 					   <% } %>
 					   <div class="imgteaser">			
-					      <a href="javascript:ajaxMappingDefinitionRequest(<s:property value="trans.dbID"/>, <s:property value="orgId"/>,<s:property value="userId"/>)" title="Open mapping editor"><img src="images/test-matching.gif" width="28">
+					      <a href="javascript:ajaxMappingDefinitionRequest(<s:property value="trans.dbID"/>, <s:property value="orgId"/>,<s:property value="user.dbID"/>)" title="Open mapping editor"><img src="images/test-matching.gif" width="28">
 					       <span class="desc"> 
 					       Mapping
 					      </span>

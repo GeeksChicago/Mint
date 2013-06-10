@@ -3,6 +3,7 @@
 <%@page import="gr.ntua.ivml.mint.persistent.XmlSchema"%>
 <%@page import="gr.ntua.ivml.mint.persistent.Mapping"%>
 <%@page import="gr.ntua.ivml.mint.persistent.Organization"%>
+<%@page import="gr.ntua.ivml.mint.persistent.User"%>
 <link rel="stylesheet" type="text/css" href="js/mapping/lib/yui/button/assets/skins/sam/button.css" />
 <link rel="stylesheet" type="text/css" href="js/mapping/lib/yui/treeview/assets/skins/sam/treeview.css" />
 
@@ -162,8 +163,9 @@ select { width: 200px;}
 				   if(tempmap.isShared()){
 					   cssclass+=" shared";
 				   }
+				   
 				  %> 
-				 <option value="<%=tempmap.getDbID() %>" class="<%=cssclass %>" <%=sel%>><%=tempmap.getName() %><% if(tempmap.getTargetSchema() != null) { out.print(" (" + tempmap.getTargetSchema().getName() + ")"); } %></option>
+				 <option value="<%=tempmap.getDbID() %>" class="<%=cssclass %>" <%=sel%>><%=tempmap.getName() %><% if(tempmap.getTargetSchema() != null) { out.print(" (" + tempmap.getTargetSchema().getName() +user.getDbID()+ ")"); } %></option>
 				   
 				  
 				
