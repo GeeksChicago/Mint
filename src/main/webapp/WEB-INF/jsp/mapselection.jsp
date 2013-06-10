@@ -164,12 +164,14 @@ select { width: 200px;}
 					   cssclass+=" shared";
 				   }
 				   
+				   if(tempmap.getUserID().toString().equals(user.getDbID().toString()) ){
 				  %> 
-				 <option value="<%=tempmap.getDbID() %>" class="<%=cssclass %>" <%=sel%>><%=tempmap.getName() %><% if(tempmap.getTargetSchema() != null) { out.print(" (" + tempmap.getTargetSchema().getName() +user.getDbID()+ ")"); } %></option>
+				 <option value="<%=tempmap.getDbID() %>" class="<%=cssclass %>" <%=sel%>><%=tempmap.getName() %><% if(tempmap.getTargetSchema() != null) { out.print(" (" + tempmap.getTargetSchema().getName() + ")"); } %></option>
 				   
 				  
 				
 				  <% 
+				   }
 				  i++;
 			  	  }%>
 			  	  <%if(templateMappings.size()>0){ %>
@@ -177,13 +179,13 @@ select { width: 200px;}
 			      <%} %>
 			</select>
 			<span class="menu2"><a href="javascript:void(0);" id="action_edit" alt="Edit mapping" title="Edit mapping"><img  height="30"  style="vertical-align:bottom;" src="images/editmaps.png"></a></span>
-		    <span class="menu2"><a href="javascript:void(0);" id="action_copy" title="Copy mapping" ><img  height="30"  style="vertical-align:bottom;" src="images/copymaps.png"></a></span>
-			<span class="menu2"><a href="javascript:void(0);" id="action_share" alt="Change share state" title="Change share state" ><img height="30"  style="vertical-align:bottom;" src="images/sharemaps.png"></a></span>
+		    <!--<span class="menu2"><a href="javascript:void(0);" id="action_copy" title="Copy mapping" ><img  height="30"  style="vertical-align:bottom;" src="images/copymaps.png"></a></span>-->
+			<!--<span class="menu2"><a href="javascript:void(0);" id="action_share" alt="Change share state" title="Change share state" ><img height="30"  style="vertical-align:bottom;" src="images/sharemaps.png"></a></span>-->
 			<span class="menu2"><a href="javascript:void(0);" id="action_delete"  title="Delete mapping"><img  height="28"  style="vertical-align:bottom;" src="images/delmaps.png"></a></span>
 			<span class="menu2"><a href="javascript:void(0);" id="action_download_mint" alt="Download MINT mapping" title="Download MINT mapping"><img height="29"  style="vertical-align:bottom;" src="images/downmaps.png"></a></span>
 			<span class="menu2"><a href="javascript:void(0);" id="action_download_xsl" alt="Download XSL mapping" title="Download XSL"><img height="29"  style="vertical-align:bottom;" src="images/downxsl.png"></a></span>
 		 	<span class="menu2"><a href="javascript:void(0);" id="action_add" alt="Add new mapping" title="Add new mapping"><img  height="30"  style="vertical-align:bottom;" src="images/addmaps.png"></a></span>
-		  	<span class="menu2"><a href="javascript:void(0);" id="action_upload" alt="Upload mapping" title="Upload mapping"><img  height="29"  style="vertical-align:bottom;" src="images/uploadmaps.png"></a></span>
+		  	<!--<span class="menu2"><a href="javascript:void(0);" id="action_upload" alt="Upload mapping" title="Upload mapping"><img  height="29"  style="vertical-align:bottom;" src="images/uploadmaps.png"></a></span>-->
 		  <div id="fileoption" 
 		  <s:if test="(mapsel!=null && !mapsel.equalsIgnoreCase('uploadmapping'))"><%out.print("style=\"display:none;\"");%></s:if>
 		  >

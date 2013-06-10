@@ -14,7 +14,7 @@ public class Mapping implements Lockable {
 
 	// This should be an object, but name will do
 	XmlSchema targetSchema;
-	
+	Long userID;
 	boolean shared;
 	boolean finished;
 	
@@ -55,7 +55,12 @@ public class Mapping implements Lockable {
 	public void setOrganization(Organization organization) {
 		this.organization = organization;
 	}
-	
+		public Long getUserID() {
+		return userID;
+	}
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
 	
 	public XmlSchema getTargetSchema() {
 		return targetSchema;

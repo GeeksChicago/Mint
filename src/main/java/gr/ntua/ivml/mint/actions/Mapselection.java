@@ -342,6 +342,7 @@ public class Mapselection extends GeneralAction {
 
 			}
 			mp.setName(mapName);
+			mp.setUserID(user.getDbID());
 			mp.setOrganization(DB.getDataUploadDAO().findById(uploadId, false)
 					.getOrganization());
 			// mp.setOrganization(user.getOrganization());
@@ -448,6 +449,7 @@ public class Mapselection extends GeneralAction {
 
 			}
 			mp.setName(mapName);
+			
 			mp.setOrganization(DB.getDataUploadDAO().findById(uploadId, false)
 					.getOrganization());
 			// mp.setOrganization(user.getOrganization());

@@ -13,6 +13,7 @@
 	    <property name="name" />
 	    <property name="shared" />
 	    <property name="finished" />
+	    <property name="userID" column="user_id"/>
 	    
 	    <property name="creationDate" column="creation_date" />
 		<many-to-one name="organization" 
