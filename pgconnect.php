@@ -1,5 +1,5 @@
 <?php
-$dbconnection = pg_connect("host=localhost port=5432 dbname=mint_amsqa user=mint password=mint");
+$dbconnection = pg_connect("host=localhost port=5432 dbname=mint_{$_REQUEST['instance']} user=mint password=mint");
 if ($dbconnection)
 {
 	if (isset($_REQUEST['mint_id']))
