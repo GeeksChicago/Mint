@@ -36,7 +36,7 @@
 				source, the reference and the date of the collection."</xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element maxOccurs="unbounded" minOccurs="1" type="pbcoreDescriptionDocumentType">
+			<xsd:element maxOccurs="unbounded" minOccurs="1" ref="pbcoreDescriptionDocument">
 				<xsd:annotation>
 					<xsd:documentation xml:lang="en">"The pbcoreDescriptionDocument assembles together
 						all of PBCore knowledge items into a single data record organized in a
